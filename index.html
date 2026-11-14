@@ -2,6 +2,19 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
+<!-- Google tag (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48CHBV9678"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-48CHBV9678');
+/* LINE button clicks = leads */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="line.me"]');if(!a)return;
+ var p={method:'LINE',link_url:a.href,page_path:location.pathname};
+ try{gtag('event','generate_lead',p);}catch(_){}
+ try{if(window.fbq)fbq('track','Contact');}catch(_){}
+},true);
+</script>
+
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Codera Solutions | ทีมการตลาดประจำร้าน ดูแลเพจ แอด Meta และ LINE OA</title>
 <meta name="description" content="Codera ทีมการตลาดประจำร้าน สำหรับร้านที่ขายผ่านแชท วางแผน ทำคอนเทนต์ ดูแลแอด Meta และ LINE OA วัดผลด้วยยอดขายจริงของร้าน คุยเรื่องร้านคุณก่อน แล้วค่อยวางแผนด้วยกัน">
