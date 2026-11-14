@@ -321,6 +321,20 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
 .tvinfo{display:flex;gap:12px;align-items:baseline;justify-content:center;padding:12px 20px 0;font-size:13.5px;color:var(--muted)}
 .tvinfo .mono{color:var(--ink);font-weight:600}
 @media (max-width:560px){.tvnav{display:none}.tvcar{gap:10px;padding:14px 9vw}.tvsl{flex-basis:min(82vw,calc((100dvh - 330px)*.8))}.tdlg.tview{width:calc(100% - 12px)}}
+
+/* ---- viewer v3: 3 funnels, each a swipe row ---- */
+.tvfuns{padding:4px 0 8px;background:#F4F3EF}
+.tvf{padding:18px 0 6px}
+.tvf+.tvf{border-top:1px solid var(--line)}
+.tvfh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:0 20px 12px}
+.tvfh b{font-size:17px;color:var(--ink)}
+.tvfh .n{font-family:var(--mono);font-size:12px;color:#fff;background:var(--ink);border-radius:999px;padding:3px 9px}
+.tvfh span:last-child{font-size:13px;color:var(--muted)}
+.tvrow{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 10px;scroll-padding:0 20px;scrollbar-width:thin;overscroll-behavior-x:contain}
+.tvrow figure{margin:0;flex:0 0 min(300px,62vw);scroll-snap-align:start;position:relative}
+.tvrow img{display:block;width:100%;height:auto;aspect-ratio:4/5;border-radius:12px;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.10)}
+.tvrow figcaption{margin-top:8px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--muted);text-align:center}
+@media (min-width:900px){.tvrow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible}.tvrow figure{flex:none}}
 </style>
 <script src="/assets/net.js" defer></script>
 </head>
@@ -444,11 +458,7 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
   </dialog>
   <dialog class="tdlg tview" id="tpl-view" aria-labelledby="tpl-vtitle">
     <div class="tvhead"><div><h3 id="tpl-vtitle"></h3><p id="tpl-vcap"></p></div><button type="button" class="tx" data-close aria-label="ปิด">✕</button></div>
-    <div class="tvtabs" id="tpl-vtabs" role="tablist" aria-label="กรวยการขาย"></div>
-    <div class="tvcar-wrap"><div class="tvcar" id="tpl-vcar" tabindex="0" aria-label="ภาพในชุด เลื่อนซ้ายขวา"></div>
-      <button type="button" class="tvnav prev" id="tpl-vprev" aria-label="ภาพก่อนหน้า"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button type="button" class="tvnav next" id="tpl-vnext" aria-label="ภาพถัดไป"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
-    <div class="tvinfo"><span class="mono" id="tpl-vno">1 / 15</span><span id="tpl-vfun"></span></div>
+    <div class="tvfuns" id="tpl-vfuns"></div>
     <div class="tvfoot"><button type="button" class="btn" data-close style="border-color:var(--line-2)">ปิด</button><button type="button" class="btn btn-green" id="tpl-vpick">เลือกชุดนี้</button></div>
   </dialog>
 </main>
@@ -544,6 +554,6 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
   addEventListener('scroll',function(){ if(tk) return; tk=true; requestAnimationFrame(function(){ nav.classList.toggle('scrolled',scrollY>10); tk=false; }); },{passive:true});
 })();
 </script>
-<script src="/queue/tpl.js?v=10" defer></script>
+<script src="/queue/tpl.js?v=11" defer></script>
 </body>
 </html>

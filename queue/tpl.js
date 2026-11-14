@@ -42,36 +42,25 @@ function toggle(id){ var i=sel.indexOf(id); if(i>-1) sel.splice(i,1); else if(se
 function upd(){ cnt.textContent=sel.length; bar.hidden=!sel.length; $('#tpl-sel').textContent=sel.join(', '); }
 var FUN=[['ดึงคนใหม่','ภาพ 1–5 · ให้คนไม่รู้จักร้านหยุดดู เซฟ แชร์'],['สร้างความเชื่อ','ภาพ 6–10 · ขั้นตอน ก่อน/หลัง รีวิว คำถาม'],['ปิดการขาย','ภาพ 11–15 · แพ็กเกจ เงื่อนไข ชวนทัก']];
 function src(id,n){ return '/assets/tpl/set/'+id+'-'+(n<10?'0':'')+n+'.webp?v=9'; }
-var cur=null;
 function zoom(it){
-  cur=it;
   $('#tpl-vtitle').textContent=(it.title||BN[it.biz]);
-  $('#tpl-vcap').textContent=SN[it.style].n+' · '+BN[it.biz]+' · 15 ภาพ · รหัส '+it.id;
-  var car=$('#tpl-vcar'), tabs=$('#tpl-vtabs'); car.innerHTML=''; tabs.innerHTML='';
-  for(var n=1;n<=15;n++){ var d=document.createElement('div'); d.className='tvsl';
-    d.innerHTML='<img '+(n>3?'loading="lazy" ':'')+'decoding="async" width="900" height="1125" src="'+src(it.id,n)+'" alt="ภาพที่ '+n+' จาก 15 ของชุด '+it.id+' ('+FUN[Math.floor((n-1)/5)][0]+')">';
-    car.appendChild(d); }
-  FUN.forEach(function(f,k){ var t=document.createElement('button'); t.type='button'; t.className='tvtab'; t.setAttribute('role','tab');
-    t.innerHTML=f[0]+'<small>'+(k*5+1)+'–'+(k*5+5)+'</small>'; t.addEventListener('click',function(){go(k*5);}); tabs.appendChild(t); });
+  $('#tpl-vcap').textContent=SN[it.style].n+' · '+BN[it.biz]+' · 3 กรวย × 5 ภาพ · รหัส '+it.id;
+  var box=$('#tpl-vfuns'); box.innerHTML='';
+  FUN.forEach(function(f,k){
+    var sec=document.createElement('section'); sec.className='tvf';
+    var parts=f[1].split(' · ');
+    sec.innerHTML='<div class="tvfh"><span class="n">'+(k*5+1)+'–'+(k*5+5)+'</span><b>'+f[0]+'</b><span>'+(parts[1]||'')+'</span></div><div class="tvrow" tabindex="0" aria-label="'+f[0]+' ภาพ '+(k*5+1)+' ถึง '+(k*5+5)+'"></div>';
+    var row=sec.querySelector('.tvrow');
+    for(var j=1;j<=5;j++){ var n=k*5+j;
+      var fg=document.createElement('figure');
+      fg.innerHTML='<img '+(k>0?'loading="lazy" ':'')+'decoding="async" width="900" height="1125" src="'+src(it.id,n)+'" alt="ภาพที่ '+n+' ('+f[0]+') ของชุด '+it.id+'"><figcaption>ภาพ '+n+' / 15</figcaption>';
+      row.appendChild(fg); }
+    box.appendChild(sec);
+  });
   var b=$('#tpl-vpick'); b.textContent= sel.indexOf(it.id)>-1 ? 'เอาชุดนี้ออก' : 'เลือกชุดนี้';
   b.onclick=function(){toggle(it.id); view.close();};
-  view.showModal(); car.scrollLeft=0; sync(0);
+  view.showModal(); view.scrollTop=0;
 }
-function slideW(){ var c=$('#tpl-vcar'), s=c.children[0]; return s? s.getBoundingClientRect().width+parseFloat(getComputedStyle(c).columnGap||getComputedStyle(c).gap||14):1; }
-function idxNow(){ var c=$('#tpl-vcar'), m=c.getBoundingClientRect(), mid=m.left+m.width/2, best=0, bd=1e9; [].forEach.call(c.children,function(el,i){ var r=el.getBoundingClientRect(), d=Math.abs(r.left+r.width/2-mid); if(d<bd){bd=d;best=i;} }); return best; }
-function go(i){ var c=$('#tpl-vcar'); i=Math.max(0,Math.min(14,i)); var el=c.children[i]; if(!el) return; c.scrollTo({left:el.offsetLeft-(c.clientWidth-el.offsetWidth)/2,behavior:(matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth')}); }
-function sync(i){
-  $('#tpl-vno').textContent=(i+1)+' / 15'; var k=Math.floor(i/5);
-  $('#tpl-vfun').textContent=FUN[k][0]+' · '+FUN[k][1].split(' · ')[1];
-  $('#tpl-vtabs').querySelectorAll('.tvtab').forEach(function(t,j){t.setAttribute('aria-selected',j===k?'true':'false');});
-  $('#tpl-vprev').disabled=i===0; $('#tpl-vnext').disabled=i===14;
-}
-(function(){ var c=$('#tpl-vcar'), tm; if(!c) return;
-  c.addEventListener('scroll',function(){ clearTimeout(tm); tm=setTimeout(function(){sync(idxNow());},60); },{passive:true});
-  c.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'){e.preventDefault();go(idxNow()+1);} if(e.key==='ArrowLeft'){e.preventDefault();go(idxNow()-1);} });
-  $('#tpl-vprev').addEventListener('click',function(){go(idxNow()-1);});
-  $('#tpl-vnext').addEventListener('click',function(){go(idxNow()+1);});
-})();
 $('#tpl-clear').addEventListener('click',function(){sel=[]; render(); upd();});
 $('#tpl-send').addEventListener('click',function(){
   var bz={}; sel.forEach(function(id){var k=id.split('-')[1]; bz[BN[k]]=1;});
