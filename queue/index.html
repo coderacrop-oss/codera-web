@@ -300,6 +300,14 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
 @media (max-width:560px){.tgrid{column-count:2;column-gap:10px}.tcard{margin-bottom:16px}.tpin{border-radius:16px}.tcap b{font-size:13.5px}}
 @media (prefers-reduced-motion:reduce){.tpin,.tpin .tick{transition:none}}
 
+
+/* big image: swipe/arrows within current funnel */
+.tvbig{touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.tvbig img{-webkit-user-drag:none}
+.tvnav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.95);color:var(--ink);box-shadow:0 6px 16px rgba(0,0,0,.18);display:grid;place-items:center;cursor:pointer;z-index:2}
+.tvnav svg{width:18px;height:18px}.tvnav.prev{left:28px}.tvnav.next{right:28px}
+.tvnav:disabled{opacity:.25;cursor:default}
+.tvfun{text-align:center;font-size:13px;color:var(--muted);padding:6px 20px 0}
 </style>
 <script src="/assets/net.js" defer></script>
 </head>
@@ -423,7 +431,7 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
   </dialog>
   <dialog class="tdlg tview" id="tpl-view" aria-labelledby="tpl-vtitle">
     <div class="tvhead"><div><h3 id="tpl-vtitle"></h3><p id="tpl-vcap"></p></div><button type="button" class="tx" data-close aria-label="ปิด">✕</button></div>
-    <div class="tvbig" id="tpl-vbig"><img id="tpl-vimg" alt="" width="540" height="675"><span class="mono" id="tpl-vno">1/15</span></div>
+    <div class="tvbig" id="tpl-vbig"><img id="tpl-vimg" alt="" width="540" height="675"><span class="mono" id="tpl-vno">1/15</span><button type="button" class="tvnav prev" id="tpl-vprev" aria-label="ภาพก่อนหน้าในกรวยนี้"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="tvnav next" id="tpl-vnext" aria-label="ภาพถัดไปในกรวยนี้"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><div class="tvfun" id="tpl-vfun"></div>
     <div id="tpl-vsets"></div>
     <div class="tvfoot"><button type="button" class="btn" data-close style="border-color:var(--line-2)">ปิด</button><button type="button" class="btn btn-green" id="tpl-vpick">เลือกชุดนี้</button></div>
   </dialog>
@@ -520,6 +528,6 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
   addEventListener('scroll',function(){ if(tk) return; tk=true; requestAnimationFrame(function(){ nav.classList.toggle('scrolled',scrollY>10); tk=false; }); },{passive:true});
 })();
 </script>
-<script src="/queue/tpl.js?v=12" defer></script>
+<script src="/queue/tpl.js?v=13" defer></script>
 </body>
 </html>

@@ -42,27 +42,46 @@ function toggle(id){ var i=sel.indexOf(id); if(i>-1) sel.splice(i,1); else if(se
 function upd(){ cnt.textContent=sel.length; bar.hidden=!sel.length; $('#tpl-sel').textContent=sel.join(', '); }
 var FUN=[['ดึงคนใหม่','ภาพ 1–5 · ให้คนไม่รู้จักร้านหยุดดู เซฟ แชร์'],['สร้างความเชื่อ','ภาพ 6–10 · ขั้นตอน ก่อน/หลัง รีวิว คำถาม'],['ปิดการขาย','ภาพ 11–15 · แพ็กเกจ เงื่อนไข ชวนทัก']];
 function src(id,n){ return '/assets/tpl/set/'+id+'-'+(n<10?'0':'')+n+'.webp?v=9'; }
+var vIt=null, vN=1;
+function vShow(n, scroll){
+  var it=vIt; if(!it) return; vN=n;
+  var big=$('#tpl-vimg'); big.src=src(it.id,n); big.alt='ภาพที่ '+n+' ของชุด '+it.id; $('#tpl-vno').textContent=n+'/15';
+  var k=Math.floor((n-1)/5);
+  $('#tpl-vsets').querySelectorAll('.tth').forEach(function(x,i){x.classList.toggle('cur',i===n-1);});
+  $('#tpl-vfun').textContent=FUN[k][0]+' · ภาพ '+(n-k*5)+' จาก 5';
+  $('#tpl-vprev').disabled=(n-1)%5===0; $('#tpl-vnext').disabled=n%5===0;
+  if(scroll) $('#tpl-vbig').scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+function vStep(d){ var k=Math.floor((vN-1)/5), n=vN+d; if(n<k*5+1||n>k*5+5) return; vShow(n); } // เลื่อนเฉพาะในกรวยที่ดูอยู่
 function zoom(it){
+  vIt=it;
   $('#tpl-vtitle').textContent=SN[it.style].n+' · '+BN[it.biz];
   $('#tpl-vcap').textContent=SN[it.style].d+' · 3 กรวย × 5 ภาพ · รหัส '+it.id;
-  var big=$('#tpl-vimg'); big.src=src(it.id,1); big.alt='ภาพที่ 1 ของชุด '+it.id; $('#tpl-vno').textContent='1/15';
   var box=$('#tpl-vsets'); box.innerHTML='';
   FUN.forEach(function(f,k){
     var sec=document.createElement('div'); sec.className='tfun';
     sec.innerHTML='<div class="tfh"><b>'+f[0]+'</b><span>'+f[1]+'</span></div><div class="tstrip"></div>';
     var strip=sec.querySelector('.tstrip');
     for(var j=1;j<=5;j++){ (function(n){
-      var b=document.createElement('button'); b.type='button'; b.className='tth'+(n===1?' cur':''); b.setAttribute('aria-label','ดูภาพที่ '+n);
+      var b=document.createElement('button'); b.type='button'; b.className='tth'; b.setAttribute('aria-label','ดูภาพที่ '+n);
       b.innerHTML='<img loading="lazy" decoding="async" width="540" height="675" src="'+src(it.id,n)+'" alt=""><span>'+n+'</span>';
-      b.addEventListener('click',function(){ big.src=src(it.id,n); big.alt='ภาพที่ '+n+' ของชุด '+it.id; $('#tpl-vno').textContent=n+'/15';
-        box.querySelectorAll('.tth').forEach(function(x){x.classList.remove('cur');}); b.classList.add('cur'); $('#tpl-vbig').scrollIntoView({block:'nearest',behavior:'smooth'}); });
+      b.addEventListener('click',function(){ vShow(n,true); });
       strip.appendChild(b); })(k*5+j); }
     box.appendChild(sec);
   });
+  vShow(1);
   var b=$('#tpl-vpick'); b.textContent= sel.indexOf(it.id)>-1 ? 'เอาชุดนี้ออก' : 'เลือกชุดนี้';
   b.onclick=function(){toggle(it.id); view.close();};
   view.showModal(); view.scrollTop=0;
 }
+(function(){ var bg=$('#tpl-vbig'); if(!bg) return; var x0=null, y0=0;
+  bg.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; },{passive:true});
+  bg.addEventListener('touchend',function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0; x0=null;
+    if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)) vStep(dx<0?1:-1); });
+  $('#tpl-vprev').addEventListener('click',function(){vStep(-1);});
+  $('#tpl-vnext').addEventListener('click',function(){vStep(1);});
+  view.addEventListener('keydown',function(e){ if(e.key==='ArrowRight') vStep(1); if(e.key==='ArrowLeft') vStep(-1); });
+})();
 $('#tpl-clear').addEventListener('click',function(){sel=[]; render(); upd();});
 $('#tpl-send').addEventListener('click',function(){
   var bz={}; sel.forEach(function(id){var k=id.split('-')[1]; bz[BN[k]]=1;});
