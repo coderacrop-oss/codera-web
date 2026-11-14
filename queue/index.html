@@ -376,7 +376,13 @@ footer{padding-block:16px 40px}
   }
 
   /* queue data lives in /queue/data.json (updated from the Google Sheet); no-store so customers always see the latest push */
-  fetch('/queue/data.json',{cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.json(); })
+  /* live data from the Apps Script API (cache 5 min, allow-listed columns); falls back to the last snapshot in /queue/data.json */
+  var API='https://script.google.com/macros/s/AKfycbyFCrbQghxDF0T_6TGiDO2kW3BGNUWG2ScI6EKVb3Kq63mrBSzB-ydBS-wACWXtBabNhw/exec?api=queue';
+  function getJSON(u,ms){ return new Promise(function(ok,no){ var t=setTimeout(function(){ no('timeout'); },ms);
+    fetch(u,{cache:'no-store'}).then(function(r){ if(!r.ok) throw r.status; return r.json(); })
+      .then(function(j){ clearTimeout(t); if(!j||!Array.isArray(j.queue)) throw 'bad'; ok(j); })
+      .catch(function(e){ clearTimeout(t); no(e); }); }); }
+  getJSON(API,8000).catch(function(){ return getJSON('/queue/data.json',8000); })
     .then(boot)
     .catch(function(){ document.getElementById('list').innerHTML='<div class="empty">โหลดคิวไม่สำเร็จ ลองรีเฟรชอีกครั้ง หรือทักไลน์ @codera.th</div>'; });
 
