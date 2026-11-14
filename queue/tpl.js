@@ -43,18 +43,20 @@ function upd(){ cnt.textContent=sel.length; bar.hidden=!sel.length; $('#tpl-sel'
 var FUN=[['ดึงคนใหม่','ภาพ 1–5 · ให้คนไม่รู้จักร้านหยุดดู เซฟ แชร์'],['สร้างความเชื่อ','ภาพ 6–10 · ขั้นตอน ก่อน/หลัง รีวิว คำถาม'],['ปิดการขาย','ภาพ 11–15 · แพ็กเกจ เงื่อนไข ชวนทัก']];
 function src(id,n){ return '/assets/tpl/set/'+id+'-'+(n<10?'0':'')+n+'.webp?v=9'; }
 function zoom(it){
-  $('#tpl-vtitle').textContent=(it.title||BN[it.biz]);
-  $('#tpl-vcap').textContent=SN[it.style].n+' · '+BN[it.biz]+' · 3 กรวย × 5 ภาพ · รหัส '+it.id;
-  var box=$('#tpl-vfuns'); box.innerHTML='';
+  $('#tpl-vtitle').textContent=SN[it.style].n+' · '+BN[it.biz];
+  $('#tpl-vcap').textContent=SN[it.style].d+' · 3 กรวย × 5 ภาพ · รหัส '+it.id;
+  var big=$('#tpl-vimg'); big.src=src(it.id,1); big.alt='ภาพที่ 1 ของชุด '+it.id; $('#tpl-vno').textContent='1/15';
+  var box=$('#tpl-vsets'); box.innerHTML='';
   FUN.forEach(function(f,k){
-    var sec=document.createElement('section'); sec.className='tvf';
-    var parts=f[1].split(' · ');
-    sec.innerHTML='<div class="tvfh"><span class="n">'+(k*5+1)+'–'+(k*5+5)+'</span><b>'+f[0]+'</b><span>'+(parts[1]||'')+'</span></div><div class="tvrow" tabindex="0" aria-label="'+f[0]+' ภาพ '+(k*5+1)+' ถึง '+(k*5+5)+'"></div>';
-    var row=sec.querySelector('.tvrow');
-    for(var j=1;j<=5;j++){ var n=k*5+j;
-      var fg=document.createElement('figure');
-      fg.innerHTML='<img '+(k>0?'loading="lazy" ':'')+'decoding="async" width="900" height="1125" src="'+src(it.id,n)+'" alt="ภาพที่ '+n+' ('+f[0]+') ของชุด '+it.id+'"><figcaption>ภาพ '+n+' / 15</figcaption>';
-      row.appendChild(fg); }
+    var sec=document.createElement('div'); sec.className='tfun';
+    sec.innerHTML='<div class="tfh"><b>'+f[0]+'</b><span>'+f[1]+'</span></div><div class="tstrip"></div>';
+    var strip=sec.querySelector('.tstrip');
+    for(var j=1;j<=5;j++){ (function(n){
+      var b=document.createElement('button'); b.type='button'; b.className='tth'+(n===1?' cur':''); b.setAttribute('aria-label','ดูภาพที่ '+n);
+      b.innerHTML='<img loading="lazy" decoding="async" width="540" height="675" src="'+src(it.id,n)+'" alt=""><span>'+n+'</span>';
+      b.addEventListener('click',function(){ big.src=src(it.id,n); big.alt='ภาพที่ '+n+' ของชุด '+it.id; $('#tpl-vno').textContent=n+'/15';
+        box.querySelectorAll('.tth').forEach(function(x){x.classList.remove('cur');}); b.classList.add('cur'); $('#tpl-vbig').scrollIntoView({block:'nearest',behavior:'smooth'}); });
+      strip.appendChild(b); })(k*5+j); }
     box.appendChild(sec);
   });
   var b=$('#tpl-vpick'); b.textContent= sel.indexOf(it.id)>-1 ? 'เอาชุดนี้ออก' : 'เลือกชุดนี้';
