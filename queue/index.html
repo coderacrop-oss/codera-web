@@ -278,11 +278,11 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
 .tcard{display:inline-block;width:100%;margin:0 0 22px;border:0;border-radius:0;background:none;overflow:visible;break-inside:avoid;box-shadow:none!important}
 .tcard:hover{box-shadow:none}
 .tpin{position:relative;border-radius:20px;overflow:hidden;background:#EFEEEA;transition:transform .35s var(--ease)}
-.tpin img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.tpin img{display:block;width:100%;height:auto}
 .tpin::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.28);opacity:0;transition:opacity .3s;pointer-events:none}
 .tcard:hover .tpin::after{opacity:1}
 .tcard.on .tpin{box-shadow:0 0 0 3px var(--green)}
-.tpin .topen{position:absolute;inset:0;width:100%;height:100%;cursor:zoom-in}
+.tpin .topen{position:relative;display:block;width:100%;height:auto;cursor:zoom-in}
 .tpin .tick{top:12px;right:12px;width:auto;height:auto;border:0;border-radius:999px;padding:9px 16px;font:inherit;font-size:14px;font-weight:600;background:var(--green);color:var(--on-green);display:flex;gap:6px;align-items:center;opacity:0;transform:translateY(-4px);transition:opacity .25s,transform .25s;z-index:2}
 .tpin .tick svg{width:14px;height:14px;display:none}
 .tpin .tick[aria-pressed=true]{background:var(--ink);color:#fff;opacity:1;transform:none}
