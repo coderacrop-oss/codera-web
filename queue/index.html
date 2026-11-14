@@ -271,6 +271,35 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
 @media (max-width:860px){.tgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:560px){.tgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tmeta{padding:8px 10px}.tmeta b{font-size:13px}.tbar{padding-left:16px}.tbar .clr{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.bar i.on::before,.bar i.now::before{transform:scaleX(1)}html{scroll-behavior:auto}}
+
+/* ---- Pinterest-style masonry (15 พ.ย.) ---- */
+.tgrid{display:block;column-count:5;column-gap:16px}
+.tgrid .empty{column-span:all}
+.tcard{display:inline-block;width:100%;margin:0 0 22px;border:0;border-radius:0;background:none;overflow:visible;break-inside:avoid;box-shadow:none!important}
+.tcard:hover{box-shadow:none}
+.tpin{position:relative;border-radius:20px;overflow:hidden;background:#EFEEEA;transition:transform .35s var(--ease)}
+.tpin img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.tpin::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.28);opacity:0;transition:opacity .3s;pointer-events:none}
+.tcard:hover .tpin::after{opacity:1}
+.tcard.on .tpin{box-shadow:0 0 0 3px var(--green)}
+.tpin .topen{position:absolute;inset:0;width:100%;height:100%;cursor:zoom-in}
+.tpin .tick{top:12px;right:12px;width:auto;height:auto;border:0;border-radius:999px;padding:9px 16px;font:inherit;font-size:14px;font-weight:600;background:var(--green);color:var(--on-green);display:flex;gap:6px;align-items:center;opacity:0;transform:translateY(-4px);transition:opacity .25s,transform .25s;z-index:2}
+.tpin .tick svg{width:14px;height:14px;display:none}
+.tpin .tick[aria-pressed=true]{background:var(--ink);color:#fff;opacity:1;transform:none}
+.tpin .tick[aria-pressed=true] svg{display:block}
+.tpin .t15{position:absolute;left:12px;bottom:12px;z-index:2;background:rgba(255,255,255,.92);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:600;opacity:0;transition:opacity .25s;pointer-events:none}
+.tcard:hover .tick,.tcard:hover .t15,.tcard:focus-within .tick{opacity:1;transform:none}
+.tcap{padding:10px 4px 0}
+.tcap b{display:block;font-size:14.5px;font-weight:600;line-height:1.35;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tcap span{display:block;margin-top:3px;font-size:12.5px;color:var(--muted,#77756F)}
+.tfilt{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.tfilt::-webkit-scrollbar{display:none}
+@media (hover:none){.tpin .tick{opacity:1;transform:none;padding:7px 12px;font-size:13px}.tpin::after{display:none}}
+@media (max-width:1100px){.tgrid{column-count:4}}
+@media (max-width:860px){.tgrid{column-count:3}}
+@media (max-width:560px){.tgrid{column-count:2;column-gap:10px}.tcard{margin-bottom:16px}.tpin{border-radius:16px}.tcap b{font-size:13.5px}}
+@media (prefers-reduced-motion:reduce){.tpin,.tpin .tick{transition:none}}
+
 </style>
 <script src="/assets/net.js" defer></script>
 </head>
