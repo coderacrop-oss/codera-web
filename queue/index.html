@@ -300,6 +300,27 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
 @media (max-width:560px){.tgrid{column-count:2;column-gap:10px}.tcard{margin-bottom:16px}.tpin{border-radius:16px}.tcap b{font-size:13.5px}}
 @media (prefers-reduced-motion:reduce){.tpin,.tpin .tick{transition:none}}
 
+
+/* ---- viewer v2: swipe carousel ---- */
+.tdlg.tview{width:min(980px,calc(100% - 16px));max-width:none;max-height:calc(100dvh - 16px)}
+.tvhead{padding:16px 20px 10px;border-bottom:0}
+.tvhead h3{font-size:19px;line-height:1.3}.tvhead p{font-size:12.5px;margin-top:2px}
+.tvtabs{display:flex;gap:6px;padding:0 20px 12px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tvtabs::-webkit-scrollbar{display:none}
+.tvtab{font:inherit;font-size:13.5px;white-space:nowrap;padding:8px 14px;border-radius:999px;border:1px solid var(--line-2);background:#fff;color:var(--body);cursor:pointer}
+.tvtab small{font-family:var(--mono);font-size:11px;opacity:.6;margin-left:6px}
+.tvtab[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.tvcar-wrap{position:relative;background:#F4F3EF}
+.tvcar{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px max(20px,calc(50% - 210px));scrollbar-width:none;outline:none;overscroll-behavior-x:contain}
+.tvcar::-webkit-scrollbar{display:none}
+.tvsl{flex:0 0 min(420px,82vw,calc((100dvh - 330px)*.8));scroll-snap-align:center}
+.tvsl img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.14);background:#fff}
+.tvnav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--ink);box-shadow:0 6px 18px rgba(0,0,0,.15);display:grid;place-items:center;cursor:pointer;z-index:2}
+.tvnav svg{width:20px;height:20px}.tvnav.prev{left:14px}.tvnav.next{right:14px}
+.tvnav:disabled{opacity:0;pointer-events:none}
+.tvinfo{display:flex;gap:12px;align-items:baseline;justify-content:center;padding:12px 20px 0;font-size:13.5px;color:var(--muted)}
+.tvinfo .mono{color:var(--ink);font-weight:600}
+@media (max-width:560px){.tvnav{display:none}.tvcar{gap:10px;padding:14px 9vw}.tvsl{flex-basis:min(82vw,calc((100dvh - 330px)*.8))}.tdlg.tview{width:calc(100% - 12px)}}
 </style>
 <script src="/assets/net.js" defer></script>
 </head>
@@ -423,8 +444,11 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
   </dialog>
   <dialog class="tdlg tview" id="tpl-view" aria-labelledby="tpl-vtitle">
     <div class="tvhead"><div><h3 id="tpl-vtitle"></h3><p id="tpl-vcap"></p></div><button type="button" class="tx" data-close aria-label="ปิด">✕</button></div>
-    <div class="tvbig" id="tpl-vbig"><img id="tpl-vimg" alt="" width="540" height="675"><span class="mono" id="tpl-vno">1/15</span></div>
-    <div id="tpl-vsets"></div>
+    <div class="tvtabs" id="tpl-vtabs" role="tablist" aria-label="กรวยการขาย"></div>
+    <div class="tvcar-wrap"><div class="tvcar" id="tpl-vcar" tabindex="0" aria-label="ภาพในชุด เลื่อนซ้ายขวา"></div>
+      <button type="button" class="tvnav prev" id="tpl-vprev" aria-label="ภาพก่อนหน้า"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="tvnav next" id="tpl-vnext" aria-label="ภาพถัดไป"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+    <div class="tvinfo"><span class="mono" id="tpl-vno">1 / 15</span><span id="tpl-vfun"></span></div>
     <div class="tvfoot"><button type="button" class="btn" data-close style="border-color:var(--line-2)">ปิด</button><button type="button" class="btn btn-green" id="tpl-vpick">เลือกชุดนี้</button></div>
   </dialog>
 </main>
