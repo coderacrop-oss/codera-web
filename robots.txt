@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /queue/
+
+Sitemap: https://coderasolutions.org/sitemap.xml

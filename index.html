@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Codera Solutions | ทีมการตลาดประจำร้าน ดูแลเพจ แอด Meta และ LINE OA</title>
+<meta name="description" content="Codera ทีมการตลาดประจำร้าน สำหรับร้านที่ขายผ่านแชท วางแผน ทำคอนเทนต์ ดูแลแอด Meta และ LINE OA วัดผลด้วยยอดขายจริงของร้าน คุยเรื่องร้านคุณก่อน แล้วค่อยวางแผนด้วยกัน">
+<link rel="canonical" href="https://coderasolutions.org/">
+
+<meta name="theme-color" content="#0b0d0a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Codera Solutions">
+<meta property="og:locale" content="th_TH">
+<meta property="og:title" content="Codera Solutions | ทีมการตลาดประจำร้าน ดูแลเพจ แอด Meta และ LINE OA">
+<meta property="og:description" content="Codera ทีมการตลาดประจำร้าน สำหรับร้านที่ขายผ่านแชท วางแผน ทำคอนเทนต์ ดูแลแอด Meta และ LINE OA วัดผลด้วยยอดขายจริงของร้าน คุยเรื่องร้านคุณก่อน แล้วค่อยวางแผนด้วยกัน">
+<meta property="og:url" content="https://coderasolutions.org/">
+<meta property="og:image" content="https://coderasolutions.org/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://coderasolutions.org/#org", "name": "Codera Solutions", "alternateName": "บริษัท โคเดรา โซลูชันส์ จำกัด", "url": "https://coderasolutions.org/", "logo": "https://coderasolutions.org/assets/icon-512.png", "image": "https://coderasolutions.org/assets/og.png", "description": "ทีมการตลาดประจำร้าน วางแผน ทำคอนเทนต์ ดูแลแอด Meta และ LINE OA ให้ร้านที่ขายผ่านแชท", "taxID": "0105569092799", "areaServed": "TH", "priceRange": "฿฿", "address": {"@type": "PostalAddress", "streetAddress": "2823/3 ถนนเจริญกรุง แขวงบางคอแหลม", "addressLocality": "เขตบางคอแหลม", "addressRegion": "กรุงเทพมหานคร", "postalCode": "10120", "addressCountry": "TH"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}], "sameAs": ["https://www.facebook.com/1426249720560934", "https://www.instagram.com/codera.th/", "https://line.me/R/ti/p/@codera.th"]}, {"@type": "WebSite", "@id": "https://coderasolutions.org/#site", "url": "https://coderasolutions.org/", "name": "Codera Solutions", "inLanguage": "th", "publisher": {"@id": "https://coderasolutions.org/#org"}}]}</script>
+<style>
+/* Layout: warm consultative story. Dark-green banner → "which shop are you" picker → people + intro clip → try our real LINE menu → how we work together → small pilot offer → contact */
+:root{
+  --bg:#ffffff; --soft:#f2f2ef; --ink:#111111; --body:#3a3a36; --muted:#55554f; --line:#e6e6e1; --line-2:#c9c9c3;
+  --green:#9bd137; --on-green:#14200a; --green-ink:#5e8f12; --green-tint:#eef7dc;
+  --warm:#e0a6b5; --warm-tint:#fbeef1; --sky:#a3d3fc;
+  --sans:'IBM Plex Sans Thai',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--body);font-family:var(--sans);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;color:var(--ink);text-wrap:balance;font-weight:700;line-height:1.2;letter-spacing:-.01em}
+p{margin:0;text-wrap:pretty}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;z-index:50;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:8px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(255,255,255,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:18px;color:var(--ink);white-space:nowrap}
+.logo{width:28px;height:28px;flex:none}
+.links{display:flex;gap:4px;margin-left:auto}
+.links a{font-size:15px;color:var(--body);text-decoration:none;padding:8px 12px;border-radius:8px;transition:background .25s,color .25s}
+.links a:hover{background:var(--soft);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:600;font-size:16px;padding:11px 20px;border-radius:999px;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap;transition:transform .25s var(--ease),background .25s,border-color .25s,box-shadow .3s}
+.btn:active{transform:scale(.98)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:#2a2a27}
+.btn-green{background:var(--green);color:var(--on-green)}
+.btn-green:hover{background:#aee04a;box-shadow:0 0 0 6px rgba(155,209,55,.18)}
+.btn-ghost{background:transparent;border-color:var(--line-2);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-lg{font-size:17px;padding:14px 26px}
+.btn .arr{transition:transform .3s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* banner */
+.banner{position:relative;isolation:isolate;overflow:hidden;background:#0b0d0a;color:#fff;min-height:clamp(560px,84svh,860px);display:grid;place-items:center;text-align:center;padding-block:72px}
+.banner .wash{position:absolute;inset:0;z-index:-4;background:
+  radial-gradient(70% 90% at 100% 100%,rgba(155,209,55,.95) 0%,rgba(110,170,30,.55) 28%,rgba(40,70,14,.25) 55%,transparent 75%),
+  radial-gradient(55% 70% at 0% 100%,rgba(70,120,20,.55) 0%,transparent 70%),
+  radial-gradient(50% 60% at 85% 0%,rgba(200,238,143,.22) 0%,transparent 70%),
+  linear-gradient(160deg,#050605 0%,#0d140a 45%,#16260c 100%);background-size:120% 120%;animation:wash 24s ease-in-out infinite alternate}
+@keyframes wash{to{background-position:100% 60%}}
+.banner::before{content:"";position:absolute;inset:0;z-index:-3;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1.2px);background-size:24px 24px;background-position:12px 12px}
+.banner canvas.net{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+.banner .clear{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 48% 54% at 50% 50%,rgba(8,11,7,.75) 30%,rgba(8,11,7,.35) 58%,rgba(8,11,7,0) 82%)}
+.banner .inner{display:grid;gap:26px;justify-items:center;max-width:980px}
+.banner h1{font-size:clamp(40px,6.6vw,92px);line-height:1.1;color:#fff;letter-spacing:-.02em}
+.banner h1 em{font-style:normal;color:var(--green)}
+.banner .sub{font-size:clamp(17px,1.6vw,21px);color:rgba(255,255,255,.82);max-width:600px}
+.banner .ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.banner .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.banner .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 14px 5px 10px}
+.kicker i{width:8px;height:8px;border-radius:50%;background:var(--green);animation:ping 2.4s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(155,209,55,.6)}70%{box-shadow:0 0 0 10px rgba(155,209,55,0)}100%{box-shadow:0 0 0 0 rgba(155,209,55,0)}}
+
+/* sections */
+section.sec{padding-block:96px}
+.head{display:grid;gap:12px;max-width:720px;margin-bottom:40px}
+.head.center{margin-inline:auto;text-align:center;justify-items:center}
+.eyebrow{font-size:14px;font-weight:600;color:var(--green-ink)}
+.h2{font-size:clamp(30px,3.8vw,46px)}
+.lead{color:var(--muted);font-size:18px}
+
+/* picker */
+.picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.opt{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:14px;align-content:start;padding:22px;border-radius:22px;border:1.5px solid var(--line);background:#fff;transition:border-color .3s,transform .3s var(--ease),box-shadow .3s,background .3s;min-height:150px}
+.opt:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 18px 36px -26px rgba(17,17,17,.35)}
+.opt:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.opt .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--soft);color:var(--ink);transition:background .3s}
+.opt .ic svg{width:22px;height:22px}
+.opt b{font-size:18px;color:var(--ink);line-height:1.4;font-weight:600}
+.opt[aria-pressed="true"]{border-color:var(--ink);background:var(--ink)}
+.opt[aria-pressed="true"] b{color:#fff}
+.opt[aria-pressed="true"] .ic{background:var(--green);color:var(--on-green)}
+.answer{margin-top:16px;border-radius:24px;background:var(--green-tint);padding:28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 32px;align-items:center;min-height:120px}
+.answer .q{font-size:14px;font-weight:600;color:var(--green-ink)}
+.answer h3{font-size:22px;margin-top:4px}
+.answer ul{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.answer li{background:#fff;border-radius:999px;padding:6px 14px;font-size:15px;color:var(--ink);font-weight:500}
+.answer .hint{color:var(--muted)}
+.answer.flash{animation:pop .6s var(--ease)}
+@keyframes pop{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* people + clip */
+.meet{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;align-items:stretch}
+.clip{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:16/10;background:#0b0d0a;display:grid;place-items:center;color:#fff;isolation:isolate}
+.clip::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(80% 90% at 100% 100%,rgba(155,209,55,.7),transparent 60%),radial-gradient(60% 70% at 0% 0%,rgba(224,166,181,.35),transparent 60%),#0b0d0a}
+.clip .play{width:84px;height:84px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 12px rgba(255,255,255,.12);animation:breathe 3.2s ease-in-out infinite}
+.clip .play svg{width:30px;height:30px;margin-left:5px;color:var(--ink)}
+@keyframes breathe{50%{box-shadow:0 0 0 22px rgba(255,255,255,.06)}}
+.clip .cap{position:absolute;left:24px;bottom:22px;right:24px;display:flex;justify-content:space-between;align-items:end;gap:12px}
+.clip .cap b{font-size:20px}
+.clip .cap span{font-size:13px;color:rgba(255,255,255,.75)}
+.clip .tag{position:absolute;top:18px;left:18px;font-size:12px;font-weight:600;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 12px}
+.people{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px}
+.ph{position:relative;border-radius:24px;overflow:hidden;background:var(--warm-tint);display:grid;align-content:end;padding:16px;min-height:150px;isolation:isolate}
+.ph:nth-child(2){background:var(--green-tint)}.ph:nth-child(3){background:#eef6fe}
+.ph.big{grid-row:span 2}
+.ph .frame{position:absolute;inset:0;z-index:-1;display:grid;place-items:center;color:rgba(17,17,17,.28)}
+.ph .frame svg{width:42px;height:42px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+.ph b{display:block;color:var(--ink);font-size:16px}
+.ph span{font-size:13px;color:var(--muted)}
+.ph .who{background:rgba(255,255,255,.88);border-radius:14px;padding:8px 12px;justify-self:start}
+.meet-note{grid-column:1/-1;font-size:14px;color:var(--muted);text-align:center}
+
+/* phone demo */
+.try{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.phone{justify-self:center;width:min(360px,100%);border-radius:44px;background:#111;padding:12px;box-shadow:0 40px 80px -40px rgba(17,17,17,.6)}
+.screen{border-radius:34px;overflow:hidden;background:#8cabd8;display:flex;flex-direction:column;height:640px}
+.bar{background:#fff;color:var(--ink);display:flex;align-items:center;gap:10px;padding:12px 16px;font-weight:600;font-size:15px}
+.bar .logo{width:26px;height:26px}
+.chat{flex:1;overflow-y:auto;padding:14px 12px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.msg{max-width:84%;padding:9px 13px;border-radius:18px;font-size:14px;line-height:1.55;white-space:pre-line;animation:msgin .45s var(--ease)}
+.msg.them{background:#fff;color:var(--ink);border-top-left-radius:6px;align-self:flex-start}
+.msg.me{background:#06c755;color:#fff;border-top-right-radius:6px;align-self:flex-end}
+.msg.img{padding:4px;background:#fff}
+.msg.img img{display:block;width:100%;border-radius:14px}
+.typing{align-self:flex-start;background:#fff;border-radius:18px;padding:10px 14px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#bbb;animation:dot 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{50%{transform:translateY(-4px);background:#888}}
+@keyframes msgin{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.menu{position:relative;background:#111;line-height:0}
+.menu img{width:100%;display:block}
+.menu button{all:unset;position:absolute;cursor:pointer;border-radius:10px;transition:background .2s,box-shadow .2s}
+.menu button:hover{background:rgba(255,255,255,.08)}
+.menu button:focus-visible{box-shadow:inset 0 0 0 2px var(--green)}
+.menu button.pulse{animation:hint 2.4s ease-in-out infinite}
+@keyframes hint{50%{box-shadow:inset 0 0 0 3px rgba(255,255,255,.8)}}
+.try-text{display:grid;gap:18px}
+.try-text .note{font-size:13px;color:var(--muted)}
+
+/* together */
+.together{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:t}
+.tg{border-radius:24px;padding:28px;background:var(--soft);display:grid;gap:12px;align-content:start;position:relative;overflow:hidden}
+.tg .num{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.tg h3{font-size:22px}
+.tg p{color:var(--muted);font-size:16px}
+.tg .vis{height:96px;display:flex;align-items:center;gap:8px}
+.bub{border-radius:14px;padding:6px 12px;font-size:13px;background:#fff;color:var(--ink);box-shadow:0 6px 16px -10px rgba(17,17,17,.3)}
+.bub.g{background:var(--green);color:var(--on-green)}
+.tg .vis.col{flex-direction:column;align-items:flex-start;justify-content:center}
+.ok{display:flex;gap:6px}
+.ok span{font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px;background:#fff;color:var(--ink)}
+.ok span.y{background:var(--green);color:var(--on-green)}
+.bars{display:flex;align-items:flex-end;gap:8px;height:80px}
+.bars i{width:22px;border-radius:6px 6px 2px 2px;background:var(--line-2);transform-origin:bottom;animation:grow 1.2s var(--ease) both}
+.bars i:last-child{background:var(--green)}
+@keyframes grow{from{transform:scaleY(.1)}}
+
+/* pilot strip */
+.pilot{border-radius:28px;background:var(--ink);color:#fff;padding:32px 36px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 32px;align-items:center}
+.pilot h3{color:#fff;font-size:24px}
+.pilot p{color:rgba(255,255,255,.75);margin-top:6px}
+.pilot .price{font-family:var(--mono);font-size:34px;font-weight:600;color:var(--green);white-space:nowrap}
+.pilot .price small{font-family:var(--sans);font-size:15px;color:rgba(255,255,255,.7);font-weight:500}
+.pilot details{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.14);padding-top:14px}
+.pilot summary{cursor:pointer;list-style:none;font-weight:600;color:#fff;display:flex;gap:8px;align-items:center}
+.pilot summary::-webkit-details-marker{display:none}
+.pilot summary::after{content:"+";font-family:var(--mono);color:var(--green);transition:transform .3s var(--ease)}
+.pilot details[open] summary::after{transform:rotate(45deg)}
+.pilot ul{margin:14px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 20px;color:rgba(255,255,255,.85);font-size:15px}
+.pilot li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:10px;vertical-align:middle}
+.pilot .actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.pilot .qlink{color:rgba(255,255,255,.8);font-size:15px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.pilot .qlink:hover{color:#fff;border-color:#fff}
+
+/* faq */
+.faq{max-width:820px;margin-inline:auto;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;font-weight:600;font-size:18px;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--ink);background:var(--soft);transition:transform .4s var(--ease),background .3s}
+.faq details[open] summary::after{transform:rotate(45deg);background:var(--green-tint)}
+.faq details p{color:var(--muted);padding-bottom:20px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px}
+.line-card{display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:24px;align-items:center}
+.line-card .qr{border:1px solid var(--line);border-radius:18px;padding:10px;background:#fff}
+.line-card .qr img{display:block;width:100%;height:auto}
+.line-card h3{font-size:22px}
+.line-card .id{font-family:var(--mono);color:var(--ink);font-size:20px;margin-top:4px}
+.line-card .m{color:var(--muted);font-size:15px;margin-top:6px}
+.line-card .btn{margin-top:16px}
+.others{display:grid;gap:10px;align-content:start}
+.chan{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:14px 16px;text-decoration:none;background:#fff;transition:border-color .3s,transform .3s var(--ease)}
+a.chan:hover{border-color:var(--ink);transform:translateY(-2px)}
+.chan .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--soft);color:var(--ink)}
+.chan .ic svg{width:20px;height:20px}
+.chan b{display:block;font-size:16px;color:var(--ink)}
+.chan small{display:block;color:var(--muted);font-size:14px;overflow-wrap:anywhere}
+.chan .go{color:var(--muted)}
+.copy{background:#fff;border:1px solid var(--line-2);color:var(--ink);border-radius:999px;padding:4px 12px;font:600 14px/20px var(--sans);cursor:pointer}
+
+/* footer */
+footer{padding-block:16px 40px}
+.foot-cta{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;background:#0b0d0a;color:#fff;padding:56px 48px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+.foot-cta::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(70% 120% at 100% 100%,rgba(155,209,55,.75),transparent 60%),radial-gradient(50% 80% at 0% 0%,rgba(224,166,181,.25),transparent 60%)}
+.foot-cta canvas.net{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.5}
+.foot-cta h2{color:#fff;font-size:clamp(28px,3.6vw,42px);max-width:16ch}
+.foot-cta h2 em{font-style:normal;color:var(--green)}
+.foot-cta p{color:rgba(255,255,255,.8);margin-top:8px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;padding-block:40px 24px;font-size:15px;color:var(--muted)}
+.foot-grid h4{margin:0 0 12px;font-size:14px;color:var(--ink);font-weight:600}
+.foot-grid nav{display:grid;gap:8px}
+.foot-grid nav a{text-decoration:none;justify-self:start}
+.foot-grid nav a:hover{color:var(--ink)}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px}
+.mbar{display:none}
+
+/* load + reveal */
+.rise{animation:rise .9s var(--ease) both}
+.d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.28s}.d4{animation-delay:.4s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+@media (max-width:980px){
+  .links{display:none}
+  .picker{grid-template-columns:1fr 1fr}
+  .meet,.try,.contact{grid-template-columns:minmax(0,1fr)}
+  .try{gap:32px}
+  .together{grid-template-columns:minmax(0,1fr)}
+  .pilot ul{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-grid > :first-child{grid-column:1/-1}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .nav .btn{display:none}
+  .banner{padding-block:48px 64px;min-height:auto}
+  .banner .clear{background:radial-gradient(ellipse 85% 55% at 50% 50%,rgba(8,11,7,.78) 40%,rgba(8,11,7,0) 95%)}
+  .banner canvas.net{opacity:.45}
+  .btn-lg{width:100%}
+  section.sec{padding-block:64px}
+  .opt{min-height:0;padding:16px;gap:10px;border-radius:18px}
+  .opt b{font-size:15px}
+  .opt .ic{width:36px;height:36px}
+  .answer{grid-template-columns:minmax(0,1fr);padding:22px}
+  .answer .btn{width:100%}
+  .people{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .ph.big{grid-row:auto;grid-column:1/-1;min-height:200px}
+  .screen{height:560px}
+  .pilot{grid-template-columns:minmax(0,1fr);padding:26px}
+  .pilot ul{grid-template-columns:1fr}
+  .line-card{grid-template-columns:minmax(0,1fr)}
+  .line-card .qr{max-width:170px}
+  .foot-cta{padding:34px 24px}
+  .foot-cta .btn{width:100%}
+  .foot-grid{grid-template-columns:1fr}
+  footer{padding-bottom:110px}
+  .mbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  .mbar .btn{width:100%}
+}
+
+/* channels strip */
+.channels{border-bottom:1px solid var(--line);background:#fff}
+.channels .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 28px;padding-block:22px}
+.channels .lbl{font-size:14px;color:var(--muted)}
+.ch{display:inline-flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);font-size:16px}
+.ch .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff}
+.ch .ico svg{width:20px;height:20px}
+.ch.fb .ico{background:#1f2a44}.ch.ig .ico{background:#3b2a3f}.ch.tt .ico{background:#111}.ch.ln .ico{background:#9bd137;color:#14200a}
+/* team */
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}
+.member{border-radius:24px;overflow:hidden;background:#fff;border:1px solid var(--line);display:grid}
+.member .photo{aspect-ratio:4/5;display:grid;place-items:center;color:rgba(17,17,17,.35);position:relative}
+.member:nth-child(1) .photo{background:linear-gradient(160deg,#eef7dc,#c9e89a)}
+.member:nth-child(2) .photo{background:linear-gradient(160deg,#fbeef1,#efc3cf)}
+.member:nth-child(3) .photo{background:linear-gradient(160deg,#eef6fe,#bfdcf8)}
+.member .photo svg{width:46px;height:46px}
+.member .photo .pl{position:absolute;left:14px;top:14px;font-size:12px;font-weight:600;color:var(--ink);background:rgba(255,255,255,.8);border-radius:999px;padding:3px 10px}
+.member .info{padding:18px 20px 20px;display:grid;gap:4px}
+.member b{font-size:18px;color:var(--ink)}
+.member .role{font-size:14px;font-weight:600;color:var(--green-ink)}
+.member p{font-size:15px;color:var(--muted)}
+.member .todo{color:#b0546c}
+/* real work placeholders */
+.real{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:180px;gap:14px}
+.box{border-radius:22px;display:grid;align-content:end;padding:18px;position:relative;overflow:hidden}
+.box .t{font-size:13px;font-weight:600;background:rgba(255,255,255,.85);color:var(--ink);border-radius:999px;padding:3px 10px;justify-self:start}
+.box.case{grid-column:span 2;grid-row:span 2;background:linear-gradient(150deg,#1a2a0e,#4f7a14 60%,#9bd137)}
+.box.shop1{background:linear-gradient(150deg,#fbeef1,#e0a6b5)}
+.box.shop2{background:linear-gradient(150deg,#eef6fe,#a3d3fc)}
+.box.rev{grid-column:span 2;background:#f2f2ef;align-content:start;gap:10px}
+.box.rev.r2{background:#eef7dc}
+.box.rev .q{font-family:var(--mono);font-size:44px;line-height:.6;color:var(--green);height:20px}
+.box.rev .ln{height:10px;border-radius:5px;background:rgba(17,17,17,.12)}
+.box.rev .ln.s{width:60%}
+.box.rev .who{display:flex;align-items:center;gap:10px;margin-top:auto}
+.box.rev .who i{width:30px;height:30px;border-radius:50%;background:rgba(17,17,17,.15)}
+.box.rev .who span{font-size:13px;color:var(--muted)}
+.box .shine{position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);background-size:250% 100%;animation:shine 4s ease-in-out infinite}
+@keyframes shine{from{background-position:120% 0}to{background-position:-120% 0}}
+.real-note{margin-top:14px;font-size:14px;color:var(--muted);text-align:center}
+@media (max-width:980px){.team{grid-template-columns:1fr 1fr}.real{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.team{grid-template-columns:1fr}.member{grid-template-columns:120px 1fr}.member .photo{aspect-ratio:auto;min-height:150px}.real{grid-auto-rows:140px}.box.case{grid-row:span 2}.channels .wrap{gap:10px 16px}.ch{font-size:14px}.ch .ico{width:34px;height:34px}}
+
+/* channels marquee */
+.marq .ch{padding:7px 20px 7px 8px;gap:12px}
+.ch.ig .logo-img,.ch.ln .logo-img{width:32px;height:32px;margin:4px;border-radius:9px}
+@media (max-width:600px){.ch.ig .logo-img,.ch.ln .logo-img{width:28px;height:28px;margin:3px}}
+
+.ch .logo-img{width:40px;height:40px;object-fit:contain;flex:none}
+@media (max-width:600px){.ch .logo-img{width:34px;height:34px}}
+.channels .wrap{display:block;padding-block:20px}
+.channels .lbl{display:block;text-align:center;margin-bottom:14px}
+.marq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marq-track{display:flex;width:max-content;gap:16px;animation:marq 28s linear infinite}
+.marq:hover .marq-track{animation-play-state:paused}
+.marq .ch{border:1px solid var(--line);border-radius:999px;padding:6px 18px 6px 6px;background:#fff;white-space:nowrap}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marq-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}.marq-track [aria-hidden="true"]{display:none}}
+.team{max-width:880px;margin-inline:auto;gap:14px}
+.member{border-radius:20px}
+.member .photo{aspect-ratio:1/1}
+.member .photo svg{width:34px;height:34px}
+.member .info{padding:14px 16px 16px;gap:2px}
+.member b{font-size:16px}
+.member .role{font-size:13px}
+.member p{font-size:14px}
+@media (max-width:600px){.member{grid-template-columns:96px 1fr}.member .photo{aspect-ratio:auto;min-height:110px}}
+/* try section balance */
+#try .try{grid-template-columns:minmax(0,440px) 300px;justify-content:center;gap:80px;max-width:960px;margin-inline:auto}
+#try .phone{width:300px;border-radius:40px;padding:10px}
+#try .screen{border-radius:31px;height:580px}
+#try .bar{padding:10px 14px;font-size:14px}
+#try .msg{font-size:13px}
+#try .phone{text-align:left}
+#try .h2{font-size:clamp(28px,3.2vw,40px)}
+@media (max-width:980px){#try .try{grid-template-columns:minmax(0,1fr);gap:36px;justify-items:center;text-align:center}#try .try-text{justify-items:center}}
+@media (max-width:600px){#try .phone{width:min(300px,100%)}#try .screen{height:540px}}
+
+/* realistic LINE phone */
+#try .phone{width:300px;border-radius:48px;padding:9px;background:#0d0d0d;position:relative;box-shadow:0 0 0 2px #2a2a2a inset,0 40px 80px -36px rgba(17,17,17,.55)}
+#try .phone::before{content:"";position:absolute;right:-3px;top:120px;width:3px;height:64px;border-radius:2px;background:#222}
+#try .phone::after{content:"";position:absolute;left:-3px;top:100px;width:3px;height:40px;border-radius:2px;background:#222;box-shadow:0 56px 0 #222}
+#try .screen{border-radius:40px;height:640px;background:#91a9d6;position:relative}
+.island{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:84px;height:24px;border-radius:14px;background:#000;z-index:3}
+.status{height:44px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:6px 26px 0;font-size:13px;font-weight:600;color:#111;font-family:-apple-system,"SF Pro Text",var(--sans)}
+.status .r{display:flex;gap:5px;align-items:center}
+.status .r svg{height:11px;width:auto}
+.lhead{background:#fff;display:flex;align-items:center;gap:8px;padding:6px 12px 10px;border-bottom:1px solid #eee}
+.lhead .back{width:18px;height:18px;color:#111}
+.lhead .nm{font-weight:700;font-size:15px;color:#111;flex:1;font-family:var(--sans)}
+.lhead .ic{width:18px;height:18px;color:#111}
+#try .chat{padding:10px 10px 12px;gap:8px;background:#91a9d6}
+.day{align-self:center;font-size:11px;color:#fff;background:rgba(0,0,0,.18);border-radius:999px;padding:2px 10px;margin-bottom:2px}
+.row{display:flex;align-items:flex-end;gap:6px;animation:msgin .45s var(--ease)}
+.row.them{align-self:flex-start;max-width:92%}
+.row.me{align-self:flex-end;max-width:88%;flex-direction:row-reverse}
+.row .av{width:30px;height:30px;border-radius:50%;background:#fff;flex:none;align-self:flex-start;display:grid;place-items:center;overflow:hidden}
+.row .av svg{width:24px;height:24px}
+.row .av.ghost{visibility:hidden}
+.row .col{display:grid;gap:3px;min-width:0}
+.row .who{font-size:11px;color:#fff;opacity:.9;padding-left:2px}
+.bubble{background:#fff;color:#111;border-radius:16px;padding:7px 10px;font-size:12.5px;line-height:1.5;white-space:pre-line;position:relative}
+.row.them .bubble.first{border-top-left-radius:4px}
+.row.me .bubble{background:#8fe36b;color:#111;border-top-right-radius:4px}
+.bubble.img{padding:0;overflow:hidden;background:#fff}
+.bubble.img img{display:block;width:180px}
+.meta{font-size:9.5px;color:rgba(255,255,255,.92);line-height:1.2;white-space:nowrap;padding-bottom:1px;text-align:right}
+.row.them .meta{text-align:left}
+#try .typing{margin-left:36px}
+.menubar{background:#fff;display:flex;align-items:center;border-top:1px solid #e6e6e6;height:40px;font-size:13px;font-weight:600;color:#111;font-family:var(--sans)}
+.menubar .kb{width:44px;display:grid;place-items:center;border-right:1px solid #eee;height:100%}
+.menubar .kb svg{width:18px;height:18px;color:#555}
+.menubar .lbl{flex:1;text-align:center}
+.homebar{height:18px;background:#fff;display:grid;place-items:center}
+.homebar i{width:100px;height:4px;border-radius:2px;background:#111}
+@media (max-width:600px){#try .screen{height:560px}}
+.avlogo{width:24px;height:24px}
+
+/* 3-step line */
+.steps3{list-style:none;margin:0 auto;padding:0;max-width:960px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;position:relative}
+.steps3 .rail{position:absolute;left:16.66%;right:16.66%;top:32px;height:2px;background:var(--line)}
+.steps3 .rail i{position:absolute;top:-4px;left:0;width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(155,209,55,.22);animation:rail 6s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes rail{0%{left:0}45%,55%{left:calc(50% - 5px)}100%{left:calc(100% - 10px)}}
+.steps3 li{display:grid;justify-items:center;align-content:start;text-align:center;gap:6px;position:relative}
+.steps3 .dot{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid var(--line-2);color:var(--ink);margin-bottom:10px;position:relative;z-index:1;animation:lit3 6s ease-in-out infinite;animation-delay:calc(var(--i)*2s - .4s)}
+.steps3 .dot svg{width:26px;height:26px}
+@keyframes lit3{0%,8%{border-color:var(--green);background:var(--green-tint);box-shadow:0 0 0 8px rgba(155,209,55,.15)}22%,100%{border-color:var(--line-2);background:#fff;box-shadow:none}}
+.steps3 .n{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.steps3 h3{font-size:22px}
+.steps3 p{color:var(--muted);font-size:16px;max-width:30ch}
+@media (max-width:700px){.steps3{grid-template-columns:1fr;gap:28px;max-width:420px}.steps3 .rail{left:31px;right:auto;top:32px;bottom:72px;width:2px;height:auto}.steps3 .rail i{display:none}.steps3 li{grid-template-columns:64px 1fr;justify-items:start;text-align:left;column-gap:18px;row-gap:2px}.steps3 .dot{grid-row:span 3;margin:0}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+<style>
+/* tech panel: warm grey + dot grid, orthogonal data routes with relayed packets */
+.grad-panel{position:relative;overflow:hidden;border-radius:28px;isolation:isolate;background:#f6f6f3;border:1px solid #e6e6e1;color:#111}
+.grad-panel::before{content:"";position:absolute;inset:0;z-index:-2;background-image:radial-gradient(rgba(17,17,17,.13) 1px,transparent 1.2px);background-size:24px 24px;background-position:12px 12px}
+.grad-panel::after{content:"";position:absolute;width:60%;height:70%;right:-15%;top:-25%;z-index:-2;border-radius:50%;background:radial-gradient(circle,rgba(155,209,55,.28),transparent 70%);pointer-events:none}
+.grad-panel .blob,.grad-panel .grain{display:none}
+.grad-panel canvas.net{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.grad-panel.dark{background:#111;border-color:#111;color:#fff}
+.grad-panel.dark::before{background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.2px)}
+.grad-panel.dark::after{background:radial-gradient(circle,rgba(155,209,55,.22),transparent 70%)}
+
+.foot-cta canvas.net{left:auto!important;right:0;width:55%!important;opacity:.5!important;-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%);mask-image:linear-gradient(90deg,transparent,#000 45%)}
+@media (max-width:600px){.foot-cta canvas.net{width:100%!important;opacity:.25!important;-webkit-mask-image:linear-gradient(180deg,transparent 55%,#000);mask-image:linear-gradient(180deg,transparent 55%,#000)}}
+</style>
+<script>
+window.codaNet=function(cv,o){
+  if(!cv||!cv.getContext) return;
+  o=o||{}; var DARK=!!o.dark;
+  var INK=DARK?'255,255,255':'17,17,17', GREEN='155,209,55', BG=DARK?'#111111':'#f6f6f3';
+  var ctx=cv.getContext('2d'), W=0,H=0,G=24, nodes=[], edges=[], packets=[], raf=0,last=0,spawnT=0,visible=true;
+  var reduce=false; try{ reduce=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+  var SRC=['PAGE','IG','LINE','ADS','CHAT'], MID=['TAG','ORDER','CRM','DATA','SYNC'], OUT=['PLAN','REPORT','KPI','ROI'];
+  function snap(v){ return Math.round(v/G)*G; }
+  function build(){
+    var dpr=Math.min(2,devicePixelRatio||1); W=cv.clientWidth; H=cv.clientHeight;
+    cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes=[]; edges=[]; packets=[];
+    var L=W<420?4:W<760?5:6, rowsAvail=Math.max(4,Math.floor((H-3.5*G)/G)), layers=[];
+    for(var i=0;i<L;i++){
+      var n=Math.max(2,Math.min(Math.floor(rowsAvail/2), 3+((Math.random()*2)|0))), used={}, col=[];
+      var x=snap(G*2.5+(W-G*5)*i/(L-1));
+      for(var j=0;j<n;j++){
+        var r, tries=0; do{ r=1+((Math.random()*(rowsAvail-1))|0); tries++; }while((used[r]||used[r-1]||used[r+1])&&tries<60); if(tries>=60) continue; used[r]=1;
+        var label=null;
+        if(i===0) label=SRC[j%SRC.length]; else if(i===L-1) label=OUT[j%OUT.length]; else if(Math.random()<.4) label=MID[(Math.random()*MID.length)|0];
+        col.push({x:x,y:r*G+G*.5,label:label,flash:0,out:[]});
+      }
+      col.sort(function(a,b){return a.y-b.y;}); col.forEach(function(nd){nodes.push(nd);}); layers.push(col);
+    }
+    for(var i=0;i<L-1;i++){
+      var A=layers[i],B=layers[i+1];
+      A.forEach(function(a){
+        var s=B.slice().sort(function(p,q){return Math.abs(p.y-a.y)-Math.abs(q.y-a.y);});
+        var k=1+((Math.random()*2)|0);
+        for(var m=0;m<k&&m<s.length;m++) link(a,s[m],i);
+      });
+      B.forEach(function(b){ if(!edges.some(function(e){return e.b===b;})) link(A[(Math.random()*A.length)|0],b,i); });
+    }
+    first=layers[0];
+  }
+  var first=[];
+  function link(a,b,i){
+    var xm=snap(a.x+(b.x-a.x)*(.35+.3*Math.random()));
+    var pts=[[a.x,a.y],[xm,a.y],[xm,b.y],[b.x,b.y]];
+    var len=0; for(var k=1;k<pts.length;k++) len+=Math.abs(pts[k][0]-pts[k-1][0])+Math.abs(pts[k][1]-pts[k-1][1]);
+    var e={a:a,b:b,pts:pts,len:len,heat:0}; edges.push(e); a.out.push(e);
+  }
+  function at(e,d){
+    var p=e.pts;
+    for(var k=1;k<p.length;k++){ var seg=Math.abs(p[k][0]-p[k-1][0])+Math.abs(p[k][1]-p[k-1][1]);
+      if(d<=seg||k===p.length-1){ var t=seg?Math.min(1,d/seg):1; return [p[k-1][0]+(p[k][0]-p[k-1][0])*t,p[k-1][1]+(p[k][1]-p[k-1][1])*t]; } d-=seg; }
+    return p[p.length-1];
+  }
+  function path(e){
+    var p=e.pts, r=6; ctx.beginPath(); ctx.moveTo(p[0][0],p[0][1]);
+    for(var k=1;k<p.length-1;k++){ ctx.arcTo(p[k][0],p[k][1],p[k+1][0],p[k+1][1],Math.min(r,Math.abs(p[k+1][1]-p[k][1])/2||r)); }
+    ctx.lineTo(p[p.length-1][0],p[p.length-1][1]);
+  }
+  function send(n){
+    if(!n.out.length||packets.length>14) return;
+    n.out.slice().sort(function(){return Math.random()-.5;}).slice(0,Math.random()<.3?2:1).forEach(function(e){ packets.push({e:e,d:0,v:.12+Math.random()*.05}); });
+  }
+  function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function draw(ts){
+    var dt=Math.min(50,ts-(last||ts)); last=ts;
+    ctx.clearRect(0,0,W,H);
+    ctx.lineCap='round'; ctx.lineJoin='round';
+    edges.forEach(function(e){ e.heat*=.97;
+      path(e); ctx.lineWidth=1.25; ctx.strokeStyle='rgba('+INK+','+(DARK?.16:.16)+')'; ctx.stroke();
+      if(e.heat>.02){ path(e); ctx.lineWidth=2; ctx.strokeStyle='rgba('+GREEN+','+(e.heat*.9).toFixed(3)+')'; ctx.stroke(); }
+    });
+    for(var k=packets.length-1;k>=0;k--){
+      var pk=packets[k]; pk.d+=pk.v*dt; pk.e.heat=Math.max(pk.e.heat,.85);
+      for(var s=3;s>=0;s--){ var q=at(pk.e,Math.max(0,pk.d-s*7)); var sz=s?4-s*.6:6;
+        ctx.fillStyle=s?'rgba('+GREEN+','+(.7-s*.18).toFixed(2)+')':'rgb('+GREEN+')'; ctx.fillRect(q[0]-sz/2,q[1]-sz/2,sz,sz); }
+      if(pk.d>=pk.e.len){ packets.splice(k,1); pk.e.b.flash=1; send(pk.e.b); }
+    }
+    ctx.font='600 10px "IBM Plex Mono",ui-monospace,monospace'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    nodes.forEach(function(n){ n.flash*=.955; var on=n.flash>.25;
+      if(n.label){ var w=ctx.measureText(n.label).width+16, h=20;
+        rr(n.x-w/2,n.y-h/2,w,h,5); ctx.fillStyle=on?'rgb('+GREEN+')':BG; ctx.fill();
+        ctx.lineWidth=1.25; ctx.strokeStyle=on?'rgb('+GREEN+')':'rgba('+INK+',.55)'; ctx.stroke();
+        ctx.fillStyle=on?'#14200a':'rgba('+INK+',.85)'; ctx.fillText(n.label,n.x,n.y+.5);
+      } else {
+        ctx.fillStyle=on?'rgb('+GREEN+')':'rgba('+INK+',.75)'; ctx.fillRect(n.x-3.5,n.y-3.5,7,7);
+        if(n.flash>.05){ ctx.strokeStyle='rgba('+GREEN+','+(n.flash*.7).toFixed(3)+')'; ctx.lineWidth=1; var g=6+(1-n.flash)*8; ctx.strokeRect(n.x-g,n.y-g,g*2,g*2); }
+      }
+    });
+    spawnT-=dt; if(spawnT<=0){ spawnT=1200+Math.random()*900; var s0=first[(Math.random()*first.length)|0]; if(s0){ s0.flash=1; send(s0);} }
+    if(!reduce&&visible) raf=requestAnimationFrame(draw);
+  }
+  build();
+  if(reduce){ edges.forEach(function(e,i){ if(i%3===0) e.heat=.6; }); last=0; draw(16); return; }
+  raf=requestAnimationFrame(draw);
+  var rt; addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(build,250); });
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ var was=visible; visible=e.isIntersecting&&!document.hidden; if(visible&&!was){ last=0; cancelAnimationFrame(raf); raf=requestAnimationFrame(draw);} }); }).observe(cv); }
+  document.addEventListener('visibilitychange',function(){ if(document.hidden){ visible=false; cancelAnimationFrame(raf);} else { visible=true; last=0; cancelAnimationFrame(raf); raf=requestAnimationFrame(draw);} });
+};
+</script>
+</head>
+<body>
+<a class="skip" href="#main">ข้ามไปเนื้อหา</a>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Codera Solutions หน้าแรก"><svg class="logo" viewBox="0 0 440 440" aria-hidden="true"><g fill="none" stroke-width="26"><circle cx="220" cy="220" r="194" stroke="#A3D3FC"/><circle cx="220" cy="220" r="130" stroke="#C8EE8F"/><circle cx="220" cy="220" r="56" stroke="#E0A6B5"/></g></svg>Codera Solutions</a>
+    <nav class="links" aria-label="เมนู">
+      <a href="#check">ร้านคุณแบบไหน</a>
+      <a href="#meet">รู้จักเรา</a>
+      <a href="#try">ลองคุยกับเรา</a>
+      <a href="#real">งานจริง</a>
+      <a href="#pilot">แพ็กเกจ</a>
+      <a href="/queue/">คิววิเคราะห์</a>
+    </nav>
+    <a class="btn btn-ink" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AD%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%84%E0%B8%B8%E0%B8%A2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A" target="_blank" rel="noopener"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg>ทักมาคุย</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="banner" id="top" aria-labelledby="h-hero">
+    <div class="wash" aria-hidden="true"></div>
+    <canvas class="net" id="net-hero" aria-hidden="true"></canvas>
+    <div class="clear" aria-hidden="true"></div>
+    <div class="wrap inner">
+      <span class="kicker rise d1"><i></i>ทีมการตลาดประจำร้าน</span>
+      <h1 id="h-hero" class="rise d2">คุยเรื่องร้านคุณก่อน<br>แล้วค่อย<em>วางแผนด้วยกัน</em></h1>
+      <p class="sub rise d3">เราฟังก่อน แนะนำตรง ๆ และทำงานไปด้วยกันทีละขั้น</p>
+      <div class="ctas rise d4">
+        <a class="btn btn-green btn-lg" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AD%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%84%E0%B8%B8%E0%B8%A2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A" target="_blank" rel="noopener"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg>ทักมาคุยก่อน</a>
+        <a class="btn btn-ghost btn-lg" href="#check">ร้านคุณเป็นแบบไหน</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="channels" aria-label="ช่องทางที่เราทำงานด้วย">
+    <div class="wrap">
+      <span class="lbl">ทำงานบนช่องทางที่ลูกค้าของคุณอยู่</span>
+      <div class="marq"><div class="marq-track"><div class="marq-set" style="display:flex;gap:16px"><span class="ch fb"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/403e6d0432.png" alt="" width="40" height="40">Facebook</span>
+      <span class="ch ig"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/294a18d424.png" alt="" width="40" height="40">Instagram</span>
+      <span class="ch tt"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/2d9e1a815f.png" alt="" width="40" height="40">TikTok</span>
+      <span class="ch ln"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/2b99ea262b.png" alt="" width="40" height="40">LINE</span></div><div class="marq-set" aria-hidden="true" style="display:flex;gap:16px"><span class="ch fb"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/403e6d0432.png" alt="" width="40" height="40">Facebook</span>
+      <span class="ch ig"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/294a18d424.png" alt="" width="40" height="40">Instagram</span>
+      <span class="ch tt"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/2d9e1a815f.png" alt="" width="40" height="40">TikTok</span>
+      <span class="ch ln"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/2b99ea262b.png" alt="" width="40" height="40">LINE</span></div><div class="marq-set" aria-hidden="true" style="display:flex;gap:16px"><span class="ch fb"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/403e6d0432.png" alt="" width="40" height="40">Facebook</span>
+      <span class="ch ig"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/294a18d424.png" alt="" width="40" height="40">Instagram</span>
+      <span class="ch tt"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/2d9e1a815f.png" alt="" width="40" height="40">TikTok</span>
+      <span class="ch ln"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/2b99ea262b.png" alt="" width="40" height="40">LINE</span></div><div class="marq-set" aria-hidden="true" style="display:flex;gap:16px"><span class="ch fb"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/403e6d0432.png" alt="" width="40" height="40">Facebook</span>
+      <span class="ch ig"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/294a18d424.png" alt="" width="40" height="40">Instagram</span>
+      <span class="ch tt"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/2d9e1a815f.png" alt="" width="40" height="40">TikTok</span>
+      <span class="ch ln"><img loading="lazy" decoding="async" class="logo-img" src="/assets/img/2b99ea262b.png" alt="" width="40" height="40">LINE</span></div></div></div>
+    </div>
+  </div>
+
+  <section class="sec" id="check" aria-labelledby="h-check">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="eyebrow">เริ่มจากตรงนี้</span>
+        <h2 class="h2" id="h-check">ตอนนี้ร้านคุณเป็นแบบไหน</h2>
+        <p class="lead">เลือกข้อที่ใกล้ที่สุด แล้วดูว่าเราจะคุยเรื่องอะไรกันก่อน</p>
+      </div>
+      <div class="picker" role="group" aria-label="สถานการณ์ของร้าน">
+        <button class="opt reveal" type="button" aria-pressed="false" data-k="0"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg></span><b>แชทเยอะ แต่ไม่รู้ว่าขายได้จากไหน</b></button>
+        <button class="opt reveal" type="button" aria-pressed="false" data-k="1"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><polyline points="224 208 32 208 32 48"/><polyline points="208 72 136 144 104 112 32 184"/></svg></span><b>ยิงแอดอยู่ แต่ไม่แน่ใจว่าคุ้มไหม</b></button>
+        <button class="opt reveal" type="button" aria-pressed="false" data-k="2"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="128" r="96"/><polyline points="128 72 128 128 184 128"/></svg></span><b>ไม่มีเวลาโพสต์ เพจเงียบ</b></button>
+        <button class="opt reveal" type="button" aria-pressed="false" data-k="3"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M128 32v64M128 160v64M32 128h64M160 128h64"/><circle cx="128" cy="128" r="20"/></svg></span><b>เพิ่งเริ่ม ยังไม่รู้จะเริ่มตรงไหน</b></button>
+      </div>
+      <div class="answer" id="answer" aria-live="polite">
+        <div>
+          <p class="hint">เลือกข้อด้านบน แล้วเราจะบอกว่าคุยเรื่องอะไรกันก่อน</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="meet" aria-labelledby="h-meet" style="padding-top:0">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">รู้จักเรา</span>
+        <h2 class="h2" id="h-meet">คนจริงที่คุณจะได้คุยด้วย</h2>
+      </div>
+      <div class="meet">
+        <div class="clip reveal" role="img" aria-label="คลิปแนะนำ Codera กำลังถ่ายทำ">
+          <span class="tag">คลิปกำลังถ่ายทำ</span>
+          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg></span>
+          <div class="cap"><b>รู้จัก Codera ใน 60 วินาที</b><span>ทีม · เป้าหมาย · วิธีทำงาน</span></div>
+        </div>
+        <div class="clip-side" style="display:grid;gap:12px;align-content:center"><h3 style="font-size:26px">ทีมเล็ก คุยกันตรง ๆ</h3><p style="color:var(--muted)">คนที่ตอบแชท คือคนเดียวกับที่นั่งวางแผนกับคุณ</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="team" aria-labelledby="h-team" style="padding-top:0">
+    <div class="wrap">
+      <div class="team">
+        <article class="member reveal">
+          <div class="photo"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M208 208H48a16 16 0 0 1-16-16V80a16 16 0 0 1 16-16h32l16-24h64l16 24h32a16 16 0 0 1 16 16v112a16 16 0 0 1-16 16Z"/><circle cx="128" cy="132" r="36"/></svg><span class="pl">รอรูปจริง</span></div>
+          <div class="info"><b>เป็นหนึ่ง หงษ์โต (คิม)</b><span class="role">ผู้บริหาร</span><p>ตอบแชทเองและวางแผนกับร้าน</p></div>
+        </article>
+        <article class="member reveal">
+          <div class="photo"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M208 208H48a16 16 0 0 1-16-16V80a16 16 0 0 1 16-16h32l16-24h64l16 24h32a16 16 0 0 1 16 16v112a16 16 0 0 1-16 16Z"/><circle cx="128" cy="132" r="36"/></svg><span class="pl">รอรูปจริง</span></div>
+          <div class="info"><b class="todo">[ชื่อ]</b><span class="role">[บทบาท]</span><p>[ดูแลเรื่องอะไรให้ร้าน]</p></div>
+        </article>
+        <article class="member reveal">
+          <div class="photo"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M208 208H48a16 16 0 0 1-16-16V80a16 16 0 0 1 16-16h32l16-24h64l16 24h32a16 16 0 0 1 16 16v112a16 16 0 0 1-16 16Z"/><circle cx="128" cy="132" r="36"/></svg><span class="pl">รอรูปจริง</span></div>
+          <div class="info"><b class="todo">[ชื่อ]</b><span class="role">[บทบาท]</span><p>[ดูแลเรื่องอะไรให้ร้าน]</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="try" aria-labelledby="h-try" style="background:var(--soft)">
+    <div class="wrap try">
+      <div class="try-text reveal">
+        <span class="eyebrow">ลองคุยกับเรา</span>
+        <h2 class="h2" id="h-try">กดเมนูในไลน์เราดูได้เลย</h2>
+        <p class="lead">นี่คือเมนูจริงใน LINE @codera.th ลองกดดูว่าเราตอบยังไง</p>
+        <div><a class="btn btn-ink btn-lg" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AD%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%84%E0%B8%B8%E0%B8%A2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A" target="_blank" rel="noopener"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg>เปิดไลน์จริง</a></div>
+        <p class="note">หน้าจอจำลองจากเมนูและข้อความตอบกลับจริง ข้อความในไลน์อาจยาวกว่านี้</p>
+      </div>
+      <div class="phone reveal" aria-label="หน้าจอจำลอง LINE @codera.th">
+        <div class="screen">
+          <span class="island" aria-hidden="true"></span>
+          <div class="status" aria-hidden="true"><span>9:41</span><span class="r"><svg viewBox="0 0 18 11"><rect x="0" y="7" width="3" height="4" rx="1" fill="#111"/><rect x="5" y="5" width="3" height="6" rx="1" fill="#111"/><rect x="10" y="2.5" width="3" height="8.5" rx="1" fill="#111"/><rect x="15" y="0" width="3" height="11" rx="1" fill="#111"/></svg><svg viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="#111" opacity=".5"/><rect x="2" y="2" width="17" height="8" rx="1.5" fill="#111"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="#111" opacity=".5"/></svg></span></div>
+          <div class="lhead" aria-hidden="true"><svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg><span class="nm">Codera solution</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div>
+          <div class="chat" id="chat">
+            <span class="day">วันนี้</span>
+            <div class="row them"><span class="av"><svg class="avlogo" viewBox="0 0 440 440" aria-hidden="true"><g fill="none" stroke-width="26"><circle cx="220" cy="220" r="194" stroke="#A3D3FC"/><circle cx="220" cy="220" r="130" stroke="#C8EE8F"/><circle cx="220" cy="220" r="56" stroke="#E0A6B5"/></g></svg></span><div class="col"><span class="who">Codera solution</span><div class="bubble first">สวัสดีครับ ขอบคุณที่แอด Codera Solutions
+เราเป็นทีมการตลาดประจำร้าน อยู่ตั้งแต่ก้าวแรก
+
+คุณคิมตอบแชทเอง จันทร์–ศุกร์ 9:00–18:00</div></div><span class="meta">09:41</span></div>
+            <div class="row them"><span class="av ghost"></span><div class="col"><div class="bubble">ลองกดเมนูด้านล่างได้เลยครับ</div></div><span class="meta">09:41</span></div>
+          </div>
+          <div class="menu" id="menu">
+            <img loading="lazy" decoding="async" src="/assets/img/11b329a42d.jpg" alt="ริชเมนู Codera: เริ่ม Eco Pack · เราทำอะไรให้ร้าน · ตัวอย่างงาน · ถามก่อนจ้าง · นัดคุยกับคุณคิม">
+            <button type="button" data-m="0" class="pulse" style="left:1%;top:1.5%;width:65%;height:47%" aria-label="เริ่ม Eco Pack"></button>
+            <button type="button" data-m="1" style="left:67.5%;top:1.5%;width:31.5%;height:47%" aria-label="เราทำอะไรให้ร้าน"></button>
+            <button type="button" data-m="2" style="left:1%;top:51%;width:31.5%;height:47.5%" aria-label="ตัวอย่างงาน"></button>
+            <button type="button" data-m="3" style="left:34%;top:51%;width:32%;height:47.5%" aria-label="ถามก่อนจ้าง"></button>
+            <button type="button" data-m="4" style="left:67.5%;top:51%;width:31.5%;height:47.5%" aria-label="นัดคุยกับคุณคิม"></button>
+          </div>
+          <div class="menubar" aria-hidden="true"><span class="kb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M8 14h8"/></svg></span><span class="lbl">เมนู ▾</span></div>
+          <div class="homebar" aria-hidden="true"><i></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="how" aria-labelledby="h-how">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="eyebrow">ทำงานด้วยกันแบบนี้</span>
+        <h2 class="h2" id="h-how">ไปด้วยกันทีละขั้น</h2>
+      </div>
+      <ol class="steps3">
+        <span class="rail" aria-hidden="true"><i></i></span>
+        <li class="reveal" style="--i:0"><span class="dot"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg></span><span class="n">01</span><h3>คุยกันก่อน</h3><p>ฟังเรื่องร้าน ดูตัวเลขที่มีอยู่</p></li>
+        <li class="reveal" style="--i:1"><span class="dot"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="40" width="176" height="176" rx="16"/><polyline points="88 128 116 156 172 100"/></svg></span><span class="n">02</span><h3>วางแผนด้วยกัน</h3><p>ร้านอนุมัติก่อนลงทุกชิ้น</p></li>
+        <li class="reveal" style="--i:2"><span class="dot"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="224 208 32 208 32 48"/><polyline points="208 80 144 144 112 112 48 176"/></svg></span><span class="n">03</span><h3>ดูตัวเลขด้วยกัน</h3><p>สรุปทุกเดือน ได้ผลก็บอก ไม่ได้ผลก็บอก</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="real" aria-labelledby="h-real" style="padding-top:0">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="eyebrow">งานจริง ร้านจริง</span>
+        <h2 class="h2" id="h-real">เคสและรีวิวจากร้านที่ทำงานกับเรา</h2>
+      </div>
+      <div class="real">
+        <div class="box case reveal"><span class="shine" aria-hidden="true"></span><span class="t">ภาพเคส ก่อน–หลัง · รอเคสจริง</span></div>
+        <div class="box shop1 reveal"><span class="shine" aria-hidden="true"></span><span class="t">ภาพร้านลูกค้า</span></div>
+        <div class="box shop2 reveal"><span class="shine" aria-hidden="true"></span><span class="t">ภาพตอนประชุม</span></div>
+        <div class="box rev reveal"><span class="q" aria-hidden="true">“</span><span class="ln"></span><span class="ln s"></span><div class="who"><i></i><span>รีวิวลูกค้าจริง · รออนุญาต</span></div></div>
+        <div class="box rev r2 reveal"><span class="q" aria-hidden="true">“</span><span class="ln"></span><span class="ln s"></span><div class="who"><i></i><span>รีวิวลูกค้าจริง · รออนุญาต</span></div></div>
+        <div class="box rev reveal"><span class="q" aria-hidden="true">“</span><span class="ln"></span><span class="ln s"></span><div class="who"><i></i><span>รีวิวลูกค้าจริง · รออนุญาต</span></div></div>
+      </div>
+      <p class="real-note">กล่องสีเป็นที่วางชั่วคราว จะแทนด้วยภาพและคำรีวิวจริงเมื่อร้านอนุญาต</p>
+    </div>
+  </section>
+
+  <section class="sec" id="pilot" aria-labelledby="h-pilot" style="padding-top:0">
+    <div class="wrap">
+      <div class="pilot reveal">
+        <div>
+          <h3 id="h-pilot">เริ่มด้วย Eco Pack 3 เดือน</h3>
+          <p>ราคาเปิดตัว · แบ่งจ่ายเดือนละงวด 990 / 1,000 / 1,000 · ครบ 3 เดือนไม่ต่อก็ได้</p>
+        </div>
+        <div class="actions"><span class="price">2,990 <small>บาท / 3 เดือน</small></span></div>
+        <details>
+          <summary>ดูว่าได้อะไรบ้าง</summary>
+          <ul>
+            <li>วิเคราะห์กลยุทธ์ · CI · แผนสื่อ 3 เดือน</li><li>LINE OA พร้อมใช้ 1–2 วันหลังวิเคราะห์</li><li>โพสต์สัปดาห์ละ 3 ชิ้น รวม 36 ชิ้น</li>
+            <li>บรอดแคสต์ LINE เดือน 2–3 เดือนละ 2 ครั้ง</li><li>ดูแลแอด Meta</li><li>รายงานทุกเดือน</li>
+          </ul>
+          <p style="margin-top:12px;font-size:14px">ไม่รวมค่าแอด · ครบ 3 เดือนต่อ Business Pack 14,900 บาท/เดือน ได้ · <a class="qlink" href="/queue/">สมัครแล้ว? เช็กคิวของร้าน →</a></p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="h-faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="head center reveal"><h2 class="h2" id="h-faq">ถามได้เลย</h2></div>
+      <div class="faq">
+        <details><summary>ทักไปคุยก่อน ต้องตัดสินใจเลยไหม</summary><p>ไม่ต้องครับ คุยเรื่องร้านก่อน ถ้ายังไม่เหมาะเราก็บอกตรง ๆ</p></details>
+        <details><summary>ต้องให้รหัสผ่านเพจไหม</summary><p>ไม่ต้อง ร้านเพิ่มเราเป็นพาร์ตเนอร์ ถอนสิทธิ์ได้ทุกเมื่อ</p></details>
+        <details><summary>รับประกันยอดขายไหม</summary><p>ไม่รับประกัน แต่สรุปตัวเลขให้ดูตรง ๆ ทุกเดือน</p></details>
+        <details><summary>ครบ 3 เดือนแล้วต้องต่อไหม</summary><p>ไม่บังคับ ต่อเป็น Business Pack 14,900 บาท/เดือน (โพสต์สัปดาห์ละ 4 ชิ้น บรอดแคสต์ทุกเดือน) หรือหยุดได้</p></details>
+        <details><summary>ตอบแชทลูกค้าให้ไหม</summary><p>ไม่ตอบแทนร้าน เราติดแท็กและนับออเดอร์ให้</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact" aria-labelledby="h-contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact">
+        <div class="card line-card reveal">
+          <div>
+            <h3 id="h-contact">LINE Official Account</h3>
+            <div class="id">@codera.th</div>
+            <p class="m">จันทร์–ศุกร์ 9:00–18:00</p>
+            <a class="btn btn-green" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AD%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%84%E0%B8%B8%E0%B8%A2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A" target="_blank" rel="noopener"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg>ทักมาคุย</a>
+          </div>
+          <div class="qr"><img loading="lazy" decoding="async" src="/assets/img/8cf7439ba8.png" alt="QR เพิ่มเพื่อน LINE @codera.th"></div>
+        </div>
+        <div class="others">
+          <a class="chan reveal" href="https://www.facebook.com/1426249720560934" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="88" cy="108" r="52"/><path d="M155 57a52 52 0 1 1 14 102"/><path d="M16 197a92 92 0 0 1 144 0"/><path d="M169 159a92 92 0 0 1 72 38"/></svg></span><span><b>เพจ Facebook</b><small>Codera Solutions</small></span><span class="go" aria-hidden="true">↗</span></a>
+          <a class="chan reveal" href="https://www.instagram.com/codera.th/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="32" y="32" width="192" height="192" rx="48"/><circle cx="128" cy="128" r="40"/><circle cx="180" cy="76" r="4" fill="currentColor"/></svg></span><span><b>Instagram</b><small>@codera.th</small></span><span class="go" aria-hidden="true">↗</span></a>
+          <div class="chan reveal"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="32" y="56" width="192" height="144" rx="8"/><polyline points="32 64 128 144 224 64"/></svg></span><span><b>อีเมล</b><small id="mail">coderacrop@gmail.com</small></span><button class="copy" type="button" id="copy-mail">คัดลอก</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-cta reveal">
+      <canvas class="net" id="net-foot" aria-hidden="true"></canvas>
+      <div><h2>เล่าเรื่องร้านคุณ<em>ให้เราฟัง</em>หน่อย</h2><p>ทักมาคุยก่อน ยังไม่ต้องตัดสินใจ</p></div>
+      <a class="btn btn-green btn-lg" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AD%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%84%E0%B8%B8%E0%B8%A2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A" target="_blank" rel="noopener"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg>ทักไลน์ @codera.th</a>
+    </div>
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:12px"><svg class="logo" viewBox="0 0 440 440" aria-hidden="true"><g fill="none" stroke-width="26"><circle cx="220" cy="220" r="194" stroke="#A3D3FC"/><circle cx="220" cy="220" r="130" stroke="#C8EE8F"/><circle cx="220" cy="220" r="56" stroke="#E0A6B5"/></g></svg>Codera Solutions</a>
+        <p>บริษัท โคเดรา โซลูชันส์ จำกัด<br>เลขทะเบียนนิติบุคคล <span class="mono">0105569092799</span><br>2823/3 ถนนเจริญกรุง แขวงบางคอแหลม เขตบางคอแหลม กรุงเทพมหานคร 10120</p>
+      </div>
+      <div><h4>บนหน้านี้</h4><nav aria-label="ลิงก์ท้ายหน้า"><a href="#check">ร้านคุณแบบไหน</a><a href="#meet">รู้จักเรา</a><a href="#try">ลองคุยกับเรา</a><a href="#pilot">แพ็กเกจ</a></nav></div>
+      <div><h4>สำหรับลูกค้า</h4><nav aria-label="ลิงก์สำหรับลูกค้า"><a href="/queue/">คิววิเคราะห์แผนธุรกิจ</a><a href="https://line.me/R/ti/p/@codera.th" target="_blank" rel="noopener">LINE @codera.th ↗</a></nav></div>
+    </div>
+    <div class="foot-base"><span>© 2569 Codera Solutions</span><span>ตอบแชท จันทร์–ศุกร์ 9:00–18:00</span></div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn btn-green btn-lg" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AD%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%84%E0%B8%B8%E0%B8%A2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A" target="_blank" rel="noopener"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg>ทักมาคุยก่อน</a></div>
+
+<script>
+(function(){
+  var reduce=false; try{ reduce=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+  if(window.codaNet){ codaNet(document.getElementById('net-hero'),{dark:true}); codaNet(document.getElementById('net-foot'),{dark:true}); }
+
+  /* situation picker */
+  var LINE='https://line.me/R/oaMessage/@codera.th/?';
+  var A=[
+    {t:'แชทเยอะ แต่ไม่รู้ว่าขายได้จากไหน', h:'เราจะคุยเรื่องที่มาของแชทก่อน', b:['แชทมาจากโพสต์หรือแอดไหน','ติดแท็กแชทตามที่มา','นับออเดอร์ต่อชิ้นงาน']},
+    {t:'ยิงแอดอยู่ แต่ไม่แน่ใจว่าคุ้มไหม', h:'เราจะดูตัวเลขแอดตอนนี้ด้วยกันก่อน', b:['ต้นทุนต่อแชทตอนนี้','กลุ่มเป้าหมายและชิ้นงาน','ตั้งตัวเลขวันแรกไว้เทียบ']},
+    {t:'ไม่มีเวลาโพสต์ เพจเงียบ', h:'เราจะคุยเรื่องแผนโพสต์ที่ทำได้จริงก่อน', b:['โพสต์สัปดาห์ละ 4 ชิ้น','ร้านอนุมัติก่อนลงทุกชิ้น','ใช้รูปและเรื่องจริงของร้าน']},
+    {t:'เพิ่งเริ่ม ยังไม่รู้จะเริ่มตรงไหน', h:'เราจะเริ่มจากลูกค้าหลักของร้านก่อน', b:['ลูกค้าหลักคือใคร','ช่องทางไหนควรเริ่มก่อน','เพจและ LINE OA เป็นของร้านเอง']}
+  ];
+  var ans=document.getElementById('answer'), opts=[].slice.call(document.querySelectorAll('.opt'));
+  function el(t,c,x){ var n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n; }
+  opts.forEach(function(o){
+    o.addEventListener('click',function(){
+      var k=+o.dataset.k, a=A[k];
+      opts.forEach(function(p){ p.setAttribute('aria-pressed', p===o?'true':'false'); });
+      ans.textContent='';
+      var left=el('div'); left.appendChild(el('p','q','ร้านคุณ: '+a.t)); left.appendChild(el('h3',null,a.h));
+      var ul=el('ul'); a.b.forEach(function(x){ ul.appendChild(el('li',null,x)); }); left.appendChild(ul);
+      var btn=el('a','btn btn-ink','ทักไลน์คุยเรื่องนี้ ');
+      btn.href=LINE+encodeURIComponent('สวัสดีครับ ร้านเรา'+a.t+' อยากคุยก่อนครับ'); btn.target='_blank'; btn.rel='noopener';
+      var ar=el('span','arr','→'); ar.setAttribute('aria-hidden','true'); btn.appendChild(ar);
+      ans.appendChild(left); ans.appendChild(btn);
+      ans.classList.remove('flash'); void ans.offsetWidth; ans.classList.add('flash');
+    });
+  });
+
+  /* LINE demo */
+  var chat=document.getElementById('chat');
+  var R=[
+    {u:'นำร่อง', r:['Eco Pack ราคาเปิดตัว 3 เดือน 2,990 บาท แบ่งจ่ายเดือนละงวด 990 / 1,000 / 1,000','ส่ง 3 ข้อนี้มาได้เลยครับ\n1) ชื่อร้าน + ขายอะไร\n2) ลิงก์เพจ\n3) ค่าแอดต่อเดือนตอนนี้','คุณคิมแจ้งผลภายใน 2 วันทำการครับ']},
+    {u:'บริการ', r:['เราทำโพสต์ ดูแลแอด Meta และนับออเดอร์จากแชทให้ร้านครับ',{img:'/assets/img/2171615209.jpg'}]},
+    {u:'ตัวอย่างงาน', r:['ตัวอย่างแผน โพสต์ และรายงาน อยู่ในการ์ดในไลน์จริงครับ ทุกชิ้นติดป้ายว่าเป็นตัวอย่างการออกแบบ']},
+    {u:'ถามก่อนจ้าง', r:['• ไม่ขอรหัสเพจ\n• ค่าแอดร้านจ่าย Meta เอง\n• ร้านตอบแชทเอง เราติดแท็กและบันทึกออเดอร์\n• ครบ 3 เดือนไม่ต่อก็ได้']},
+    {u:'นัดคุย', r:['ได้เลยครับ ทีมจะติดต่อกลับเพื่อนัดเวลาที่สะดวก จันทร์–ศุกร์ 9:00–18:00']}
+  ];
+  var busy=false;
+  function add(node){ chat.appendChild(node); chat.scrollTop=chat.scrollHeight; }
+  function now(){ var d=new Date(); return ('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2); }
+  var AV=document.querySelector('#chat .av').innerHTML;
+  function row(x,who,first){
+    var r=el('div','row '+who), col=el('div','col'), b;
+    if(typeof x==='object'){ b=el('div','bubble img'); var im=document.createElement('img'); im.src=x.img; im.alt='การ์ดบริการ Codera'; b.appendChild(im); }
+    else { b=el('div','bubble'+(first?' first':''),x); }
+    if(who==='them'){ var av=el('span','av'+(first?'':' ghost')); if(first) av.innerHTML=AV; r.appendChild(av); if(first) col.appendChild(el('span','who','Codera solution')); }
+    col.appendChild(b); r.appendChild(col);
+    var m=el('span','meta'); if(who==='me'){ m.appendChild(el('span',null,'อ่านแล้ว')); m.appendChild(document.createElement('br')); } m.appendChild(document.createTextNode(now()));
+    r.appendChild(m); return r;
+  }
+  [].forEach.call(document.querySelectorAll('#menu button'),function(b){
+    b.addEventListener('click',function(){
+      [].forEach.call(document.querySelectorAll('#menu button'),function(x){ x.classList.remove('pulse'); });
+      if(busy) return; busy=true;
+      var s=R[+b.dataset.m]; add(row(s.u,'me'));
+      var i=0;
+      (function next(){
+        if(i>=s.r.length){ busy=false; return; }
+        var t=el('div','typing'); t.appendChild(el('i')); t.appendChild(el('i')); t.appendChild(el('i')); add(t);
+        setTimeout(function(){ t.remove(); add(row(s.r[i],'them',i===0)); i++; next(); }, reduce?0:700);
+      })();
+    });
+  });
+
+  /* copy email */
+  var cb=document.getElementById('copy-mail');
+  cb.addEventListener('click',function(){
+    var n=document.getElementById('mail'), t=n.textContent;
+    var done=function(){cb.textContent='คัดลอกแล้ว';setTimeout(function(){cb.textContent='คัดลอก'},1600)};
+    var sel=function(){try{var r=document.createRange();r.selectNodeContents(n);var s=getSelection();s.removeAllRanges();s.addRange(r);}catch(e){}};
+    try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+  });
+
+  /* nav */
+  var nav=document.getElementById('nav'), tk=false;
+  addEventListener('scroll',function(){ if(tk) return; tk=true; requestAnimationFrame(function(){ nav.classList.toggle('scrolled',scrollY>10); tk=false; }); },{passive:true});
+
+  /* reveal: visible at rest, animated as blocks enter */
+  if(reduce||!('IntersectionObserver' in window)) return;
+  function appear(e,d){ if(!e.animate) return; e.animate([{opacity:0,transform:'translateY(26px)'},{opacity:1,transform:'none'}],{duration:850,delay:d||0,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'}); }
+  var vh=innerHeight||800;
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ var i=[].indexOf.call(e.target.parentNode.children,e.target); appear(e.target,Math.min(i,5)*90); io.unobserve(e.target);} }); },{threshold:.15});
+  [].forEach.call(document.querySelectorAll('.reveal'),function(n){ if(n.getBoundingClientRect().top>vh*.9) io.observe(n); });
+})();
+</script>
+</body>
+</html>
