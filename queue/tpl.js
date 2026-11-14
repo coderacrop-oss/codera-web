@@ -27,7 +27,7 @@ function render(){
   items.forEach(function(it){
     var on=sel.indexOf(it.id)>-1;
     var card=document.createElement('div'); card.className='tcard'+(on?' on':'');
-    card.innerHTML='<div class="tpin"><button type="button" class="topen" aria-label="ดูทั้งชุด 15 ภาพ '+it.id+'">'+
+    card.innerHTML='<div class="tpin" style="aspect-ratio:4/5"><button type="button" class="topen" aria-label="ดูทั้งชุด 15 ภาพ '+it.id+'">'+
       '<img loading="lazy" decoding="async" width="720" height="900" src="/assets/tpl/'+it.id+'.webp?v=9" alt="ตัวอย่าง '+SN[it.style].n+' · '+BN[it.biz]+'"></button>'+
       '<span class="t15">ดูทั้งชุด 15 ภาพ</span>'+
       '<button type="button" class="tick" aria-pressed="'+on+'" aria-label="เลือกชุด '+it.id+'"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'+(on?'เลือกแล้ว':'เลือก')+'</button></div>'+
