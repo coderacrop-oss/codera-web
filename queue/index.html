@@ -229,7 +229,7 @@ footer{padding-block:16px 40px}
 .tpick img{display:block;width:100%;height:100%;object-fit:cover}
 .tick{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.92);border:1.5px solid var(--line-2);display:grid;place-items:center;color:transparent;transition:background .25s,color .25s}
 .tick svg{width:16px;height:16px}
-.tcard.on .tick{background:var(--green);border-color:var(--green);color:var(--on-green)}
+.tick[aria-pressed=true],.tcard.on .tick{background:var(--green);border-color:var(--green);color:var(--on-green)}
 .tmeta{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px}
 .tmeta b{display:block;font-size:14px;color:var(--ink);line-height:1.3}
 .tmeta span{font-size:12px;color:var(--muted)}
@@ -250,8 +250,24 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
 .tdlg .err{font-size:14px;color:#b42318}
 .tdlg .row{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
 .tdlg .btn-line{background:#06C755;color:#fff}
-.tview{width:min(560px,calc(100% - 32px))}
-.tview img{display:block;width:100%;height:auto}
+.tview{width:min(760px,calc(100% - 24px))}
+.tvhead{position:sticky;top:0;z-index:2;background:#fff;display:flex;justify-content:space-between;gap:12px;padding:18px 20px 12px;border-bottom:1px solid var(--line)}
+.tvhead h3{font-size:20px}.tvhead p{font-size:13px;color:var(--muted)}
+.tx{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:16px;cursor:pointer}
+.tvbig{position:relative;padding:16px 20px 4px;display:flex;justify-content:center}
+.tvbig img{display:block;width:min(100%,420px);height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.tvbig span{position:absolute;right:28px;bottom:14px;background:rgba(17,17,17,.75);color:#fff;font-size:12px;padding:3px 8px;border-radius:999px}
+.tfun{padding:14px 20px 4px}
+.tfh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}.tfh b{color:var(--ink);font-size:15px}.tfh span{font-size:12px;color:var(--muted)}
+.tstrip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.tth{position:relative;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;cursor:pointer;background:var(--soft)}
+.tth img{display:block;width:100%;height:auto}
+.tth span{position:absolute;left:4px;top:4px;background:rgba(255,255,255,.9);color:var(--ink);font-size:11px;font-weight:600;padding:0 6px;border-radius:999px}
+.tth.cur{border-color:var(--green)}
+.tvfoot{position:sticky;bottom:0;background:#fff;display:flex;justify-content:flex-end;gap:10px;padding:14px 20px;border-top:1px solid var(--line);margin-top:12px}
+.topen{display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in;position:relative}
+.t15{position:absolute;left:10px;bottom:10px;background:rgba(17,17,17,.78);color:#fff;font-size:12px;padding:4px 10px;border-radius:999px}
+.tick{cursor:pointer}
 @media (max-width:860px){.tgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:560px){.tgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tmeta{padding:8px 10px}.tmeta b{font-size:13px}.tbar{padding-left:16px}.tbar .clr{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.bar i.on::before,.bar i.now::before{transform:scaleX(1)}html{scroll-behavior:auto}}
@@ -343,7 +359,7 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
   <section class="sec" id="templates" aria-labelledby="h-tpl" style="scroll-margin-top:70px">
     <div class="wrap">
       <div class="head"><span class="eyebrow">เทมเพลตตัวอย่าง · ไอเดียตั้งต้น</span><h2 class="h2" id="h-tpl">เลือกแบบที่ชอบ ทีมเริ่มทำภาพแรกของร้านคุณได้เร็วขึ้น</h2>
-      <p class="lead">กดเลือกได้ทีละแบบหรือหลายแบบ แล้วกด "ส่งให้แอดมิน" ทีมจะใช้เป็นต้นแบบทำภาพ v1 ด้วยสี โลโก้ และข้อมูลจริงของร้านคุณ ข้อความในภาพเป็นตัวอย่าง ช่องในวงเล็บ [ ] จะเปลี่ยนเป็นของร้าน</p></div>
+      <p class="lead">กดภาพเพื่อดูทั้งชุด 15 ภาพ (3 กรวย × 5 ภาพ) กดวงกลมมุมขวาเพื่อเลือก เลือกได้ทีละชุดหรือหลายชุด แล้วกด "ส่งให้แอดมิน" ทีมจะใช้เป็นต้นแบบทำภาพ v1 ด้วยสี โลโก้ และข้อมูลจริงของร้านคุณ ข้อความในภาพเป็นตัวอย่าง ช่องในวงเล็บ [ ] จะเปลี่ยนเป็นของร้าน</p></div>
       <div class="filters">
         <div class="trow" id="tpl-fbiz" aria-label="กรองตามประเภทธุรกิจ"></div>
         <div class="trow" id="tpl-fsty" aria-label="กรองตามสไตล์"></div>
@@ -376,9 +392,11 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
       <div class="row"><button type="button" class="btn" data-close style="border-color:var(--line-2)">ปิด</button><a class="btn btn-line" id="tpl-line" href="https://line.me/R/ti/p/@codera.th" target="_blank" rel="noopener">แจ้งแอดมินใน LINE</a></div>
     </div>
   </dialog>
-  <dialog class="tdlg tview" id="tpl-view" aria-label="ภาพตัวอย่าง">
-    <img id="tpl-vimg" alt="" width="720" height="900">
-    <div class="in"><p id="tpl-vcap" style="font-size:14px"></p><div class="row"><button type="button" class="btn" data-close style="border-color:var(--line-2)">ปิด</button><button type="button" class="btn btn-green" id="tpl-vpick">เลือกแบบนี้</button></div></div>
+  <dialog class="tdlg tview" id="tpl-view" aria-labelledby="tpl-vtitle">
+    <div class="tvhead"><div><h3 id="tpl-vtitle"></h3><p id="tpl-vcap"></p></div><button type="button" class="tx" data-close aria-label="ปิด">✕</button></div>
+    <div class="tvbig" id="tpl-vbig"><img id="tpl-vimg" alt="" width="540" height="675"><span class="mono" id="tpl-vno">1/15</span></div>
+    <div id="tpl-vsets"></div>
+    <div class="tvfoot"><button type="button" class="btn" data-close style="border-color:var(--line-2)">ปิด</button><button type="button" class="btn btn-green" id="tpl-vpick">เลือกชุดนี้</button></div>
   </dialog>
 </main>
 

@@ -26,12 +26,13 @@ function render(){
   items.forEach(function(it){
     var on=sel.indexOf(it.id)>-1;
     var card=document.createElement('div'); card.className='tcard'+(on?' on':'');
-    card.innerHTML='<button type="button" class="tpick" aria-pressed="'+on+'" aria-label="เลือก '+it.id+'">'+
-      '<img loading="lazy" decoding="async" width="720" height="900" src="/assets/tpl/'+it.id+'.webp" alt="ตัวอย่าง '+SN[it.style].n+' · '+BN[it.biz]+'">'+
-      '<span class="tick" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>'+
+    card.innerHTML='<div class="tpick"><button type="button" class="topen" aria-label="ดูทั้งชุด 15 ภาพ '+it.id+'">'+
+      '<img loading="lazy" decoding="async" width="720" height="900" src="/assets/tpl/'+it.id+'.webp" alt="ตัวอย่าง '+SN[it.style].n+' · '+BN[it.biz]+'"><span class="t15">ดูทั้งชุด 15 ภาพ</span></button>'+
+      '<button type="button" class="tick" aria-pressed="'+on+'" aria-label="เลือกชุด '+it.id+'"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>'+
       '<div class="tmeta"><div><b>'+SN[it.style].n+'</b><span>'+BN[it.biz]+' · <span class="mono">'+it.id+'</span></span></div>'+
       '<button type="button" class="tzoom" aria-label="ดูภาพใหญ่ '+it.id+'"><svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button></div>';
-    card.querySelector('.tpick').addEventListener('click',function(){toggle(it.id);});
+    card.querySelector('.tick').addEventListener('click',function(){toggle(it.id);});
+    card.querySelector('.topen').addEventListener('click',function(){zoom(it);});
     card.querySelector('.tzoom').addEventListener('click',function(){zoom(it);});
     grid.appendChild(card);
   });
@@ -39,12 +40,28 @@ function render(){
 }
 function toggle(id){ var i=sel.indexOf(id); if(i>-1) sel.splice(i,1); else if(sel.length<20) sel.push(id); render(); upd(); }
 function upd(){ cnt.textContent=sel.length; bar.hidden=!sel.length; $('#tpl-sel').textContent=sel.join(', '); }
+var FUN=[['ดึงคนใหม่','ภาพ 1–5 · ให้คนไม่รู้จักร้านหยุดดู เซฟ แชร์'],['สร้างความเชื่อ','ภาพ 6–10 · ขั้นตอน ก่อน/หลัง รีวิว คำถาม'],['ปิดการขาย','ภาพ 11–15 · แพ็กเกจ เงื่อนไข ชวนทัก']];
+function src(id,n){ return '/assets/tpl/set/'+id+'-'+(n<10?'0':'')+n+'.webp'; }
 function zoom(it){
-  $('#tpl-vimg').src='/assets/tpl/'+it.id+'.webp'; $('#tpl-vimg').alt='ตัวอย่าง '+it.id;
-  $('#tpl-vcap').textContent=SN[it.style].n+' · '+SN[it.style].d+' · '+BN[it.biz]+' ('+it.id+')';
-  var b=$('#tpl-vpick'); b.textContent= sel.indexOf(it.id)>-1 ? 'เอาออกจากที่เลือก' : 'เลือกแบบนี้';
+  $('#tpl-vtitle').textContent=SN[it.style].n+' · '+BN[it.biz];
+  $('#tpl-vcap').textContent=SN[it.style].d+' · 3 กรวย × 5 ภาพ · รหัส '+it.id;
+  var big=$('#tpl-vimg'); big.src=src(it.id,1); big.alt='ภาพที่ 1 ของชุด '+it.id; $('#tpl-vno').textContent='1/15';
+  var box=$('#tpl-vsets'); box.innerHTML='';
+  FUN.forEach(function(f,k){
+    var sec=document.createElement('div'); sec.className='tfun';
+    sec.innerHTML='<div class="tfh"><b>'+f[0]+'</b><span>'+f[1]+'</span></div><div class="tstrip"></div>';
+    var strip=sec.querySelector('.tstrip');
+    for(var j=1;j<=5;j++){ (function(n){
+      var b=document.createElement('button'); b.type='button'; b.className='tth'+(n===1?' cur':''); b.setAttribute('aria-label','ดูภาพที่ '+n);
+      b.innerHTML='<img loading="lazy" decoding="async" width="540" height="675" src="'+src(it.id,n)+'" alt=""><span>'+n+'</span>';
+      b.addEventListener('click',function(){ big.src=src(it.id,n); big.alt='ภาพที่ '+n+' ของชุด '+it.id; $('#tpl-vno').textContent=n+'/15';
+        box.querySelectorAll('.tth').forEach(function(x){x.classList.remove('cur');}); b.classList.add('cur'); $('#tpl-vbig').scrollIntoView({block:'nearest',behavior:'smooth'}); });
+      strip.appendChild(b); })(k*5+j); }
+    box.appendChild(sec);
+  });
+  var b=$('#tpl-vpick'); b.textContent= sel.indexOf(it.id)>-1 ? 'เอาชุดนี้ออก' : 'เลือกชุดนี้';
   b.onclick=function(){toggle(it.id); view.close();};
-  view.showModal();
+  view.showModal(); view.scrollTop=0;
 }
 $('#tpl-clear').addEventListener('click',function(){sel=[]; render(); upd();});
 $('#tpl-send').addEventListener('click',function(){
