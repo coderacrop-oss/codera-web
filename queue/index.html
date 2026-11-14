@@ -308,6 +308,25 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
 .tvnav svg{width:18px;height:18px}.tvnav.prev{left:28px}.tvnav.next{right:28px}
 .tvnav:disabled{opacity:.25;cursor:default}
 .tvfun{text-align:center;font-size:13px;color:var(--muted);padding:6px 20px 0}
+
+/* ---- tabs + reference board ---- */
+.ttabs{display:flex;gap:4px;padding:4px;background:#EFEEEA;border-radius:999px;width:max-content;max-width:100%;margin:0 0 22px;overflow-x:auto}
+.ttab{font:inherit;font-size:15px;font-weight:600;border:0;background:none;color:var(--body);padding:10px 20px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.ttab small{font-weight:500;font-size:12px;opacity:.65;margin-left:4px}
+.ttab[aria-selected=true]{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.rnote{font-size:13px;color:var(--muted);margin:0 0 14px;max-width:760px}
+#ref-chips{margin-bottom:16px}
+.rinfo{display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:end;padding:18px 20px;border:1px solid var(--line);border-radius:18px;background:#fff;margin-bottom:20px}
+.rinfo h3{font-size:22px;margin:0}.rinfo h3 small{font-size:14px;font-weight:500;color:var(--muted);margin-left:8px}
+.rinfo p{margin:4px 0 0;font-size:14.5px;color:var(--body)}
+.rinfo .use{font-size:13px;color:var(--muted)}
+.rinfo a{font-size:14px;font-weight:600;color:var(--ink);white-space:nowrap}
+.rgrid{column-count:4;column-gap:16px}
+.rpin{break-inside:avoid;margin:0 0 16px;display:inline-block;width:100%;min-height:120px;background:#F4F3EF;border-radius:16px;overflow:hidden}
+.rpin>span,.rpin iframe{max-width:100%!important;width:100%!important}
+.rpin .rfb{display:block;padding:16px;font-size:13px;color:var(--muted)}
+@media (max-width:1100px){.rgrid{column-count:3}}
+@media (max-width:760px){.rgrid{column-count:2;column-gap:10px}.rinfo{grid-template-columns:1fr}}
 </style>
 <script src="/assets/net.js" defer></script>
 </head>
@@ -397,11 +416,23 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
     <div class="wrap">
       <div class="head"><span class="eyebrow">เทมเพลตตัวอย่าง · ไอเดียตั้งต้น</span><h2 class="h2" id="h-tpl">เลือกแบบที่ชอบ ทีมเริ่มทำภาพแรกของร้านคุณได้เร็วขึ้น</h2>
       <p class="lead">กดภาพเพื่อดูทั้งชุด 15 ภาพ (3 กรวย × 5 ภาพ) กดวงกลมมุมขวาเพื่อเลือก เลือกได้ทีละชุดหรือหลายชุด แล้วกด "ส่งให้แอดมิน" ทีมจะใช้เป็นต้นแบบทำภาพ v1 ด้วยสี โลโก้ และข้อมูลจริงของร้านคุณ ข้อความในภาพเป็นตัวอย่าง ช่องในวงเล็บ [ ] จะเปลี่ยนเป็นของร้าน</p></div>
+      <div class="ttabs" role="tablist" aria-label="ส่วนเทมเพลต">
+        <button type="button" role="tab" class="ttab" id="tab-tpl" aria-controls="pane-tpl" aria-selected="true">ตัวอย่างเทมเพลต</button>
+        <button type="button" role="tab" class="ttab" id="tab-ref" aria-controls="pane-ref" aria-selected="false">รีเฟอเรนซ์เทรนด์ <small>20 สไตล์</small></button>
+      </div>
+      <div id="pane-tpl" role="tabpanel" aria-labelledby="tab-tpl">
       <div class="filters">
         <div class="trow" id="tpl-fbiz" aria-label="กรองตามประเภทธุรกิจ"></div>
         <div class="trow" id="tpl-fsty" aria-label="กรองตามสไตล์"></div>
       </div>
       <div class="tgrid" id="tpl-grid"><div class="empty">กำลังโหลดตัวอย่าง…</div></div>
+      </div>
+      <div id="pane-ref" role="tabpanel" aria-labelledby="tab-ref" hidden>
+        <p class="rnote">ภาพจาก Pinterest ฝังผ่านปลั๊กอินทางการ กดแล้วไปที่เจ้าของงาน ใช้เป็นแรงบันดาลใจเรื่องเลย์เอาต์ สี และตัวอักษรเท่านั้น ไม่ใช่ผลงานของ Codera · อัปเดต <span id="ref-upd"></span></p>
+        <div class="trow" id="ref-chips" aria-label="เลือกสไตล์"></div>
+        <div class="rinfo" id="ref-info"></div>
+        <div class="rgrid" id="ref-grid"></div>
+      </div>
     </div>
   </section>
   <div class="tbar" id="tpl-bar" hidden role="region" aria-label="แบบที่เลือก">
@@ -529,5 +560,7 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
 })();
 </script>
 <script src="/queue/tpl.js?v=13" defer></script>
+<script src="/queue/refs-data.js?v=1" defer></script>
+<script src="/queue/refs.js?v=1" defer></script>
 </body>
 </html>
