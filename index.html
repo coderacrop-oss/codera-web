@@ -611,7 +611,7 @@ window.codaNet=function(cv,o){
       </div>
       <div class="picker" role="group" aria-label="สิ่งที่คุณมีอยู่ในมือ">
         <button class="opt reveal" type="button" aria-pressed="false" data-k="0"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="128" cy="80" rx="80" ry="32"/><path d="M48 80v48c0 18 36 32 80 32s80-14 80-32V80"/><path d="M48 128v48c0 18 36 32 80 32s80-14 80-32v-48"/></svg></span><b>มีทุน แต่ยังไม่รู้จะลงทุนอะไรดี</b></button>
-        <button class="opt reveal" type="button" aria-pressed="false" data-k="1"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="128" r="96"/><polyline points="128 72 128 128 184 128"/></svg></span><b>มีเวลา อยากเริ่มธุรกิจของตัวเอง</b></button>
+        <button class="opt reveal" type="button" aria-pressed="false" data-k="1"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="128" r="96"/><polyline points="128 72 128 128 184 128"/></svg></span><b>มีเวลา อยากมีรายได้ของตัวเอง</b></button>
         <button class="opt reveal" type="button" aria-pressed="false" data-k="2"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M224 80 128 32 32 80v96l96 48 96-48Z"/><polyline points="32 80 128 128 224 80"/><line x1="128" y1="128" x2="128" y2="224"/></svg></span><b>มีสินค้า อยากขายให้ได้มากขึ้น</b></button>
         <button class="opt reveal" type="button" aria-pressed="false" data-k="3"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M40 216V112l88-72 88 72v104Z"/><rect x="104" y="152" width="48" height="64"/></svg></span><b>มีพื้นที่ว่าง อยากให้สร้างรายได้</b></button>
         <button class="opt reveal" type="button" aria-pressed="false" data-k="4"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="56" width="176" height="120" rx="8"/><line x1="16" y1="200" x2="240" y2="200"/></svg></span><b>มีทักษะ อยากทำงานจากบ้าน</b></button>
@@ -815,11 +815,11 @@ window.codaNet=function(cv,o){
   /* situation picker */
   var LINE='https://line.me/R/oaMessage/@codera.th/?';
   var A=[
-    {t:'มีทุน แต่ยังไม่รู้จะลงทุนอะไรดี', p:'เงินเก็บอยู่ในบัญชีเฉย ๆ อยากให้งอกเงย แต่กลัวลงผิดทีเดียวหมด', h:'เทียบธุรกิจที่เหมาะกับทุนของคุณ แล้วลองขายจำนวนน้อยก่อน', b:['เทียบธุรกิจที่เหมาะกับทุนและเวลา','เปิดเพจทดลองขายก่อนลงก้อนใหญ่','รู้ผลจริงจากลูกค้าจริง'], c:'ทุนที่เก็บไว้ ถ้าไม่ลงมือ ผลลัพธ์ก็เป็นศูนย์'},
-    {t:'มีเวลา อยากเริ่มธุรกิจของตัวเอง', p:'อยากมีรายได้ของตัวเอง แต่ไม่รู้จะขายอะไร ทำคนเดียวไม่รู้เริ่มตรงไหน', h:'เริ่มจากสิ่งที่คุณถนัดและตลาดต้องการ', b:['หาสิ่งที่ถนัดและมีคนอยากซื้อ','วางแผน ทำเพจ ทำคอนเทนต์ให้','ลองตลาดโดยไม่ต้องเรียนทุกอย่างเอง'], c:'เวลาที่มีอยู่ ถ้าไม่ลงมือ ผลลัพธ์ก็เป็นศูนย์'},
-    {t:'มีสินค้า อยากขายให้ได้มากขึ้น', p:'ของดีแต่ยอดนิ่ง โพสต์เอง ยิงแอดเอง แล้วไม่รู้ว่าอะไรได้ผล', h:'ทีมการตลาดประจำร้าน วัดผลเป็นตัวเลขของร้าน', b:['วางแผนและทำคอนเทนต์ให้','ดูแลแอด Meta','รายงานผลเป็นตัวเลขทุกเดือน'], c:'สินค้าดีที่ไม่มีคนเห็น ถ้าไม่ลงมือ ผลลัพธ์ก็เป็นศูนย์'},
-    {t:'มีพื้นที่ว่าง อยากให้สร้างรายได้', p:'ห้อง หน้าร้าน หรือที่ดินว่าง จ่ายค่าดูแลทุกเดือนแต่ไม่มีรายได้กลับมา', h:'ดูว่าพื้นที่ทำอะไรได้ แล้วหาลูกค้าทางออนไลน์ให้', b:['วิเคราะห์ว่าพื้นที่ทำอะไรได้','ให้เช่า เปิดร้าน หรือทำสตูดิโอ','หาลูกค้าทางออนไลน์ให้'], c:'พื้นที่ที่ว่างอยู่ ถ้าไม่ลงมือ ผลลัพธ์ก็เป็นศูนย์'},
-    {t:'มีทักษะ อยากทำงานจากบ้าน', p:'ใช้คอมพิวเตอร์คล่อง อยากมีรายได้จากงานออนไลน์ แต่ไม่รู้จะเริ่มรับงานจากไหน', h:'มาร่วมทีมงานดิจิทัลกับเรา ทำงานจากบ้านได้', b:['คุยกันก่อนว่าคุณถนัดงานแบบไหน','ทีมสอนวิธีทำงานจริงของเรา','แจ้งเมื่อมีงานที่เหมาะกับคุณ'], c:'ทักษะที่มีอยู่ ถ้าไม่ลงมือ ผลลัพธ์ก็เป็นศูนย์'}
+    {t:'มีทุน แต่ยังไม่รู้จะลงทุนอะไรดี', p:'เงินเก็บอยู่ในบัญชีเฉย ๆ อยากให้งอกเงย แต่กลัวลงผิดทีเดียวหมด', h:'ปรึกษาฟรีก่อนลงเงิน เทียบธุรกิจที่เหมาะกับงบและเวลาของคุณ', b:['เทียบธุรกิจที่เหมาะกับทุนและเวลา','ดูต้นทุน กำไรต่อชิ้น และจุดคุ้มทุน','ลองขายจำนวนน้อยก่อนลงก้อนใหญ่'], c:'ปรึกษาฟรี ไม่มีค่าใช้จ่าย', cta:'ปรึกษาฟรีทางไลน์ ', msg:'สวัสดีครับ เรามีทุน อยากปรึกษาฟรีก่อนลงทุนครับ'},
+    {t:'มีเวลา อยากมีรายได้ของตัวเอง', p:'มีเวลา มีไฟ อยากมีรายได้เพิ่ม แต่ยังไม่มีทุนหรือไม่รู้จะเริ่มจากตรงไหน', h:'สมัครร่วมทีมกับเรา เริ่มจากงานจริงที่ทำได้', b:['บอกเราว่าคุณถนัดและมีเวลาแบบไหน','ทีมสอนวิธีทำงานจริงของเรา','แจ้งเมื่อมีงานที่เหมาะกับคุณ'], c:'สมัครฟรี ไม่มีค่าใช้จ่าย', cta:'สมัครร่วมทีมทางไลน์ ', msg:'สวัสดีครับ เรามีเวลา อยากสมัครร่วมทีม Codera ครับ'},
+    {t:'มีสินค้า อยากขายให้ได้มากขึ้น', p:'ของดีแต่ยอดนิ่ง โพสต์เอง ยิงแอดเอง แล้วไม่รู้ว่าอะไรได้ผล', h:'ตรวจแอดให้ฟรี ด้วยตัวเลขของร้านคุณเอง', b:['ดูว่าแอดตัวไหนคุ้ม ตัวไหนเปลืองเงิน','ไม่ขอรหัสเพจ เพิ่มเราเป็นพาร์ตเนอร์','อยากให้ช่วยต่อค่อยคุยเรื่องแพ็ก'], c:'ปรึกษาและตรวจแอดฟรี ไม่มีค่าใช้จ่าย', cta:'ขอตรวจแอดฟรีทางไลน์ ', msg:'สวัสดีครับ ร้านเรามีสินค้า อยากให้ช่วยตรวจแอดฟรีครับ'},
+    {t:'มีพื้นที่ว่าง อยากให้สร้างรายได้', p:'ห้อง หน้าร้าน หรือที่ดินว่าง จ่ายค่าดูแลทุกเดือนแต่ไม่มีรายได้กลับมา', h:'ลงทะเบียนพื้นที่กับเรา', b:['บอกทำเล ขนาด และสิ่งที่มีในพื้นที่','ทีมดูว่าพื้นที่เหมาะกับธุรกิจแบบไหน','ติดต่อกลับเมื่อมีร้านหรือธุรกิจที่สนใจพื้นที่'], c:'ลงทะเบียนฟรี ไม่มีค่าใช้จ่าย', cta:'ลงทะเบียนพื้นที่ทางไลน์ ', msg:'สวัสดีครับ เรามีพื้นที่ว่าง อยากลงทะเบียนพื้นที่ครับ'},
+    {t:'มีทักษะ อยากทำงานจากบ้าน', p:'ใช้คอมพิวเตอร์คล่อง อยากมีรายได้จากงานออนไลน์ แต่ไม่รู้จะเริ่มรับงานจากไหน', h:'สมัครร่วมทีมงานดิจิทัลกับเรา ทำงานจากบ้านได้', b:['บอกเราว่าคุณถนัดงานแบบไหน','ทีมสอนวิธีทำงานจริงของเรา','แจ้งเมื่อมีงานที่เหมาะกับคุณ'], c:'สมัครฟรี ไม่มีค่าใช้จ่าย', cta:'สมัครร่วมทีมทางไลน์ ', msg:'สวัสดีครับ เรามีทักษะ อยากสมัครร่วมทีมงานดิจิทัลครับ'}
   ];
   var ans=document.getElementById('answer'), opts=[].slice.call(document.querySelectorAll('.opt'));
   function el(t,c,x){ var n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n; }
@@ -830,8 +830,8 @@ window.codaNet=function(cv,o){
       ans.textContent='';
       var left=el('div'); left.appendChild(el('p','q','คุณ'+a.t)); left.appendChild(el('p',null,a.p)); left.appendChild(el('h3',null,a.h));
       var ul=el('ul'); a.b.forEach(function(x){ ul.appendChild(el('li',null,x)); }); left.appendChild(ul); left.appendChild(el('p','q',a.c));
-      var btn=el('a','btn btn-ink','ปรึกษาฟรีทางไลน์ ');
-      btn.href=LINE+encodeURIComponent('สวัสดีครับ เรา'+a.t+' อยากปรึกษาฟรีครับ'); btn.target='_blank'; btn.rel='noopener';
+      var btn=el('a','btn btn-ink',a.cta);
+      btn.href=LINE+encodeURIComponent(a.msg); btn.target='_blank'; btn.rel='noopener';
       var ar=el('span','arr','→'); ar.setAttribute('aria-hidden','true'); btn.appendChild(ar);
       ans.appendChild(left); ans.appendChild(btn);
       ans.classList.remove('flash'); void ans.offsetWidth; ans.classList.add('flash');
