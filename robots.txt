@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /queue/
 Disallow: /fastsetup/
+Disallow: /team/
 
 Sitemap: https://coderasolutions.org/sitemap.xml
