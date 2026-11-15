@@ -40,4 +40,5 @@ function pick(k){
   loadPin(function(){ try{ (window.pinBuild||window.PinUtils.build)(g); }catch(_){ try{window.PinUtils.build();}catch(__){} } });
 }
 if(location.hash==='#ref') tab('ref');
+var mh=location.hash.match(/^#ref-([a-z0-9]+)$/); if(mh){ tab('ref'); pick(mh[1]); }
 })();
