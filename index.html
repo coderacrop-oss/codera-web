@@ -17,7 +17,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Codera Solutions | จากไอเดีย สู่ธุรกิจจริง</title>
-<meta name="description" content="มีทุน มีเวลา มีสินค้า หรือมีพื้นที่ แต่ยังไม่รู้จะเริ่มตรงไหน Codera ช่วยวิเคราะห์ วางแผน ทำเพจ ทำคอนเทนต์ และดูแลแอด จนขายได้จริง ปรึกษาฟรีก่อน เริ่มต้นวันละ 33 บาท (Eco Pack 2,990 บาท ตลอด 3 เดือน)">
+<meta name="description" content="มีทุน มีเวลา มีสินค้า มีพื้นที่ หรือมีทักษะ แต่ยังไม่รู้จะเริ่มตรงไหน Codera ช่วยวิเคราะห์ วางแผน ทำเพจ ทำคอนเทนต์ และดูแลแอด จนขายได้จริง ปรึกษาฟรีก่อน เริ่มต้นวันละ 33 บาท (Eco Pack 2,990 บาท ตลอด 3 เดือน)">
 <link rel="canonical" href="https://coderasolutions.org/">
 
 <meta name="theme-color" content="#0b0d0a">
@@ -28,7 +28,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 <meta property="og:site_name" content="Codera Solutions">
 <meta property="og:locale" content="th_TH">
 <meta property="og:title" content="Codera Solutions | จากไอเดีย สู่ธุรกิจจริง">
-<meta property="og:description" content="มีทุน มีเวลา มีสินค้า หรือมีพื้นที่ แต่ยังไม่รู้จะเริ่มตรงไหน Codera ช่วยวิเคราะห์ วางแผน ทำเพจ ทำคอนเทนต์ และดูแลแอด จนขายได้จริง ปรึกษาฟรีก่อน เริ่มต้นวันละ 33 บาท (Eco Pack 2,990 บาท ตลอด 3 เดือน)">
+<meta property="og:description" content="มีทุน มีเวลา มีสินค้า มีพื้นที่ หรือมีทักษะ แต่ยังไม่รู้จะเริ่มตรงไหน Codera ช่วยวิเคราะห์ วางแผน ทำเพจ ทำคอนเทนต์ และดูแลแอด จนขายได้จริง ปรึกษาฟรีก่อน เริ่มต้นวันละ 33 บาท (Eco Pack 2,990 บาท ตลอด 3 เดือน)">
 <meta property="og:url" content="https://coderasolutions.org/">
 <meta property="og:image" content="https://coderasolutions.org/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -115,7 +115,7 @@ section.sec{padding-block:96px}
 .lead{color:var(--muted);font-size:18px}
 
 /* picker */
-.picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.picker{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
 .opt{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:14px;align-content:start;padding:22px;border-radius:22px;border:1.5px solid var(--line);background:#fff;transition:border-color .3s,transform .3s var(--ease),box-shadow .3s,background .3s;min-height:150px}
 .opt:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 18px 36px -26px rgba(17,17,17,.35)}
 .opt:focus-visible{outline:2px solid var(--green);outline-offset:3px}
@@ -272,6 +272,7 @@ footer{padding-block:16px 40px}
 @media (max-width:980px){
   .links{display:none}
   .picker{grid-template-columns:1fr 1fr}
+  .picker .opt:last-child{grid-column:1/-1}
   .meet,.try,.contact{grid-template-columns:minmax(0,1fr)}
   .try{gap:32px}
   .together{grid-template-columns:minmax(0,1fr)}
@@ -574,7 +575,7 @@ window.codaNet=function(cv,o){
     <div class="wrap inner">
       <span class="kicker rise d1"><i></i>ทีมที่อยู่ตั้งแต่ก้าวแรก</span>
       <h1 id="h-hero" class="rise d2">จากไอเดีย<br>สู่<em>ธุรกิจจริง</em></h1>
-      <p class="sub rise d3">มีไอเดียหรือมีของอยู่ในมือ แต่ยังไม่รู้จะเริ่มตรงไหน เราช่วยวางแผน ทำเพจ ทำคอนเทนต์ และดูแลแอด จนขายได้จริง<br><span style="white-space:nowrap">เริ่มต้นวันละ 33 บาท</span> <span style="white-space:nowrap">(Eco Pack 2,990 บาท ตลอด 3 เดือน)</span></p>
+      <p class="sub rise d3">มีไอเดียหรือมีของอยู่ในมือ แต่ยังไม่รู้จะเริ่มตรงไหน เราช่วยวางแผน ทำเพจ ทำคอนเทนต์ และดูแลแอด จนขายได้จริง<br><span style="white-space:nowrap">เริ่มต้นวันละ 33 บาท ถูกกว่ากาแฟวันละแก้ว</span> <span style="white-space:nowrap">(Eco Pack 2,990 บาท ตลอด 3 เดือน)</span></p>
       <div class="ctas rise d4">
         <a class="btn btn-green btn-lg" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AD%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%84%E0%B8%B8%E0%B8%A2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A" target="_blank" rel="noopener"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg>ปรึกษาฟรี</a>
         <a class="btn btn-ghost btn-lg" href="#check">คุณมีอะไรอยู่ในมือ</a>
@@ -613,6 +614,7 @@ window.codaNet=function(cv,o){
         <button class="opt reveal" type="button" aria-pressed="false" data-k="1"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="128" r="96"/><polyline points="128 72 128 128 184 128"/></svg></span><b>มีเวลา อยากเริ่มธุรกิจของตัวเอง</b></button>
         <button class="opt reveal" type="button" aria-pressed="false" data-k="2"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M224 80 128 32 32 80v96l96 48 96-48Z"/><polyline points="32 80 128 128 224 80"/><line x1="128" y1="128" x2="128" y2="224"/></svg></span><b>มีสินค้า อยากขายให้ได้มากขึ้น</b></button>
         <button class="opt reveal" type="button" aria-pressed="false" data-k="3"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M40 216V112l88-72 88 72v104Z"/><rect x="104" y="152" width="48" height="64"/></svg></span><b>มีพื้นที่ว่าง อยากให้สร้างรายได้</b></button>
+        <button class="opt reveal" type="button" aria-pressed="false" data-k="4"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="56" width="176" height="120" rx="8"/><line x1="16" y1="200" x2="240" y2="200"/></svg></span><b>มีทักษะ อยากทำงานจากบ้าน</b></button>
       </div>
       <div class="answer" id="answer" aria-live="polite">
         <div>
@@ -743,6 +745,7 @@ window.codaNet=function(cv,o){
             <li>บรอดแคสต์ LINE เดือน 2–3 เดือนละ 2 ครั้ง</li><li>ดูแลแอด Meta</li><li>รายงานทุกเดือน</li>
           </ul>
           <p style="margin-top:12px;font-size:14px">ไม่รวมค่าแอด · ครบ 3 เดือนต่อ Business Pack 14,900 บาท/เดือน ได้ · <a class="qlink" href="/queue/">สมัครแล้ว? เช็กคิวของร้าน →</a></p>
+          <p style="margin-top:8px;font-size:14px"><a class="qlink" href="https://docs.google.com/forms/d/e/1FAIpQLSeqhxilSkF9MN_RNOAlcWtBR5jUzn_qoN_rFlQtoju4QWGjoQ/viewform" target="_blank" rel="noopener">พร้อมเล่าเรื่องร้านแล้ว? กรอกฟอร์มข้อมูลร้าน (ประมาณ 15 นาที) →</a></p>
         </details>
       </div>
     </div>
@@ -815,7 +818,8 @@ window.codaNet=function(cv,o){
     {t:'มีทุน แต่ยังไม่รู้จะลงทุนอะไรดี', p:'เงินเก็บอยู่ในบัญชีเฉย ๆ อยากให้งอกเงย แต่กลัวลงผิดทีเดียวหมด', h:'เทียบธุรกิจที่เหมาะกับทุนของคุณ แล้วลองขายจำนวนน้อยก่อน', b:['เทียบธุรกิจที่เหมาะกับทุนและเวลา','เปิดเพจทดลองขายก่อนลงก้อนใหญ่','รู้ผลจริงจากลูกค้าจริง'], c:'ทุนที่เก็บไว้ ถ้าไม่ลงมือ ผลลัพธ์ก็เป็นศูนย์'},
     {t:'มีเวลา อยากเริ่มธุรกิจของตัวเอง', p:'อยากมีรายได้ของตัวเอง แต่ไม่รู้จะขายอะไร ทำคนเดียวไม่รู้เริ่มตรงไหน', h:'เริ่มจากสิ่งที่คุณถนัดและตลาดต้องการ', b:['หาสิ่งที่ถนัดและมีคนอยากซื้อ','วางแผน ทำเพจ ทำคอนเทนต์ให้','ลองตลาดโดยไม่ต้องเรียนทุกอย่างเอง'], c:'เวลาที่มีอยู่ ถ้าไม่ลงมือ ผลลัพธ์ก็เป็นศูนย์'},
     {t:'มีสินค้า อยากขายให้ได้มากขึ้น', p:'ของดีแต่ยอดนิ่ง โพสต์เอง ยิงแอดเอง แล้วไม่รู้ว่าอะไรได้ผล', h:'ทีมการตลาดประจำร้าน วัดผลเป็นตัวเลขของร้าน', b:['วางแผนและทำคอนเทนต์ให้','ดูแลแอด Meta','รายงานผลเป็นตัวเลขทุกเดือน'], c:'สินค้าดีที่ไม่มีคนเห็น ถ้าไม่ลงมือ ผลลัพธ์ก็เป็นศูนย์'},
-    {t:'มีพื้นที่ว่าง อยากให้สร้างรายได้', p:'ห้อง หน้าร้าน หรือที่ดินว่าง จ่ายค่าดูแลทุกเดือนแต่ไม่มีรายได้กลับมา', h:'ดูว่าพื้นที่ทำอะไรได้ แล้วหาลูกค้าทางออนไลน์ให้', b:['วิเคราะห์ว่าพื้นที่ทำอะไรได้','ให้เช่า เปิดร้าน หรือทำสตูดิโอ','หาลูกค้าทางออนไลน์ให้'], c:'พื้นที่ที่ว่างอยู่ ถ้าไม่ลงมือ ผลลัพธ์ก็เป็นศูนย์'}
+    {t:'มีพื้นที่ว่าง อยากให้สร้างรายได้', p:'ห้อง หน้าร้าน หรือที่ดินว่าง จ่ายค่าดูแลทุกเดือนแต่ไม่มีรายได้กลับมา', h:'ดูว่าพื้นที่ทำอะไรได้ แล้วหาลูกค้าทางออนไลน์ให้', b:['วิเคราะห์ว่าพื้นที่ทำอะไรได้','ให้เช่า เปิดร้าน หรือทำสตูดิโอ','หาลูกค้าทางออนไลน์ให้'], c:'พื้นที่ที่ว่างอยู่ ถ้าไม่ลงมือ ผลลัพธ์ก็เป็นศูนย์'},
+    {t:'มีทักษะ อยากทำงานจากบ้าน', p:'ใช้คอมพิวเตอร์คล่อง อยากมีรายได้จากงานออนไลน์ แต่ไม่รู้จะเริ่มรับงานจากไหน', h:'มาร่วมทีมงานดิจิทัลกับเรา ทำงานจากบ้านได้', b:['คุยกันก่อนว่าคุณถนัดงานแบบไหน','ทีมสอนวิธีทำงานจริงของเรา','แจ้งเมื่อมีงานที่เหมาะกับคุณ'], c:'ทักษะที่มีอยู่ ถ้าไม่ลงมือ ผลลัพธ์ก็เป็นศูนย์'}
   ];
   var ans=document.getElementById('answer'), opts=[].slice.call(document.querySelectorAll('.opt'));
   function el(t,c,x){ var n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n; }
