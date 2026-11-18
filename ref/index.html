@@ -120,10 +120,11 @@ footer{margin-top:40px;color:var(--sub);font-size:12px;line-height:16px}
   <summary>ค่าคอมคิดยังไง</summary>
   <ol>
     <li>ลูกค้าบอกรหัสของคุณตอนทักครั้งแรก หรือคุณลงทะเบียนลูกค้าก่อนปิดการขาย ใครลงก่อนได้สิทธิ์</li>
-    <li>ค่าคอมคิดจากเงินที่ลูกค้าจ่ายเข้าบริษัทจริงทุกงวด แพ็กแบ่งจ่าย 3 งวด คุณได้ 3 ครั้ง</li>
-    <li>ลูกค้า Business ที่ต่ออายุ คุณได้ค่าคอมต่อเนื่องทุกเดือนที่ลูกค้ายังจ่าย</li>
+    <li>ค่าคอมคิดจากเงินที่ลูกค้าจ่ายเข้าบริษัทจริงทุกงวด Eco แบ่งจ่าย 3 งวด คุณได้งวดละ 100 บาท</li>
+    <li>ลูกค้า Business ได้ 10% ในเดือนแรก และ 3% ทุกเดือนที่ลูกค้ายังจ่ายถึงเดือนที่ 12 ร้าน Eco ที่อัปเกรดเป็น Business ภายใน 6 เดือนก็ได้เท่ากัน</li>
     <li>เงินเข้าแล้วพักไว้ช่วงหนึ่งก่อนเป็น "พร้อมจ่าย" ถ้าลูกค้าขอคืนเงิน ค่าคอมรายการนั้นเป็น 0</li>
     <li>โอนเดือนละครั้งต้นเดือน หัก ณ ที่จ่ายตามกฎหมาย โบนัสไตรมาสจ่ายเมื่อจบไตรมาส</li>
+    <li>โบนัสนับแต้ม: Eco, Care, FastSetup ได้ 1 แต้ม Business ได้ 5 แต้ม ครบ 10 แต้มได้ 2,000 บาท ครบ 25 แต้มได้ 5,000 บาท</li>
   </ol>
 </details>
 <details>
@@ -151,7 +152,7 @@ footer{margin-top:40px;color:var(--sub);font-size:12px;line-height:16px}
   if (!live) $('mode').classList.remove('hidden');
 
   var DEMO = {ok:true,name:'ตัวอย่าง (ข้อมูลจำลอง)',code:'CD-DEMO',month:'2026-12',quarter:'2026-Q4',hold:15,
-    sum:{ready:1490,waiting:66.3,paid:66.3,thisMonth:1556.3,newAll:2,newQ:2},bonus:0,next:{need:3,amount:2000,target:5},tiers:[[5,2000],[10,5000]],
+    sum:{ready:1490,waiting:66.3,paid:66.3,thisMonth:1556.3,newAll:2,newQ:2,ptsQ:6},bonus:0,next:{need:4,amount:2000,target:10},tiers:[[10,2000],[25,5000]],
     payments:[
       {date:'2026-12-01',shop:'ร้า•••',product:'fastsetup! แพ็กไลน์ร้าน (3 งวด)',type:'ขายใหม่',no:2,amount:663,commission:66.3,status:'รอพักเงิน'},
       {date:'2026-11-18',shop:'บ้า•••',product:'Codera Business (14,900/เดือน)',type:'ขายใหม่',no:1,amount:14900,commission:1490,status:'พร้อมจ่าย'},
@@ -171,10 +172,10 @@ footer{margin-top:40px;color:var(--sub);font-size:12px;line-height:16px}
     $('k1').textContent = baht(d.sum.ready); $('k2').textContent = baht(d.sum.waiting);
     $('k3').textContent = baht(d.sum.thisMonth); $('k4').textContent = baht(d.sum.paid);
     var top = d.tiers[1][0];
-    $('bq').textContent = 'โบนัสไตรมาส '+d.quarter+' · ลูกค้าใหม่ '+d.sum.newQ+' ราย';
-    $('bs').textContent = d.next ? ('อีก '+d.next.need+' ราย ได้โบนัส '+baht(d.next.amount)+' บาท'+(d.bonus?(' · ตอนนี้ได้แล้ว '+baht(d.bonus)+' บาท'):'')) : ('ถึงขั้นสูงสุดแล้ว โบนัส '+baht(d.bonus)+' บาท');
-    $('bf').style.width = Math.min(100, d.sum.newQ/top*100)+'%';
-    $('bt').innerHTML = '<span>0</span><span>'+d.tiers[0][0]+' ราย · '+baht(d.tiers[0][1])+'</span><span>'+top+' ราย · '+baht(d.tiers[1][1])+'</span>';
+    $('bq').textContent = 'โบนัสไตรมาส '+d.quarter+' · แต้มสะสม '+(d.sum.ptsQ||0)+' แต้ม (ลูกค้าใหม่ '+d.sum.newQ+' ราย)';
+    $('bs').textContent = d.next ? ('อีก '+d.next.need+' แต้ม ได้โบนัส '+baht(d.next.amount)+' บาท'+(d.bonus?(' · ตอนนี้ได้แล้ว '+baht(d.bonus)+' บาท'):'')) : ('ถึงขั้นสูงสุดแล้ว โบนัส '+baht(d.bonus)+' บาท');
+    $('bf').style.width = Math.min(100, (d.sum.ptsQ||0)/top*100)+'%';
+    $('bt').innerHTML = '<span>0</span><span>'+d.tiers[0][0]+' แต้ม · '+baht(d.tiers[0][1])+'</span><span>'+top+' แต้ม · '+baht(d.tiers[1][1])+'</span>';
     $('pt').innerHTML = d.payments.map(function(p){
       return '<tr><td>'+esc(p.date)+'</td><td>'+esc(p.shop)+'</td><td>'+esc(p.product)+'</td><td>'+esc(p.type)+' '+esc(p.no)+'</td><td class="n">'+baht(p.amount)+'</td><td class="n">'+baht(p.commission)+'</td><td>'+tag(p.status)+'</td></tr>';
     }).join('');
