@@ -196,6 +196,32 @@ section.sec{padding-block:72px}
 .wshot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .wshot b{font-size:14px;font-weight:600;line-height:1.35}
 .wshot small{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.wshot{position:relative;font:inherit;text-align:left;padding:0;border:0;background:none;cursor:pointer}
+.wshot .ph.fit{background:#FDF3E4;display:flex;align-items:center}
+.wshot .ph.fit img{height:auto;object-fit:contain}
+.cnt2{position:absolute;top:8px;right:8px;font:600 12px var(--mono);font-style:normal;color:#fff;background:rgba(17,17,17,.72);border-radius:999px;padding:2px 9px 2px 22px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='1.6'%3E%3Crect x='2' y='4' width='9' height='9' rx='1.5'/%3E%3Cpath d='M5 2h8a1 1 0 0 1 1 1v8'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:7px center;background-size:11px}
+button.work-cover{border:0;padding:0;cursor:zoom-in;width:100%}
+.wbox{width:min(980px,100vw);max-width:100vw;max-height:100dvh;height:100dvh;margin:auto;padding:0;border:0;background:#0b0d0a;color:#fff;display:none;flex-direction:column}
+.wbox[open]{display:flex}
+.wbox::backdrop{background:rgba(0,0,0,.85)}
+@media (min-width:861px){ .wbox{height:min(92dvh,1000px);border-radius:22px} }
+.wbox-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px 12px 20px}
+.wbox-head b{font-size:16px;display:block;line-height:1.3}
+.wbox-head span{font-size:13px;color:rgba(255,255,255,.65)}
+.wbox-x{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:18px;cursor:pointer;flex:none}
+.wbox-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 8px;overflow:auto;touch-action:pan-y pinch-zoom}
+.wbox-stage img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;background:#fff}
+.wbox-stage.tall{align-items:flex-start}
+.wbox-stage.tall img{max-height:none}
+.wbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.wbox-nav svg{width:22px;height:22px}
+.wbox-nav.prev{left:10px}.wbox-nav.next{right:10px}
+.wbox-cap{font-size:14px;color:rgba(255,255,255,.8);text-align:center;padding:10px 16px 0}
+.wbox-thumbs{display:flex;gap:8px;overflow-x:auto;padding:10px 14px max(14px,env(safe-area-inset-bottom,0px));scrollbar-width:none;justify-content:safe center}
+.wbox-thumbs::-webkit-scrollbar{display:none}
+.wbox-thumbs button{flex:none;width:52px;height:52px;padding:0;border-radius:10px;overflow:hidden;border:2px solid transparent;background:#222;cursor:pointer;opacity:.6}
+.wbox-thumbs button[aria-current=true]{border-color:var(--green);opacity:1}
+.wbox-thumbs img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 @media (max-width:860px){
   .work-top{grid-template-columns:1fr}
   .work-cover{order:-1}
@@ -446,17 +472,23 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
               <a class="btn btn-ghost" href="https://line.me/R/ti/p/@codera.th" target="_blank" rel="noopener">อยากได้แบบนี้ ทักทีม <span class="arr">→</span></a>
             </div>
           </div>
-          <a class="work-cover" href="/assets/work/twin-orange/cover.webp" target="_blank" rel="noopener"><img src="/assets/work/twin-orange/cover.webp" alt="ปกเพจ Twin Orange Juice: แม่กับลูกแฝดถือส้ม ข้อความ น้ำส้มคั้นสด จากแม่ถึงลูก" width="1280" height="721" loading="lazy"></a>
+          <button type="button" class="work-cover" data-set="page" aria-label="ดูหน้าเพจ Facebook ทั้งชุด"><img src="/assets/work/twin-orange/cover.webp" alt="ปกเพจ Twin Orange Juice: แม่กับลูกแฝดถือส้ม ข้อความ น้ำส้มคั้นสด จากแม่ถึงลูก" width="1280" height="721" loading="lazy"></button>
         </div>
         <div class="work-grid">
-          <a class="wshot" href="/assets/work/twin-orange/richmenu.webp" target="_blank" rel="noopener"><span class="ph"><img src="/assets/work/twin-orange/richmenu.webp" alt="ริชเมนู LINE OA ของ Twin Orange Juice" width="1000" height="674" loading="lazy" style="object-position:left"></span><b>ริชเมนู LINE OA<small>สั่งเลย · เมนู · ติดตามพัสดุ</small></b></a>
-          <a class="wshot" href="/assets/work/twin-orange/welcome.webp" target="_blank" rel="noopener"><span class="ph"><img src="/assets/work/twin-orange/welcome.webp" alt="ข้อความต้อนรับใน LINE ยินดีต้อนรับสู่บ้านเพชรกับพลอย" width="720" height="720" loading="lazy"></span><b>ข้อความต้อนรับ<small>เพื่อนใหม่เห็นเป็นอย่างแรก</small></b></a>
-          <a class="wshot" href="/assets/work/twin-orange/launch.webp" target="_blank" rel="noopener"><span class="ph"><img src="/assets/work/twin-orange/launch.webp" alt="โพสต์เปิดตัวเพจ เปิดแล้วค่ะ" width="720" height="900" loading="lazy"></span><b>โพสต์เปิดตัว<small>ชุด 5 ภาพ ปักหมุดบนเพจ</small></b></a>
-          <a class="wshot" href="/assets/work/twin-orange/plan.webp" target="_blank" rel="noopener"><span class="ph"><img src="/assets/work/twin-orange/plan.webp" alt="ภาพรวมฟีดเดือนแรก 20 โพสต์" width="1000" height="1271" loading="lazy"></span><b>แผนเดือนแรก<small>ฟีด 20 โพสต์ วางครบ 4 สัปดาห์</small></b></a>
+          <button type="button" class="wshot" data-set="line"><span class="ph fit"><img src="/assets/work/twin-orange/richmenu.webp" alt="ริชเมนู LINE OA ของ Twin Orange Juice" width="1000" height="674" loading="lazy"></span><b>LINE OA<small>ริชเมนู ข้อความต้อนรับ การ์ดราคาและสั่งซื้อ</small></b><i class="cnt2">10</i></button>
+          <button type="button" class="wshot" data-set="page"><span class="ph fit"><img src="/assets/work/twin-orange/full/page-1.webp" alt="ภาพจำลองหน้าเพจ Facebook ของ Twin Orange Juice" width="1400" height="778" loading="lazy"></span><b>หน้าเพจ Facebook<small>หน้าเพจ ปก รูปโปรไฟล์</small></b><i class="cnt2">3</i></button>
+          <button type="button" class="wshot" data-set="launch"><span class="ph"><img src="/assets/work/twin-orange/launch.webp" alt="โพสต์เปิดตัวเพจ เปิดแล้วค่ะ" width="720" height="900" loading="lazy"></span><b>โพสต์เปิดตัว<small>ชุด 5 ภาพ ปักหมุดบนเพจ</small></b><i class="cnt2">5</i></button>
+          <button type="button" class="wshot" data-set="plan"><span class="ph"><img src="/assets/work/twin-orange/plan.webp" alt="ภาพรวมฟีดเดือนแรก 20 โพสต์" width="1000" height="1271" loading="lazy"></span><b>แผนเดือนแรก<small>ฟีด 20 โพสต์ ปฏิทิน 30 วัน และโพสต์ที่ทำเสร็จ</small></b><i class="cnt2">18</i></button>
         </div>
       </article>
     </div>
   </section>
+  <dialog class="wbox" id="wbox" aria-labelledby="wbox-t">
+    <div class="wbox-head"><div><b id="wbox-t"></b><span class="mono" id="wbox-n"></span></div><button type="button" class="wbox-x" data-wclose aria-label="ปิด">✕</button></div>
+    <div class="wbox-stage"><img id="wbox-img" alt=""><button type="button" class="wbox-nav prev" id="wbox-prev" aria-label="ภาพก่อนหน้า"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="wbox-nav next" id="wbox-next" aria-label="ภาพถัดไป"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+    <p class="wbox-cap" id="wbox-cap"></p>
+    <div class="wbox-thumbs" id="wbox-thumbs"></div>
+  </dialog>
 
   <section class="sec" id="reviews" aria-labelledby="h-rev" hidden style="padding-top:0;scroll-margin-top:70px">
     <div class="wrap">
@@ -621,6 +653,40 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
     .then(boot)
     .catch(function(){ document.getElementById('list').innerHTML='<div class="empty">โหลดคิวไม่สำเร็จ ลองรีเฟรชอีกครั้ง หรือทักไลน์ @codera.th</div>'; });
 
+
+  /* portfolio lightbox: tap a tile to see every image in that set, full and uncropped */
+  (function(){
+    var B='/assets/work/twin-orange/full/';
+    var SETS={
+      page:{t:'หน้าเพจ Facebook',i:[['page-1','ภาพจำลองหน้าเพจหลังตั้งค่า'],['page-2','ปกเพจ ครอปพอดีทั้งคอมและมือถือ'],['page-3','รูปโปรไฟล์']]},
+      line:{t:'LINE OA @142fcshb',i:[['richmenu-1','ริชเมนูแบบเปิด: สั่งเลย · เมนู · ยิ่งซื้อยิ่งถูก · ติดตามพัสดุ · คุยกับแม่'],['richmenu-2','ริชเมนูแบบย่อ'],['line-1','ข้อความต้อนรับเพื่อนใหม่'],['line-2','ราคาและแพ็กเกจ'],['line-3','รอบคั้นและรอบส่ง'],['line-4','วิธีเก็บและดูแลน้ำส้ม'],['line-5','การ์ดวิธีสั่ง'],['line-6','การ์ดการจัดส่ง'],['line-7','การ์ดการเก็บรักษา'],['line-8','การ์ดการดูแล']]},
+      launch:{t:'โพสต์เปิดตัว 5 ภาพ',i:[['launch-1','1/5 เปิดแล้วค่ะ'],['launch-2','2/5 เราคือใคร'],['launch-3','3/5 เมนูและราคา'],['launch-4','4/5 ส่งยังไง'],['launch-5','5/5 วิธีสั่ง']]},
+      plan:{t:'แผนคอนเทนต์เดือนแรก',i:[['plan-1','ภาพรวมฟีดเดือนแรก 20 โพสต์'],['plan-2','ปฏิทินโพสต์ 30 วัน'],['plan-3','โพสต์ อ่านฉลากเครื่องดื่มลูก · ภาพ 1/5'],['plan-4','โพสต์ อ่านฉลากเครื่องดื่มลูก · ภาพ 2/5'],['plan-5','โพสต์ อ่านฉลากเครื่องดื่มลูก · ภาพ 3/5'],['plan-6','โพสต์ อ่านฉลากเครื่องดื่มลูก · ภาพ 4/5'],['plan-7','โพสต์ อ่านฉลากเครื่องดื่มลูก · ภาพ 5/5'],['plan-8','โพสต์ ต้นทุนน้ำส้มของคาเฟ่ · ภาพ 1/5'],['plan-9','โพสต์ ต้นทุนน้ำส้มของคาเฟ่ · ภาพ 2/5'],['plan-10','โพสต์ ต้นทุนน้ำส้มของคาเฟ่ · ภาพ 3/5'],['plan-11','โพสต์ ต้นทุนน้ำส้มของคาเฟ่ · ภาพ 4/5'],['plan-12','โพสต์ ต้นทุนน้ำส้มของคาเฟ่ · ภาพ 5/5'],['plan-13','โพสต์ ไอเดียจัดเบรคประชุม · ภาพ 1/5'],['plan-14','โพสต์ ไอเดียจัดเบรคประชุม · ภาพ 2/5'],['plan-15','โพสต์ ไอเดียจัดเบรคประชุม · ภาพ 3/5'],['plan-16','โพสต์ ไอเดียจัดเบรคประชุม · ภาพ 4/5'],['plan-17','โพสต์ ไอเดียจัดเบรคประชุม · ภาพ 5/5'],['plan-18','โพสต์ ของฝากถึงพ่อแม่ (ภาพเดียว)']]}
+    };
+    var d=document.getElementById('wbox'); if(!d||!d.showModal) return;
+    var img=document.getElementById('wbox-img'), st=d.querySelector('.wbox-stage'), th=document.getElementById('wbox-thumbs');
+    var cur=null, k=0;
+    function show(n){ var L=cur.i; k=(n+L.length)%L.length; var it=L[k];
+      img.src=B+it[0]+'.webp'; img.alt=cur.t+' · '+it[1];
+      document.getElementById('wbox-cap').textContent=it[1];
+      document.getElementById('wbox-n').textContent=L.length>1?(k+1)+' / '+L.length:'';
+      st.classList.toggle('tall',it[0]==='plan-1'||it[0]==='plan-2'); st.scrollTop=0;
+      [].forEach.call(th.children,function(b,j){ b.setAttribute('aria-current',j===k?'true':'false'); if(j===k&&b.scrollIntoView) b.scrollIntoView({block:'nearest',inline:'center'}); });
+      var one=L.length<2; document.getElementById('wbox-prev').hidden=one; document.getElementById('wbox-next').hidden=one; th.hidden=one;
+      if(!one){ var nx=new Image(); nx.src=B+L[(k+1)%L.length][0]+'.webp'; } }
+    function open(key){ cur=SETS[key]; if(!cur) return; document.getElementById('wbox-t').textContent=cur.t; th.textContent='';
+      cur.i.forEach(function(it,j){ var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label','ภาพที่ '+(j+1)); var m=document.createElement('img'); m.src=B+it[0]+'.webp'; m.alt=''; m.loading='lazy'; b.appendChild(m); b.addEventListener('click',function(){ show(j); }); th.appendChild(b); });
+      d.showModal(); document.body.style.overflow='hidden'; show(0); }
+    [].forEach.call(document.querySelectorAll('#work [data-set]'),function(b){ b.addEventListener('click',function(){ open(b.getAttribute('data-set')); }); });
+    document.getElementById('wbox-prev').addEventListener('click',function(){ show(k-1); });
+    document.getElementById('wbox-next').addEventListener('click',function(){ show(k+1); });
+    d.querySelector('[data-wclose]').addEventListener('click',function(){ d.close(); });
+    d.addEventListener('close',function(){ document.body.style.overflow=''; });
+    d.addEventListener('click',function(e){ if(e.target===d) d.close(); });
+    d.addEventListener('keydown',function(e){ if(e.key==='ArrowLeft') show(k-1); if(e.key==='ArrowRight') show(k+1); });
+    var x0=null,y0=0; st.addEventListener('touchstart',function(e){ if(e.touches.length===1){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; } else x0=null; },{passive:true});
+    st.addEventListener('touchend',function(e){ if(x0==null) return; var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0; x0=null; if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5) show(dx<0?k+1:k-1); });
+  })();
   var nav=document.getElementById('nav'), tk=false;
   addEventListener('scroll',function(){ if(tk) return; tk=true; requestAnimationFrame(function(){ nav.classList.toggle('scrolled',scrollY>10); tk=false; }); },{passive:true});
 })();
