@@ -170,6 +170,40 @@ section.sec{padding-block:72px}
 .copy{margin-left:auto;font:600 13px var(--sans);color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 10px;cursor:pointer}
 .split2{display:grid;grid-template-columns:1fr 1fr;gap:48px}
 
+/* portfolio (real work) */
+.work{border:1px solid var(--line);border-radius:28px;overflow:hidden;background:#fff}
+.work-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:0;align-items:stretch}
+.work-info{padding:36px;display:grid;gap:16px;align-content:start}
+.work-id{display:flex;align-items:center;gap:14px}
+.work-id img{width:56px;height:56px;border-radius:50%;flex:none;background:#FFF4E0}
+.work-id h3{font-size:24px}
+.work-id span{font-size:14px;color:var(--muted)}
+.tag-first{justify-self:start;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--green-ink);background:var(--green-tint);border-radius:999px;padding:4px 12px}
+.tag-first::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green-ink)}
+.work-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.work-list li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:15px;color:var(--ink);line-height:1.55}
+.work-list li::before{content:"";width:16px;height:16px;margin-top:4px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%2314200a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.work-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.btn-line2{background:#06C755;color:#fff}
+.btn-line2:hover{box-shadow:0 0 0 6px rgba(6,199,85,.18)}
+.btn-ghost{border-color:var(--line-2);color:var(--ink);background:#fff}
+.work-cover{display:flex;align-items:center;background:#FDF3E4;min-height:100%}
+.work-cover img{display:block;width:100%;height:auto}
+.work-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:12px;background:var(--soft);border-top:1px solid var(--line)}
+.wshot{display:grid;gap:8px;text-decoration:none;color:var(--ink)}
+.wshot .ph{display:block;border-radius:14px;overflow:hidden;background:#fff;aspect-ratio:4/5;border:1px solid var(--line);transition:transform .3s var(--ease),box-shadow .3s}
+.wshot:hover .ph{transform:translateY(-2px);box-shadow:0 14px 30px -22px rgba(17,17,17,.5)}
+.wshot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.wshot b{font-size:14px;font-weight:600;line-height:1.35}
+.wshot small{display:block;font-size:12px;color:var(--muted);font-weight:400}
+@media (max-width:860px){
+  .work-top{grid-template-columns:1fr}
+  .work-cover{order:-1}
+  .work-info{padding:24px 22px}
+  .work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){ .work-acts .btn{width:100%} }
+
 /* footer */
 footer{padding-block:16px 40px}
 .foot-cta{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;background:#0b0d0a;color:#fff;padding:48px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
@@ -338,6 +372,7 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
     <nav class="links" aria-label="เมนู">
       <a href="/">หน้าหลัก</a>
       <a href="#queue">คิวร้าน</a>
+      <a href="#work">ผลงานจริง</a>
       <a href="#finished" data-fin-link hidden>จบโครงการ</a>
       <a href="#reviews" data-reviews-link hidden>รีวิว</a>
       <a href="#clients" data-cli-link hidden>ลูกค้าของเรา</a>
@@ -389,6 +424,37 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
       <div class="head"><h2 class="h2" id="h-queue">คิวร้าน</h2></div>
       <div class="list" id="list"><div class="empty">กำลังโหลดคิว…</div></div>
       <p class="note">ร้านที่ยังไม่อนุญาตให้แสดงชื่อ จะเห็นเป็นรหัส CDR</p>
+    </div>
+  </section>
+
+  <section class="sec" id="work" aria-labelledby="h-work" style="padding-top:8px;scroll-margin-top:70px">
+    <div class="wrap">
+      <div class="head"><span class="eyebrow">ผลงานจริง · ลูกค้ารายแรก</span><h2 class="h2" id="h-work">ทำเสร็จแล้ว ลองกดเข้าไปดูของจริงได้เลย</h2></div>
+      <article class="work">
+        <div class="work-top">
+          <div class="work-info">
+            <span class="tag-first">เสร็จครบ 6 ขั้น · CDR-0008</span>
+            <div class="work-id"><img src="/assets/work/twin-orange/mark.webp" alt="" width="56" height="56"><div><h3>Twin Orange Juice</h3><span>น้ำส้มคั้นสด ส่งแช่แข็งทั่วไทย</span></div></div>
+            <ul class="work-list">
+              <li>วางแบรนด์ใหม่ทั้งชุด: เรื่องแม่กับลูกแฝด ตัวละคร โลโก้ สี และดีไซน์ซิสเต็ม</li>
+              <li>ตั้งค่า LINE OA พร้อมใช้: ริชเมนู ข้อความต้อนรับ การ์ดราคา และขั้นตอนสั่งซื้อ</li>
+              <li>หน้าเพจ Facebook: รูปโปรไฟล์ ปก และโพสต์เปิดตัว 5 ภาพ</li>
+              <li>แผนคอนเทนต์ 1 เดือนลงเพจ 20 โพสต์ พร้อมภาพและแคปชัน</li>
+            </ul>
+            <div class="work-acts">
+              <a class="btn btn-line2" href="https://line.me/R/ti/p/@142fcshb" target="_blank" rel="noopener"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg>ดู LINE OA จริง @142fcshb</a>
+              <a class="btn btn-ghost" href="https://line.me/R/ti/p/@codera.th" target="_blank" rel="noopener">อยากได้แบบนี้ ทักทีม <span class="arr">→</span></a>
+            </div>
+          </div>
+          <a class="work-cover" href="/assets/work/twin-orange/cover.webp" target="_blank" rel="noopener"><img src="/assets/work/twin-orange/cover.webp" alt="ปกเพจ Twin Orange Juice: แม่กับลูกแฝดถือส้ม ข้อความ น้ำส้มคั้นสด จากแม่ถึงลูก" width="1280" height="721" loading="lazy"></a>
+        </div>
+        <div class="work-grid">
+          <a class="wshot" href="/assets/work/twin-orange/richmenu.webp" target="_blank" rel="noopener"><span class="ph"><img src="/assets/work/twin-orange/richmenu.webp" alt="ริชเมนู LINE OA ของ Twin Orange Juice" width="1000" height="674" loading="lazy" style="object-position:left"></span><b>ริชเมนู LINE OA<small>สั่งเลย · เมนู · ติดตามพัสดุ</small></b></a>
+          <a class="wshot" href="/assets/work/twin-orange/welcome.webp" target="_blank" rel="noopener"><span class="ph"><img src="/assets/work/twin-orange/welcome.webp" alt="ข้อความต้อนรับใน LINE ยินดีต้อนรับสู่บ้านเพชรกับพลอย" width="720" height="720" loading="lazy"></span><b>ข้อความต้อนรับ<small>เพื่อนใหม่เห็นเป็นอย่างแรก</small></b></a>
+          <a class="wshot" href="/assets/work/twin-orange/launch.webp" target="_blank" rel="noopener"><span class="ph"><img src="/assets/work/twin-orange/launch.webp" alt="โพสต์เปิดตัวเพจ เปิดแล้วค่ะ" width="720" height="900" loading="lazy"></span><b>โพสต์เปิดตัว<small>ชุด 5 ภาพ ปักหมุดบนเพจ</small></b></a>
+          <a class="wshot" href="/assets/work/twin-orange/plan.webp" target="_blank" rel="noopener"><span class="ph"><img src="/assets/work/twin-orange/plan.webp" alt="ภาพรวมฟีดเดือนแรก 20 โพสต์" width="1000" height="1271" loading="lazy"></span><b>แผนเดือนแรก<small>ฟีด 20 โพสต์ วางครบ 4 สัปดาห์</small></b></a>
+        </div>
+      </article>
     </div>
   </section>
 
