@@ -3,5 +3,6 @@ Allow: /
 Disallow: /queue/
 Disallow: /fastsetup/
 Disallow: /team/
+Disallow: /ref/
 
 Sitemap: https://coderasolutions.org/sitemap.xml

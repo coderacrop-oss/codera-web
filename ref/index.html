@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codera · เช็กค่าคอมเซล</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48CHBV9678"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-48CHBV9678');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFFFF;--soft:#F2F2EF;--line:#E6E6E1;--ink:#111111;--sub:#55554F;--green:#9BD137;--card:#FFFFFF;--warn:#B54708;--ease:cubic-bezier(.22,1,.36,1)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131209;--soft:#1F1F1F;--line:#313131;--ink:#FFFFFF;--sub:#BDBDB5;--card:#181818;--warn:#F5A35B}}
+:root[data-theme="dark"]{--bg:#131209;--soft:#1F1F1F;--line:#313131;--ink:#FFFFFF;--sub:#BDBDB5;--card:#181818;--warn:#F5A35B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans Thai",sans-serif;font-size:16px;line-height:24px}
+.wrap{max-width:920px;margin:0 auto;padding:24px 16px 64px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.brand{font-weight:700;font-size:18px;line-height:28px}
+.brand small{display:block;font-weight:500;font-size:12px;line-height:16px;color:var(--sub)}
+.demo{font-size:12px;line-height:16px;font-weight:600;padding:4px 12px;border-radius:999px;background:var(--soft);border:1px solid var(--line)}
+h1{font-size:30px;line-height:36px;margin:32px 0 8px;text-wrap:balance}
+.lead{color:var(--sub);margin:0 0 24px;max-width:640px}
+form{display:grid;grid-template-columns:1fr 1.4fr auto;gap:12px;align-items:end;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+label{display:block;font-size:14px;line-height:20px;font-weight:600;margin-bottom:4px}
+input{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+input:focus{outline:2px solid var(--green);outline-offset:1px;border-color:var(--ink)}
+button{font:inherit;font-weight:700;padding:10px 20px;border-radius:10px;border:0;background:var(--ink);color:var(--bg);cursor:pointer;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+button:hover{opacity:.85}button:active{transform:scale(.98)}
+button:disabled{opacity:.5;cursor:wait}
+.err{margin-top:12px;color:var(--warn);font-weight:600;min-height:24px}
+.hidden{display:none}
+.hi{margin:32px 0 16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:baseline}
+.hi h2{font-size:24px;line-height:32px;margin:0}
+.hi span{color:var(--sub);font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.kpi p{margin:0;font-size:14px;line-height:20px;color:var(--sub)}
+.kpi b{display:block;margin-top:4px;font-family:"IBM Plex Mono",monospace;font-size:24px;line-height:32px;font-weight:600}
+.kpi.main{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.kpi.main p{color:inherit;opacity:.75}
+.kpi.main b{color:var(--green)}
+.box{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.box h3{margin:0 0 4px;font-size:18px;line-height:28px}
+.box .s{color:var(--sub);font-size:14px;line-height:20px;margin:0}
+.bar{height:12px;border-radius:999px;background:var(--soft);margin-top:12px;overflow:hidden;position:relative}
+.bar i{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .6s var(--ease)}
+.ticks{display:flex;justify-content:space-between;font-size:12px;line-height:16px;color:var(--sub);margin-top:6px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:20px;margin-top:8px}
+.tbl th,.tbl td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-weight:600;color:var(--sub)}
+.tbl td.n{font-family:"IBM Plex Mono",monospace;text-align:right;white-space:nowrap}
+.tag{display:inline-block;font-size:12px;line-height:16px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+.tag.ok{background:var(--green);color:#111;border-color:var(--green)}
+.tag.done{background:var(--soft)}
+.scroll{overflow-x:auto}
+details{margin-top:16px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+summary{cursor:pointer;padding:16px;font-weight:700}
+details ol,details ul{margin:0;padding:0 16px 16px 36px;color:var(--sub)}
+details li{margin-top:6px}
+.empty{color:var(--sub);font-size:14px;padding:12px 0}
+footer{margin-top:40px;color:var(--sub);font-size:12px;line-height:16px}
+@media (max-width:720px){form{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}h1{font-size:24px;line-height:32px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand"><a href="/" style="color:inherit;text-decoration:none">Codera Solutions</a><small>ระบบรหัสแนะนำ · สำหรับเซล</small></div>
+  <span id="mode" class="demo hidden">ข้อมูลจำลอง · ลองรหัส CD-DEMO อีเมล demo@example.com</span>
+</header>
+
+<h1>เช็กค่าคอมของคุณ</h1>
+<p class="lead">กรอกรหัสเซลและอีเมลที่ลงทะเบียนไว้ ระบบแสดงเฉพาะยอดของรหัสคุณ ชื่อลูกค้าแสดงแบบปิดบางส่วน</p>
+
+<form id="f" novalidate>
+  <div><label for="code">รหัสเซล</label><input id="code" autocomplete="off" placeholder="CD-001" maxlength="20" required></div>
+  <div><label for="email">อีเมล</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="120" required></div>
+  <button id="go" type="submit">เช็กยอด</button>
+</form>
+<p class="err" id="err" role="alert"></p>
+
+<section id="out" class="hidden" aria-live="polite">
+  <div class="hi"><h2 id="who"></h2><span id="asof"></span></div>
+  <div class="kpis">
+    <div class="kpi main"><p>พร้อมจ่าย</p><b id="k1">0</b></div>
+    <div class="kpi"><p>รอพักเงิน / รอยืนยัน</p><b id="k2">0</b></div>
+    <div class="kpi"><p>ค่าคอมเดือนนี้</p><b id="k3">0</b></div>
+    <div class="kpi"><p>จ่ายแล้วรวม</p><b id="k4">0</b></div>
+  </div>
+
+  <div class="box">
+    <h3 id="bq"></h3>
+    <p class="s" id="bs"></p>
+    <div class="bar" aria-hidden="true"><i id="bf" style="width:0"></i></div>
+    <div class="ticks" id="bt"></div>
+  </div>
+
+  <div class="box">
+    <h3>เงินที่ลูกค้าจ่ายเข้ามา</h3>
+    <p class="s">ค่าคอมคิดจากเงินที่บริษัทได้รับจริงแต่ละงวด</p>
+    <div class="scroll"><table class="tbl"><thead><tr><th>วันที่</th><th>ลูกค้า</th><th>สินค้า</th><th>งวด</th><th class="n">ยอดรับ</th><th class="n">ค่าคอม</th><th>สถานะ</th></tr></thead><tbody id="pt"></tbody></table></div>
+    <p class="empty hidden" id="pe">ยังไม่มีรายการ</p>
+  </div>
+
+  <div class="box">
+    <h3>ลูกค้าที่คุณลงทะเบียนไว้</h3>
+    <p class="s">ลงทะเบียนก่อนปิดการขาย สิทธิ์อยู่ถึงวันที่ในตาราง</p>
+    <div class="scroll"><table class="tbl"><thead><tr><th>วันที่ลง</th><th>ลูกค้า</th><th>สนใจ</th><th>สิทธิ์ถึง</th><th>สถานะ</th></tr></thead><tbody id="lt"></tbody></table></div>
+    <p class="empty hidden" id="le">ยังไม่มีลูกค้าที่ลงทะเบียน</p>
+  </div>
+</section>
+
+<details>
+  <summary>ค่าคอมคิดยังไง</summary>
+  <ol>
+    <li>ลูกค้าบอกรหัสของคุณตอนทักครั้งแรก หรือคุณลงทะเบียนลูกค้าก่อนปิดการขาย ใครลงก่อนได้สิทธิ์</li>
+    <li>ค่าคอมคิดจากเงินที่ลูกค้าจ่ายเข้าบริษัทจริงทุกงวด แพ็กแบ่งจ่าย 3 งวด คุณได้ 3 ครั้ง</li>
+    <li>ลูกค้า Business ที่ต่ออายุ คุณได้ค่าคอมต่อเนื่องทุกเดือนที่ลูกค้ายังจ่าย</li>
+    <li>เงินเข้าแล้วพักไว้ช่วงหนึ่งก่อนเป็น "พร้อมจ่าย" ถ้าลูกค้าขอคืนเงิน ค่าคอมรายการนั้นเป็น 0</li>
+    <li>โอนเดือนละครั้งต้นเดือน หัก ณ ที่จ่ายตามกฎหมาย โบนัสไตรมาสจ่ายเมื่อจบไตรมาส</li>
+  </ol>
+</details>
+<details>
+  <summary>หน้าที่ของเซล</summary>
+  <ul>
+    <li>หาและคัดลูกค้าที่ตรงแพ็ก แนะนำตามจริง ไม่สัญญายอดขาย ไม่ให้ส่วนลดเอง</li>
+    <li>ส่งลิงก์หรือข้อความให้ลูกค้าทักทีมพร้อมรหัสของคุณ แล้วลงทะเบียนลูกค้าในวันเดียวกัน</li>
+    <li>ช่วยตามเอกสารและข้อมูลร้าน ส่งต่อทีมเมื่อลูกค้าพร้อมจ่าย ไม่รับเงินจากลูกค้าเอง</li>
+    <li>ถามความพอใจลูกค้าเดือนละครั้ง ลูกค้าที่อยู่ต่อคือค่าคอมต่อเนื่องของคุณ</li>
+    <li>ไม่ขอรหัสผ่านหรือเข้าบัญชีเพจ ไลน์ หรือแอดของลูกค้า</li>
+  </ul>
+</details>
+<footer>มีคำถามเรื่องยอด ทักทีม Codera พร้อมรหัสเซลของคุณ · หน้านี้ไม่เก็บรหัสหรืออีเมลที่คุณกรอก</footer>
+</div>
+
+<script>
+(function(){
+  var gas = (typeof google !== 'undefined' && google.script && google.script.run);
+  var API = 'https://script.google.com/macros/s/AKfycbyI6xF49oXZxuNXOHt_C4KnqoUs_WAbdEpfJCCDmur0hqdFe0M8evadnDxTuFVjdKI/exec';
+  var demo = /[?&]demo=1/.test(location.search) || !/coderasolutions\.org$|script\.google|googleusercontent/.test(location.hostname);
+  var live = gas || !demo;
+  var $ = function(id){ return document.getElementById(id); };
+  var baht = function(n){ return Number(n||0).toLocaleString('th-TH',{minimumFractionDigits:2,maximumFractionDigits:2}); };
+  var esc = function(s){ var d=document.createElement('div'); d.textContent = s==null?'':String(s); return d.innerHTML; };
+  if (!live) $('mode').classList.remove('hidden');
+
+  var DEMO = {ok:true,name:'ตัวอย่าง (ข้อมูลจำลอง)',code:'CD-DEMO',month:'2026-12',quarter:'2026-Q4',hold:15,
+    sum:{ready:1490,waiting:66.3,paid:66.3,thisMonth:1556.3,newAll:2,newQ:2},bonus:0,next:{need:3,amount:2000,target:5},tiers:[[5,2000],[10,5000]],
+    payments:[
+      {date:'2026-12-01',shop:'ร้า•••',product:'fastsetup! แพ็กไลน์ร้าน (3 งวด)',type:'ขายใหม่',no:2,amount:663,commission:66.3,status:'รอพักเงิน'},
+      {date:'2026-11-18',shop:'บ้า•••',product:'Codera Business (14,900/เดือน)',type:'ขายใหม่',no:1,amount:14900,commission:1490,status:'พร้อมจ่าย'},
+      {date:'2026-11-18',shop:'ร้า•••',product:'fastsetup! แพ็กไลน์ร้าน (3 งวด)',type:'ขายใหม่',no:1,amount:663,commission:66.3,status:'จ่ายแล้ว'},
+      {date:'2026-11-20',shop:'คาเ•••',product:'Codera Eco (2,990 · 3 งวด)',type:'ขายใหม่',no:1,amount:990,commission:0,status:'รอยืนยันยอด'}],
+    leads:[{date:'2026-11-25',shop:'สปา•••',product:'fastsetup! แพ็กไลน์ร้าน (3 งวด)',until:'2027-01-24',status:'เปิด'}],
+    asOf:'ข้อมูลจำลอง'};
+
+  function tag(st){
+    var c = st==='พร้อมจ่าย'?'ok':(st==='จ่ายแล้ว'?'done':'');
+    return '<span class="tag '+c+'">'+esc(st)+'</span>';
+  }
+  function render(d){
+    $('out').classList.remove('hidden');
+    $('who').textContent = d.name+' · '+d.code;
+    $('asof').textContent = 'ข้อมูล ณ '+d.asOf;
+    $('k1').textContent = baht(d.sum.ready); $('k2').textContent = baht(d.sum.waiting);
+    $('k3').textContent = baht(d.sum.thisMonth); $('k4').textContent = baht(d.sum.paid);
+    var top = d.tiers[1][0];
+    $('bq').textContent = 'โบนัสไตรมาส '+d.quarter+' · ลูกค้าใหม่ '+d.sum.newQ+' ราย';
+    $('bs').textContent = d.next ? ('อีก '+d.next.need+' ราย ได้โบนัส '+baht(d.next.amount)+' บาท'+(d.bonus?(' · ตอนนี้ได้แล้ว '+baht(d.bonus)+' บาท'):'')) : ('ถึงขั้นสูงสุดแล้ว โบนัส '+baht(d.bonus)+' บาท');
+    $('bf').style.width = Math.min(100, d.sum.newQ/top*100)+'%';
+    $('bt').innerHTML = '<span>0</span><span>'+d.tiers[0][0]+' ราย · '+baht(d.tiers[0][1])+'</span><span>'+top+' ราย · '+baht(d.tiers[1][1])+'</span>';
+    $('pt').innerHTML = d.payments.map(function(p){
+      return '<tr><td>'+esc(p.date)+'</td><td>'+esc(p.shop)+'</td><td>'+esc(p.product)+'</td><td>'+esc(p.type)+' '+esc(p.no)+'</td><td class="n">'+baht(p.amount)+'</td><td class="n">'+baht(p.commission)+'</td><td>'+tag(p.status)+'</td></tr>';
+    }).join('');
+    $('pe').classList.toggle('hidden', d.payments.length>0);
+    $('lt').innerHTML = d.leads.map(function(l){
+      return '<tr><td>'+esc(l.date)+'</td><td>'+esc(l.shop)+'</td><td>'+esc(l.product)+'</td><td>'+esc(l.until)+'</td><td>'+tag(l.status)+'</td></tr>';
+    }).join('');
+    $('le').classList.toggle('hidden', d.leads.length>0);
+  }
+  function done(d){
+    $('go').disabled=false; $('go').textContent='เช็กยอด';
+    if(!d || !d.ok){ $('out').classList.add('hidden'); $('err').textContent = (d&&d.msg)||'เกิดข้อผิดพลาด ลองใหม่อีกครั้ง'; return; }
+    $('err').textContent=''; render(d);
+  }
+  $('f').addEventListener('submit', function(e){
+    e.preventDefault();
+    var code=$('code').value.trim(), email=$('email').value.trim();
+    if(!code){ $('err').textContent='กรอกรหัสเซล'; $('code').focus(); return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ $('err').textContent='อีเมลไม่ถูกต้อง'; $('email').focus(); return; }
+    $('go').disabled=true; $('go').textContent='กำลังเช็ก…'; $('err').textContent='';
+    if(gas){
+      google.script.run.withSuccessHandler(done).withFailureHandler(function(){ done({ok:false,msg:'เชื่อมต่อระบบไม่ได้ ลองใหม่อีกครั้ง'}); }).lookup(code,email);
+    } else if(live){
+      var ctl = new AbortController(); var t = setTimeout(function(){ ctl.abort(); }, 15000);
+      fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({code:code, email:email}), signal: ctl.signal})
+        .then(function(r){ return r.json(); }).then(function(d){ clearTimeout(t); done(d); })
+        .catch(function(){ clearTimeout(t); done({ok:false,msg:'เชื่อมต่อระบบไม่ได้ ลองใหม่อีกครั้ง'}); });
+    } else {
+      setTimeout(function(){ done(code.toUpperCase()==='CD-DEMO' && email.toLowerCase()==='demo@example.com' ? DEMO : {ok:false,msg:'ไม่พบรหัสนี้ หรืออีเมลไม่ตรงกับที่ลงทะเบียนไว้'}); }, 400);
+    }
+  });
+})();
+</script>
+</body>
+</html>
