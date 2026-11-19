@@ -450,6 +450,27 @@ footer{padding-block:16px 40px}
 .steps3 p{color:var(--muted);font-size:16px;max-width:30ch}
 @media (max-width:700px){.steps3{grid-template-columns:1fr;gap:28px;max-width:420px}.steps3 .rail{left:31px;right:auto;top:32px;bottom:72px;width:2px;height:auto}.steps3 .rail i{display:none}.steps3 li{grid-template-columns:64px 1fr;justify-items:start;text-align:left;column-gap:18px;row-gap:2px}.steps3 .dot{grid-row:span 3;margin:0}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+/* promo: launch reel free with Eco Pack */
+.promo{padding-block:40px 8px}
+.promo-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center;background:#0b0d0a;color:#fff;border-radius:28px;padding:36px 44px;position:relative;overflow:hidden;isolation:isolate}
+.promo-card::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 120% at 100% 100%,rgba(155,209,55,.55),transparent 65%)}
+.promo-badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--on-green);background:var(--green);border-radius:999px;padding:4px 12px}
+.promo-card h2{color:#fff;font-size:clamp(26px,3.2vw,38px);margin-top:14px}
+.promo-card h2 em{font-style:normal;color:var(--green)}
+.promo-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-top:12px;font-size:17px;color:rgba(255,255,255,.85)}
+.promo-price s{color:rgba(255,255,255,.55)}
+.promo-price b{color:var(--green);font-size:22px}
+.promo-card p.note{color:rgba(255,255,255,.7);font-size:15px;margin-top:8px}
+.promo-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.promo-acts .btn-ghost2{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.promo-reel{position:relative;width:clamp(170px,19vw,230px);aspect-ratio:9/16;border-radius:24px;overflow:hidden;background:#111;border:6px solid #1d1f1b;box-shadow:0 30px 60px -30px rgba(155,209,55,.6)}
+.promo-reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+@media (max-width:760px){
+  .promo-card{grid-template-columns:1fr;justify-items:center;text-align:center;padding:30px 22px;gap:24px}
+  .promo-price,.promo-acts{justify-content:center}
+  .promo-reel{width:min(62vw,260px);order:-1}
+  .promo-acts .btn{width:100%}
+}
 </style>
 
 <style>
@@ -740,6 +761,24 @@ window.codaNet=function(cv,o){
     </div>
   </section>
 
+  <section class="promo" id="promo" aria-labelledby="h-promo">
+    <div class="wrap">
+      <div class="promo-card reveal">
+        <div>
+          <span class="promo-badge">โปรโมชัน</span>
+          <h2 id="h-promo">สมัคร Eco Pack <em>แถมรีลเปิดตัวฟรี</em> 1 คลิป</h2>
+          <div class="promo-price"><span>รีลเปิดตัว</span><s>ปกติคลิปละ 990 บาท</s><b>ฟรี</b><span>ในแพ็ก 2,990</span></div>
+          <p class="note">คลิปแนวตั้งพร้อมลง Reels และ TikTok ตัวอย่างนี้คือรีลจริงของร้าน Twin Orange Juice</p>
+          <div class="promo-acts">
+            <a class="btn btn-green" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AA%E0%B8%99%E0%B9%83%E0%B8%88%20Eco%20Pack%202%2C990%20%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%81%E0%B8%96%E0%B8%A1%E0%B8%A3%E0%B8%B5%E0%B8%A5%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B8%A7" target="_blank" rel="noopener">ทักไลน์รับโปร</a>
+            <a class="btn btn-ghost2" href="/queue/#work">ดูผลงานเต็ม →</a>
+          </div>
+        </div>
+        <div class="promo-reel"><video data-autoplay muted loop playsinline preload="metadata" poster="/assets/work/twin-orange/reel-poster.webp" width="720" height="1280" aria-label="ตัวอย่างรีลเปิดตัว Twin Orange Juice"><source src="/assets/work/twin-orange/reel.mp4" type="video/mp4"></video></div>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" id="pilot" aria-labelledby="h-pilot" style="padding-top:0">
     <div class="wrap">
       <div class="head center reveal">
@@ -915,6 +954,17 @@ window.codaNet=function(cv,o){
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ var i=[].indexOf.call(e.target.parentNode.children,e.target); appear(e.target,Math.min(i,5)*90); io.unobserve(e.target);} }); },{threshold:.15});
   [].forEach.call(document.querySelectorAll('.reveal'),function(n){ if(n.getBoundingClientRect().top>vh*.9) io.observe(n); });
 })();
+</script>
+<script>
+  /* reels play by themselves while on screen (muted, looping); with reduced motion they wait for a tap */
+  (function(){
+    var vs=document.querySelectorAll('video[data-autoplay]'); if(!vs.length) return;
+    var still=false; try{ still=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+    [].forEach.call(vs,function(v){ v.muted=true;
+      if(still||!('IntersectionObserver' in window)){ v.controls=true; return; }
+      new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ var p=v.play(); if(p&&p.catch) p.catch(function(){ v.controls=true; }); } else v.pause(); }); },{threshold:.25}).observe(v);
+    });
+  })();
 </script>
 </body>
 </html>
