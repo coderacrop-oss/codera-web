@@ -2,8 +2,8 @@
    ตั้งค่า: ใส่ URL โปรเจกต์ และ anon / publishable key (คีย์สาธารณะ ใส่ในเว็บได้)
    ถ้ายังว่าง กล่องสถิติจะซ่อนไว้ ไม่ส่งอะไรออกไป */
 (function(){
-  var SUPABASE_URL='';   // เช่น https://abcdxyz.supabase.co
-  var SUPABASE_KEY='';   // anon / publishable key
+  var SUPABASE_URL='https://hegvgpqqtbzzgoiquryz.supabase.co';
+  var SUPABASE_KEY='sb_publishable_ifwCZHnnt79VZxE1T6YuiA_T0ucgwRt';   // publishable key (สาธารณะ)
   var box=document.getElementById('visit-stats');
   if(!box||!SUPABASE_URL||!SUPABASE_KEY||!window.fetch) return;
   if(navigator.webdriver) return;
@@ -16,7 +16,7 @@
 
   fetch(SUPABASE_URL.replace(/\/$/,'')+'/rest/v1/rpc/track_visit',{
     method:'POST',
-    headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Content-Type':'application/json'},
+    headers:{'apikey':SUPABASE_KEY,'Content-Type':'application/json'},
     body:JSON.stringify({p_count:count})
   }).then(function(r){ if(!r.ok) throw r.status; return r.json(); })
   .then(function(d){
