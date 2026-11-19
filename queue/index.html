@@ -251,6 +251,52 @@ button.work-cover{border:0;padding:0;cursor:zoom-in;width:100%}
 .promo-strip .btn-ink{background:var(--on-green);color:#fff}
 .promo-strip .btn-out{border-color:rgba(20,32,10,.35);color:var(--on-green);background:transparent}
 @media (max-width:560px){ .promo-strip{padding:20px} .promo-strip .acts,.promo-strip .btn{width:100%} }
+/* promo motion: pieces from client work (characters, bottle, logo) plus video-editor bits, looping behind the offer */
+.promo-strip{position:relative;overflow:hidden;isolation:isolate;min-height:260px;padding:32px 36px}
+.promo-strip::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--green) 0,var(--green) 40%,rgba(155,209,55,.6) 54%,rgba(155,209,55,0) 66%)}
+.promo-strip{display:block}
+.promo-body{position:relative;max-width:46%}
+.promo-strip .acts{margin-top:18px}
+.promo-stage{position:absolute;z-index:-2;top:0;right:0;bottom:0;width:56%;pointer-events:none;background:radial-gradient(60% 75% at 62% 55%,#fff6e0 0,#ffe7b8 45%,rgba(255,231,184,0) 72%)}
+.promo-stage>*{position:absolute;display:block}
+.ps-p{width:auto;max-width:none;filter:drop-shadow(0 10px 14px rgba(20,32,10,.25));animation:psIn .7s var(--ease) both,psBob 3.6s ease-in-out infinite}
+.ps-mom{height:64%;left:47%;bottom:16%;animation-delay:.1s,.8s}
+.ps-pech{height:44%;left:31%;bottom:16%;animation-delay:.25s,1.2s}
+.ps-ploy{height:44%;left:61%;bottom:16%;animation-delay:.4s,.5s}
+.ps-bottle{height:56%;left:80%;bottom:18%;animation-delay:.55s,1.6s;--r:6deg}
+.ps-mark{height:22%;left:16%;top:12%;animation:psIn .7s var(--ease) .7s both,psSpin 14s linear infinite}
+.ps-play{left:22%;bottom:36%;width:46px;height:46px;border-radius:50%;background:#fff;display:grid!important;place-items:center;box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:psPulse 2s ease-out infinite}
+.ps-play svg{width:18px;height:18px;margin-left:3px;fill:#111}
+.ps-rec{top:10%;right:6%;font:700 11px/1 var(--mono);color:#fff;background:#111;border-radius:999px;padding:6px 10px 6px 22px}
+.ps-rec::before{content:"";position:absolute;left:9px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:#ff3b30;animation:psBlink 1.2s steps(2) infinite}
+.ps-chip{font:700 11px/1 var(--mono);color:var(--on-green);background:#fff;border-radius:8px;padding:6px 9px;box-shadow:0 6px 14px -8px rgba(20,32,10,.5);animation:psFloat 5s ease-in-out infinite}
+.ps-chip.c1{top:13%;left:44%}
+.ps-chip.c2{top:30%;right:4%;animation-delay:-1.6s}
+.ps-chip.c3{top:36%;left:30%;animation-delay:-3s;background:#111;color:var(--green)}
+.ps-tl{left:12%;right:6%;bottom:7%;height:22px;border-radius:8px;background:rgba(17,17,17,.82);overflow:hidden}
+.ps-tl::before{content:"";position:absolute;inset:6px 8px;background:repeating-linear-gradient(90deg,#ff8a1e 0 34px,transparent 34px 38px,#9bd137 38px 70px,transparent 70px 74px,#4fb3c6 74px 104px,transparent 104px 108px);border-radius:3px;opacity:.9}
+.ps-tl i{position:absolute;top:0;bottom:0;left:8px;width:2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.2);animation:psHead 6s linear infinite}
+.ps-wave{right:8%;bottom:26%;display:flex!important;align-items:flex-end;gap:3px;height:28px}
+.ps-wave i{width:4px;height:100%;border-radius:2px;background:#111;transform-origin:bottom;animation:psWave 1s ease-in-out infinite}
+.ps-wave i:nth-child(2){animation-delay:-.2s}.ps-wave i:nth-child(3){animation-delay:-.45s}.ps-wave i:nth-child(4){animation-delay:-.1s}.ps-wave i:nth-child(5){animation-delay:-.65s}.ps-wave i:nth-child(6){animation-delay:-.3s}
+.ps-heart{right:16%;bottom:30%;color:#ff4d6d;font-size:20px;line-height:1;opacity:0;animation:psHeart 3s ease-out infinite}
+.ps-heart.h2{right:12%;animation-delay:1s;font-size:15px}.ps-heart.h3{right:20%;animation-delay:2s;font-size:17px}
+@keyframes psIn{from{opacity:0;transform:translateY(24px) scale(.8)}to{opacity:1;transform:none}}
+@keyframes psBob{50%{transform:translateY(-8px) rotate(var(--r,-2deg))}}
+@keyframes psSpin{to{transform:rotate(360deg)}}
+@keyframes psPulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}}
+@keyframes psBlink{50%{opacity:0}}
+@keyframes psFloat{50%{transform:translateY(-7px)}}
+@keyframes psHead{to{left:calc(100% - 10px)}}
+@keyframes psWave{50%{transform:scaleY(.3)}}
+@keyframes psHeart{0%{opacity:0;transform:translateY(0) scale(.6)}15%{opacity:1;transform:translateY(-8px) scale(1)}100%{opacity:0;transform:translateY(-70px) scale(1.1)}}
+@media (max-width:760px){
+  .promo-strip{padding:210px 20px 22px}
+  .promo-strip::before{background:linear-gradient(180deg,rgba(155,209,55,0) 0,rgba(155,209,55,0) 150px,var(--green) 205px)}
+  .promo-stage{width:auto;left:0;bottom:auto;height:220px}
+  .promo-body{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){ .promo-stage *,.promo-stage *::before{animation:none!important;opacity:1} }
 /* launch reel: plays on its own, muted and looping, at its real 9:16 ratio */
 .work-reel{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center;padding:28px 36px;background:#0b0d0a;color:#fff;border-top:1px solid var(--line)}
 .work-reel h3{color:#fff;font-size:24px;margin-top:6px}
@@ -531,8 +577,9 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
         </div>
       </article>
       <aside class="promo-strip" aria-label="โปรโมชัน">
-        <div><span class="badge">โปรโมชัน</span><h3>สมัครแพ็ก 2,990 แถมรีลเปิดตัวฟรี 1 คลิป</h3><p>รีลแบบในตัวอย่างด้านบน <s>ปกติคลิปละ 990 บาท</s></p></div>
-        <div class="acts"><a class="btn btn-ink" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AA%E0%B8%99%E0%B9%83%E0%B8%88%20Eco%20Pack%202%2C990%20%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%81%E0%B8%96%E0%B8%A1%E0%B8%A3%E0%B8%B5%E0%B8%A5%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B8%A7" target="_blank" rel="noopener">ทักไลน์รับโปร</a><a class="btn btn-out" href="/#pilot">ดูแพ็กเกจ</a></div>
+        <div class="promo-stage" aria-hidden="true"><img class="ps-p ps-mark" src="/assets/work/twin-orange/parts/mark.webp" alt="" width="266" height="180"><img class="ps-p ps-pech" src="/assets/work/twin-orange/parts/pech.webp" alt="" width="253" height="360"><img class="ps-p ps-mom" src="/assets/work/twin-orange/parts/mom.webp" alt="" width="129" height="360"><img class="ps-p ps-ploy" src="/assets/work/twin-orange/parts/ploy.webp" alt="" width="252" height="360"><img class="ps-p ps-bottle" src="/assets/work/twin-orange/parts/bottle.webp" alt="" width="119" height="360"><span class="ps-play"><svg viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></span><span class="ps-rec">REC</span><span class="ps-chip c1">Reels</span><span class="ps-chip c2">TikTok</span><span class="ps-chip c3">9:16</span><span class="ps-wave"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="ps-heart">♥</span><span class="ps-heart h2">♥</span><span class="ps-heart h3">♥</span><span class="ps-tl"><i></i></span></div>
+        <div class="promo-body"><span class="badge">โปรโมชัน</span><h3>สมัครแพ็ก 2,990 แถมรีลเปิดตัวฟรี 1 คลิป</h3><p>ทีมทำได้ทั้งภาพและวิดีโอ <s>ปกติคลิปละ 990 บาท</s></p></div>
+        <div class="acts promo-body"><a class="btn btn-ink" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AA%E0%B8%99%E0%B9%83%E0%B8%88%20Eco%20Pack%202%2C990%20%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%81%E0%B8%96%E0%B8%A1%E0%B8%A3%E0%B8%B5%E0%B8%A5%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B8%A7" target="_blank" rel="noopener">ทักไลน์รับโปร</a><a class="btn btn-out" href="/#pilot">ดูแพ็กเกจ</a></div>
       </aside>
     </div>
   </section>
