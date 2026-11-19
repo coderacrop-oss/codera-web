@@ -226,6 +226,21 @@ button.work-cover{border:0;padding:0;cursor:zoom-in;width:100%}
 .wbox-thumbs button{flex:none;width:52px;height:52px;padding:0;border-radius:10px;overflow:hidden;border:2px solid transparent;background:#222;cursor:pointer;opacity:.6}
 .wbox-thumbs button[aria-current=true]{border-color:var(--green);opacity:1}
 .wbox-thumbs img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+/* launch reel: plays on its own, muted and looping, at its real 9:16 ratio */
+.work-reel{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center;padding:28px 36px;background:#0b0d0a;color:#fff;border-top:1px solid var(--line)}
+.work-reel h3{color:#fff;font-size:24px;margin-top:6px}
+.work-reel p{color:rgba(255,255,255,.75);font-size:15px;margin-top:8px}
+.reel-tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--green)}
+.reel-tag::before{content:"";width:8px;height:8px;border-radius:50%;background:#ff4d4d;box-shadow:0 0 0 4px rgba(255,77,77,.2)}
+.promo-pill{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:16px;background:var(--green);color:var(--on-green);border-radius:14px;padding:8px 14px;font-weight:700;font-size:15px;line-height:1.4}
+.promo-pill s{font-weight:500;opacity:.7}
+.reel-frame{position:relative;width:clamp(200px,24vw,280px);aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#111;border:6px solid #1d1f1b;box-shadow:0 30px 60px -30px rgba(155,209,55,.45)}
+.reel-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;background:#111}
+@media (max-width:860px){
+  .work-reel{grid-template-columns:1fr;justify-items:center;text-align:center;padding:28px 22px;gap:22px}
+  .work-reel .promo-pill{justify-content:center}
+  .reel-frame{width:min(72vw,300px);order:-1}
+}
 @media (max-width:860px){
   .work-top{grid-template-columns:1fr}
   .work-cover{order:-1}
@@ -470,6 +485,7 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
               <li>ตั้งค่า LINE OA พร้อมใช้: ริชเมนู ข้อความต้อนรับ การ์ดราคา และขั้นตอนสั่งซื้อ</li>
               <li>หน้าเพจ Facebook: รูปโปรไฟล์ ปก และโพสต์เปิดตัว 5 ภาพ</li>
               <li>แผนคอนเทนต์ 1 เดือนลงเพจ 20 โพสต์ พร้อมภาพและแคปชัน</li>
+              <li>รีลเปิดตัว 1 คลิป สำหรับ Reels และ TikTok (แถมฟรีในแพ็ก 2,990)</li>
             </ul>
             <div class="work-acts">
               <a class="btn btn-line2" href="https://line.me/R/ti/p/@142fcshb" target="_blank" rel="noopener"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg>ดู LINE OA จริง @142fcshb</a>
@@ -478,6 +494,15 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
             </div>
           </div>
           <button type="button" class="work-cover" data-set="page" aria-label="ดูหน้าเพจ Facebook ทั้งชุด"><img src="/assets/work/twin-orange/cover.webp" alt="ปกเพจ Twin Orange Juice: แม่กับลูกแฝดถือส้ม ข้อความ น้ำส้มคั้นสด จากแม่ถึงลูก" width="1280" height="721" loading="lazy"></button>
+        </div>
+        <div class="work-reel">
+          <div>
+            <span class="reel-tag">รีลเปิดตัว · 19 วินาที</span>
+            <h3>คลิปเปิดตัวร้าน พร้อมลง Reels และ TikTok</h3>
+            <p>เล่าเรื่องแม่กับลูกแฝด ส่งแช่เย็นทั่วไทย แล้วจบที่ปุ่มทัก LINE สั่งน้ำส้ม</p>
+            <span class="promo-pill">แถมฟรีในแพ็ก 2,990 <s>ปกติคลิปละ 990.-</s></span>
+          </div>
+          <div class="reel-frame"><video data-autoplay muted loop playsinline preload="metadata" poster="/assets/work/twin-orange/reel-poster.webp" width="720" height="1280" aria-label="รีลเปิดตัว Twin Orange Juice"><source src="/assets/work/twin-orange/reel.mp4" type="video/mp4"></video></div>
         </div>
         <div class="work-grid">
           <button type="button" class="wshot" data-set="line"><span class="ph fit"><img src="/assets/work/twin-orange/richmenu.webp" alt="ริชเมนู LINE OA ของ Twin Orange Juice" width="1000" height="674" loading="lazy"></span><b>LINE OA<small>ริชเมนู ข้อความต้อนรับ การ์ดราคาและสั่งซื้อ</small></b><i class="cnt2">4</i></button>
@@ -695,6 +720,16 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
     d.addEventListener('keydown',function(e){ if(e.key==='ArrowLeft') show(k-1); if(e.key==='ArrowRight') show(k+1); });
     var x0=null,y0=0; st.addEventListener('touchstart',function(e){ if(e.touches.length===1){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; } else x0=null; },{passive:true});
     st.addEventListener('touchend',function(e){ if(x0==null) return; var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0; x0=null; if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5) show(dx<0?k+1:k-1); });
+  })();
+
+  /* reels play by themselves while on screen (muted, looping); with reduced motion they wait for a tap */
+  (function(){
+    var vs=document.querySelectorAll('video[data-autoplay]'); if(!vs.length) return;
+    var still=false; try{ still=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+    [].forEach.call(vs,function(v){ v.muted=true;
+      if(still||!('IntersectionObserver' in window)){ v.controls=true; return; }
+      new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ var p=v.play(); if(p&&p.catch) p.catch(function(){ v.controls=true; }); } else v.pause(); }); },{threshold:.25}).observe(v);
+    });
   })();
   var nav=document.getElementById('nav'), tk=false;
   addEventListener('scroll',function(){ if(tk) return; tk=true; requestAnimationFrame(function(){ nav.classList.toggle('scrolled',scrollY>10); tk=false; }); },{passive:true});
