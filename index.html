@@ -266,11 +266,15 @@ footer{padding-block:16px 40px}
 .foot-cta h2{color:#fff;font-size:clamp(28px,3.6vw,42px);max-width:16ch}
 .foot-cta h2 em{font-style:normal;color:var(--green)}
 .foot-cta p{color:rgba(255,255,255,.8);margin-top:8px}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;padding-block:40px 24px;font-size:15px;color:var(--muted)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:28px;padding-block:40px 24px;font-size:15px;color:var(--muted)}
 .foot-grid h4{margin:0 0 12px;font-size:14px;color:var(--ink);font-weight:600}
 .foot-grid nav{display:grid;gap:8px}
 .foot-grid nav a{text-decoration:none;justify-self:start}
 .foot-grid nav a:hover{color:var(--ink)}
+.foot-stats dl{display:grid;grid-template-columns:auto 1fr auto;column-gap:12px;row-gap:6px;margin:0}
+.foot-stats dt{color:var(--muted)}
+.foot-stats dd{margin:0;text-align:right;color:var(--ink);font-weight:600}
+.foot-stats .unit{margin:0;color:var(--muted);font-weight:400}
 .foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px}
 .mbar{display:none}
 
@@ -288,7 +292,8 @@ footer{padding-block:16px 40px}
   .together{grid-template-columns:minmax(0,1fr)}
   .pilot ul{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
-  .foot-grid > :first-child{grid-column:1/-1}
+  .foot-grid > :first-child,.foot-grid > .foot-stats{grid-column:1/-1}
+  .foot-stats dl{max-width:320px}
 }
 @media (max-width:600px){
   body{font-size:16px}
@@ -875,6 +880,14 @@ window.codaNet=function(cv,o){
       </div>
       <div><h4>บนหน้านี้</h4><nav aria-label="ลิงก์ท้ายหน้า"><a href="#check">ร้านคุณแบบไหน</a><a href="#try">ลองคุยกับเรา</a><a href="#pilot">แพ็กเกจ</a></nav></div>
       <div><h4>สำหรับลูกค้า</h4><nav aria-label="ลิงก์สำหรับลูกค้า"><a href="/queue/">คิววิเคราะห์แผนธุรกิจ</a><a href="https://line.me/R/ti/p/@codera.th" target="_blank" rel="noopener">LINE @codera.th ↗</a></nav></div>
+      <div class="foot-stats" id="visit-stats" hidden><h4>สถิติผู้เข้าเยี่ยมชมเว็บไซต์</h4>
+        <dl aria-live="polite">
+          <dt>ผู้ชมวันนี้</dt><dd class="mono" data-k="today">–</dd><dd class="unit">คน</dd>
+          <dt>ผู้ชมเมื่อวาน</dt><dd class="mono" data-k="yesterday">–</dd><dd class="unit">คน</dd>
+          <dt>ผู้ชมเดือนนี้</dt><dd class="mono" data-k="month">–</dd><dd class="unit">คน</dd>
+          <dt>ผู้ชมทั้งสิ้น</dt><dd class="mono" data-k="total">–</dd><dd class="unit">คน</dd>
+        </dl>
+      </div>
     </div>
     <div class="foot-base"><span>© 2569 Codera Solutions</span><span>ตอบแชท จันทร์–ศุกร์ 9:00–18:00</span></div>
   </div>
@@ -981,5 +994,6 @@ window.codaNet=function(cv,o){
     });
   })();
 </script>
+<script src="/assets/visits.js" defer></script>
 </body>
 </html>
