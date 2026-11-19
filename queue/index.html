@@ -128,6 +128,10 @@ section.sec{padding-block:72px}
 .qn{width:56px;height:56px;border-radius:16px;background:var(--soft);display:grid;place-items:center;font-family:var(--mono);font-size:22px;font-weight:600;color:var(--ink)}
 .qn small{display:block;font-size:10px;color:var(--muted);font-family:var(--sans);font-weight:500;line-height:1;margin-bottom:-6px}
 .who b{font-size:18px;color:var(--ink);display:block;line-height:1.35}
+.nm{display:flex;align-items:center;gap:10px}
+.nm b{min-width:0}
+.av{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none;background:#FFF4E0;border:1px solid var(--line)}
+.card .nm .av{width:48px;height:48px}
 .who .sub{font-size:14px;color:var(--muted)}
 .prog{margin-top:12px;display:grid;gap:6px}
 .bar{display:flex;gap:4px}
@@ -587,6 +591,10 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
   function el(t,c,x){ var n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n; }
   function safe(u,k){ if(!u) return ''; try{ var x=new URL(u); if(x.protocol!=='https:') return ''; var h=x.hostname.replace(/^www\./,''); var ok=k==='line'?/^(line\.me|lin\.ee|page\.line\.me)$/.test(h):/^(facebook\.com|m\.facebook\.com|fb\.com|fb\.me)$/.test(h); return ok?x.href:''; }catch(e){ return ''; } }
   function link(u,k){ var s=safe(u,k); if(!s) return el('span','lk off',k==='line'?'ยังไม่มี LINE OA':'ยังไม่มีเพจ'); var a=el('a','lk'+(k==='line'?' line':''),k==='line'?'LINE OA ↗':'เพจ ↗'); a.href=s; a.target='_blank'; a.rel='noopener'; return a; }
+  /* shop profile pictures, matched by the shop name shown on the page (only shops that allow showing their name) */
+  var LOGOS=[[/^twin orange juice/i,'/assets/work/twin-orange/mark.webp']];
+  function logo(name){ if(!name) return null; for(var i=0;i<LOGOS.length;i++){ if(LOGOS[i][0].test(name)){ var im=el('img','av'); im.src=LOGOS[i][1]; im.alt=''; im.width=48; im.height=48; im.loading='lazy'; return im; } } return null; }
+  function named(tag,name){ var b=el(tag,null,name), im=logo(name); if(!im) return b; var w=el('div','nm'); w.appendChild(im); w.appendChild(b); return w; }
   function pill(label,st){ var c=st==='เสร็จ'?'done':st==='กำลังทำ'?'doing':'wait'; return el('span','pill '+c,label+' · '+(st||'รอคิว')); }
 
   function boot(data){
@@ -607,7 +615,7 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
         var card=el('article','shop'+(term?' hit':''));
         var qn=el('div','qn'); qn.appendChild(el('small',null,'คิว')); qn.appendChild(document.createTextNode(r.q)); card.appendChild(qn);
         var who=el('div','who');
-        who.appendChild(el('b',null,r.name||('ร้าน '+r.code)));
+        who.appendChild(r.name?named('b',r.name):el('b',null,'ร้าน '+r.code));
         who.appendChild(el('span','sub',r.name?((r.type?r.type+' · ':'')+r.code):'ยังไม่แสดงชื่อร้าน'));
         var prog=el('div','prog'), bar=el('div','bar'); bar.setAttribute('aria-hidden','true');
         for(var i=1;i<=6;i++){ var seg=el('i',(i<n||n===6)?'on':i===n?'now':''); seg.style.setProperty('--d',(i*90)+'ms'); bar.appendChild(seg); }
@@ -628,7 +636,7 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
 
     function showDC(id,attr){ document.getElementById('done-cli').hidden=false; document.getElementById(id).hidden=false; [].forEach.call(document.querySelectorAll('['+attr+']'),function(a){ a.hidden=false; }); var w=document.querySelector('#done-cli .wrap'); w.classList.toggle('split2',!document.getElementById('finished').hidden&&!document.getElementById('clients').hidden); }
     var fl=document.getElementById('fin-list');
-    if(F.length){ showDC('finished','data-fin-link'); var g=el('div','grid3'); F.forEach(function(s){ var c=el('article','card'); c.appendChild(el('h3',null,s.name)); if(s.type) c.appendChild(el('p','type',s.type)); if(s.result) c.appendChild(el('p','result',s.result)); var a=el('div','acts'); if(safe(s.line,'line')) a.appendChild(link(s.line,'line')); if(safe(s.fb,'fb')) a.appendChild(link(s.fb,'fb')); if(a.childNodes.length) c.appendChild(a); g.appendChild(c); }); fl.appendChild(g); }
+    if(F.length){ showDC('finished','data-fin-link'); var g=el('div','grid3'); F.forEach(function(s){ var c=el('article','card'); c.appendChild(named('h3',s.name)); if(s.type) c.appendChild(el('p','type',s.type)); if(s.result) c.appendChild(el('p','result',s.result)); var a=el('div','acts'); if(safe(s.line,'line')) a.appendChild(link(s.line,'line')); if(safe(s.fb,'fb')) a.appendChild(link(s.fb,'fb')); if(a.childNodes.length) c.appendChild(a); g.appendChild(c); }); fl.appendChild(g); }
 
     if(R.length){
       document.getElementById('reviews').hidden=false;
@@ -638,7 +646,7 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
     }
 
     var cl=document.getElementById('cli-list');
-    if(C.length){ showDC('clients','data-cli-link'); var g2=el('div','grid3'); C.forEach(function(c){ var k=el('article','card'); k.appendChild(el('h3',null,c.name)); var sub=[c.type,c.service].filter(Boolean).join(' · '); if(sub) k.appendChild(el('p','type',sub)); var a=el('div','acts'); if(safe(c.line,'line')) a.appendChild(link(c.line,'line')); if(safe(c.fb,'fb')) a.appendChild(link(c.fb,'fb')); if(a.childNodes.length) k.appendChild(a);
+    if(C.length){ showDC('clients','data-cli-link'); var g2=el('div','grid3'); C.forEach(function(c){ var k=el('article','card'); k.appendChild(named('h3',c.name)); var sub=[c.type,c.service].filter(Boolean).join(' · '); if(sub) k.appendChild(el('p','type',sub)); var a=el('div','acts'); if(safe(c.line,'line')) a.appendChild(link(c.line,'line')); if(safe(c.fb,'fb')) a.appendChild(link(c.fb,'fb')); if(a.childNodes.length) k.appendChild(a);
         if(c.contact){ var ct=el('div','contact'), sp=el('span',null,c.contact), bt=el('button','copy','คัดลอก'); bt.type='button'; bt.addEventListener('click',function(){ try{ navigator.clipboard.writeText(c.contact).then(function(){ bt.textContent='คัดลอกแล้ว'; },function(){}); }catch(e){} }); ct.appendChild(sp); ct.appendChild(bt); k.appendChild(ct); }
         g2.appendChild(k); }); cl.appendChild(g2); }
   }
