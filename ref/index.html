@@ -66,6 +66,25 @@ details li{margin-top:6px}
 footer{margin-top:40px;color:var(--sub);font-size:12px;line-height:16px}
 @media (max-width:720px){form{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}h1{font-size:24px;line-height:32px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.guide{margin-top:32px}
+.guide h2{font-size:22px;line-height:32px;margin:0 0 4px}
+.guide .s{color:var(--sub);margin:0 0 12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.steps div{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--card)}
+.steps b{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--bg);align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace;font-size:14px;margin-bottom:8px}
+.steps p{margin:0;color:var(--sub);font-size:14px;line-height:22px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.part{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--card)}
+.part .pill{display:inline-block;font-size:12px;line-height:16px;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:8px}
+.part .pill.a{background:var(--ink);color:var(--bg)}
+.part .pill.b{background:var(--green);color:#111}
+.part h3{margin:0 0 8px;font-size:18px;line-height:28px}
+.part ul{margin:0;padding-left:20px;color:var(--sub);font-size:14px;line-height:22px}
+.part li{margin-top:4px}
+.part b.m{font-family:"IBM Plex Mono",monospace;color:var(--ink)}
+.ex td:first-child{color:var(--ink)}
+.try{display:inline-block;margin-top:12px;font-weight:600;color:var(--ink)}
+@media (max-width:720px){.steps,.two{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -116,15 +135,57 @@ footer{margin-top:40px;color:var(--sub);font-size:12px;line-height:16px}
   </div>
 </section>
 
+<section class="guide" aria-labelledby="g1">
+  <h2 id="g1">เพิ่งได้รหัส เริ่มตรงนี้</h2>
+  <p class="s">3 ขั้นจากได้รหัสจนเห็นยอดในหน้านี้</p>
+  <div class="steps">
+    <div><b>1</b><p>ได้รหัส CD-xxx จากทีม Codera ทาง LINE @codera.th ใช้รหัสนี้กับอีเมลที่ลงทะเบียนไว้เข้าหน้านี้</p></div>
+    <div><b>2</b><p>ให้ร้านที่รู้จักทัก LINE @codera.th พิมพ์ "วิเคราะห์ฟรี" แล้วส่งรหัสของคุณตามมาอีกข้อความ หรือส่งชื่อร้านให้ทีมลงทะเบียนไว้ก่อน (สิทธิ์ 60 วัน)</p></div>
+    <div><b>3</b><p>ร้านจ่ายเงินแล้ว ทีมบันทึกยอดเข้าระบบ ยอดในหน้านี้เริ่มจาก "รอยืนยัน" แล้วเป็น "พร้อมจ่าย" หลังพักเงิน 15 วัน</p></div>
+  </div>
+  <a class="try" href="?demo=1">ลองดูหน้าตัวอย่างด้วยข้อมูลจำลอง (รหัส CD-DEMO อีเมล demo@example.com) →</a>
+</section>
+
+<section class="guide" aria-labelledby="g2">
+  <h2 id="g2">รายได้มี 2 ส่วน</h2>
+  <p class="s">ส่วนแรกได้ทุกงวดที่ร้านจ่าย ส่วนที่สองได้เพิ่มเมื่อแนะนำได้มากในไตรมาสเดียว</p>
+  <div class="two">
+    <div class="part"><span class="pill a">รายได้ระยะยาว</span><h3>แนะนำครั้งเดียว ได้ทุกงวดที่ร้านจ่าย</h3><ul>
+      <li>ร้าน Eco Pack ได้ <b class="m">300</b> บาท (งวดละ 100 ครบ 3 งวด)</li>
+      <li>ร้าน Business Pack ได้ <b class="m">10%</b> เดือนแรก <b class="m">3%</b> เดือนที่ 2–12 และ <b class="m">1%</b> ตั้งแต่เดือนที่ 13 ตลอดที่ร้านยังจ่าย (คิดจากค่าแพ็กรายเดือน ไม่รวมส่วนแบ่งยอดขาย)</li>
+      <li>1% ตั้งแต่เดือนที่ 13 ได้ตราบที่คุณยังดูแลร้าน คือถามความพอใจอย่างน้อยไตรมาสละครั้ง</li>
+    </ul></div>
+    <div class="part"><span class="pill b">โบนัสคนขยัน</span><h3>ยิ่งแนะนำได้มาก ยิ่งได้เพิ่ม ทุกไตรมาส</h3><ul>
+      <li>ร้านใหม่ Eco ได้ 1 แต้ม Business ได้ 5 แต้ม นับตอนร้านจ่ายงวดแรก</li>
+      <li>ครบ <b class="m">10</b> แต้ม รับเพิ่ม <b class="m">2,000</b> บาท ครบ <b class="m">25</b> แต้ม รับเพิ่ม <b class="m">5,000</b> บาท (ไม่บวกกัน)</li>
+      <li>ไตรมาสไหนยังไม่ถึง 10 แต้ม แต้มยกไปรวมไตรมาสถัดไปได้อีก 1 รอบ ถ้าได้โบนัสแล้ว เริ่มนับใหม่</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="guide" aria-labelledby="g3">
+  <h2 id="g3">ตัวอย่างการคำนวณ</h2>
+  <p class="s">ตัวอย่างสมมติ เพื่อให้เห็นวิธีคิด ไม่ใช่การรับประกันรายได้</p>
+  <div class="box scroll" style="margin-top:0"><table class="tbl ex"><thead><tr><th>ถ้าคุณแนะนำ</th><th>วิธีคิด</th><th class="n">คุณได้</th></tr></thead><tbody>
+    <tr><td>ร้าน Eco 1 ร้าน</td><td>100 × 3 งวด</td><td class="n">300</td></tr>
+    <tr><td>ร้าน Business 1 ร้าน อยู่ครบ 12 เดือน</td><td>1,490 (10% ของ 14,900) + 447 × 11 เดือน</td><td class="n">6,407</td></tr>
+    <tr><td>ร้าน Business เดิม อยู่ต่อเดือนที่ 13 ขึ้นไป</td><td>1% ของ 14,900 ต่อเดือน</td><td class="n">149/เดือน</td></tr>
+    <tr><td>ไตรมาสนี้ร้าน Eco 10 ร้าน</td><td>ค่าคอม 300 × 10 + โบนัส 10 แต้ม</td><td class="n">3,000 + 2,000</td></tr>
+    <tr><td>ไตรมาสก่อนได้ 8 แต้ม ไตรมาสนี้ร้าน Business 1 ร้าน</td><td>8 แต้มยกมา + 5 = 13 แต้ม ถึงขั้นแรก</td><td class="n">โบนัส 2,000</td></tr>
+    <tr><td>ไตรมาสก่อนได้ 8 แต้ม ไตรมาสนี้ไม่ได้เพิ่ม</td><td>8 แต้มยกมา ยังไม่ถึง 10 · ไตรมาสถัดไป 8 แต้มนี้หมดอายุ</td><td class="n">0</td></tr>
+  </tbody></table></div>
+</section>
+
 <details>
-  <summary>ค่าคอมคิดยังไง</summary>
+  <summary>กติกาทั้งหมด</summary>
   <ol>
     <li>ลูกค้าบอกรหัสของคุณตอนทักครั้งแรก หรือคุณลงทะเบียนลูกค้าก่อนปิดการขาย ใครลงก่อนได้สิทธิ์</li>
     <li>ค่าคอมคิดจากเงินที่ลูกค้าจ่ายเข้าบริษัทจริงทุกงวด Eco แบ่งจ่าย 3 งวด คุณได้งวดละ 100 บาท</li>
     <li>ลูกค้า Business ได้ 10% ในเดือนแรก และ 3% ทุกเดือนที่ลูกค้ายังจ่ายถึงเดือนที่ 12 ร้าน Eco ที่อัปเกรดเป็น Business ภายใน 6 เดือนก็ได้เท่ากัน</li>
+    <li>ตั้งแต่เดือนที่ 13 ลูกค้า Business ที่ยังจ่ายอยู่ คุณได้ต่อ 1% ของค่าแพ็กทุกเดือน ตราบที่คุณยังดูแลลูกค้า (ถามความพอใจอย่างน้อยไตรมาสละครั้ง) ถ้าไม่ได้ติดต่อลูกค้าเกิน 6 เดือน สิทธิ์ของลูกค้ารายนั้นหยุด ยอดตั้งแต่เดือนที่ 13 รวมโอนไตรมาสละครั้งพร้อมโบนัส</li>
     <li>เงินเข้าแล้วพักไว้ช่วงหนึ่งก่อนเป็น "พร้อมจ่าย" ถ้าลูกค้าขอคืนเงิน ค่าคอมรายการนั้นเป็น 0</li>
     <li>โอนเดือนละครั้งต้นเดือน หัก ณ ที่จ่ายตามกฎหมาย โบนัสไตรมาสจ่ายเมื่อจบไตรมาส</li>
-    <li>โบนัสนับแต้ม: Eco, Care, FastSetup ได้ 1 แต้ม Business ได้ 5 แต้ม ครบ 10 แต้มได้ 2,000 บาท ครบ 25 แต้มได้ 5,000 บาท</li>
+    <li>โบนัสนับแต้ม: Eco, Care, FastSetup ได้ 1 แต้ม Business ได้ 5 แต้ม ครบ 10 แต้มได้ 2,000 บาท ครบ 25 แต้มได้ 5,000 บาท ไตรมาสไหนยังไม่ถึง 10 แต้ม แต้มยกไปรวมไตรมาสถัดไปได้อีก 1 ไตรมาส ถ้าได้โบนัสแล้ว ไตรมาสถัดไปเริ่มนับใหม่</li>
   </ol>
 </details>
 <details>
