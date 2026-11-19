@@ -224,20 +224,42 @@ button.work-cover{border:0;padding:0;cursor:zoom-in;width:100%}
 .wbox-thumbs button{flex:none;width:52px;height:52px;padding:0;border-radius:10px;overflow:hidden;border:2px solid transparent;background:#222;cursor:pointer;opacity:.6}
 .wbox-thumbs button[aria-current=true]{border-color:var(--green);opacity:1}
 .wbox-thumbs img{width:100%;height:100%;object-fit:contain;display:block}
+/* phone mockup for reels: bezel, camera island, status bar, page row, home bar */
+.phone{position:relative;width:var(--pw,260px);padding:9px;border-radius:calc(var(--pw,260px)*.17);background:linear-gradient(145deg,#2b2d2a,#0e0f0d);box-shadow:0 0 0 1.5px #3a3c38,0 30px 60px -28px rgba(155,209,55,.5),0 20px 40px -20px rgba(0,0,0,.7);flex:none}
+.phone::before,.phone::after{content:"";position:absolute;width:3px;border-radius:3px;background:#2b2d2a}
+.phone::before{left:-3px;top:22%;height:12%}
+.phone::after{right:-3px;top:28%;height:18%}
+.phone-scr{position:relative;border-radius:calc(var(--pw,260px)*.14);overflow:hidden;background:#000;aspect-ratio:9/19.5;display:flex;flex-direction:column}
+.phone-bar{display:flex;align-items:center;justify-content:space-between;padding:0 7% ;height:7%;flex:none;color:#fff;font:600 calc(var(--pw,260px)*.045)/1 var(--sans)}
+.phone-bar i{display:flex;gap:3px;align-items:center}
+.phone-bar i b{display:block;width:calc(var(--pw,260px)*.06);height:calc(var(--pw,260px)*.03);border:1.5px solid #fff;border-radius:3px;position:relative}
+.phone-bar i b::after{content:"";position:absolute;inset:1px 30% 1px 1px;background:#fff;border-radius:1px}
+.phone-island{position:absolute;top:1.6%;left:50%;transform:translateX(-50%);width:32%;height:3.4%;border-radius:999px;background:#000;box-shadow:0 0 0 1px #111;z-index:2}
+.phone-scr video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;background:#111;flex:none}
+.phone-meta{flex:1;display:flex;align-items:center;gap:8px;padding:0 7%;color:#fff;font-size:calc(var(--pw,260px)*.048);line-height:1.25;min-height:0}
+.phone-meta img{width:calc(var(--pw,260px)*.1);height:calc(var(--pw,260px)*.1);border-radius:50%;background:#FFF4E0;flex:none}
+.phone-meta b{display:block;font-weight:600}
+.phone-meta span{color:rgba(255,255,255,.6);font-size:.85em}
+.phone-home{position:absolute;bottom:1.4%;left:50%;transform:translateX(-50%);width:34%;height:4px;border-radius:4px;background:rgba(255,255,255,.85)}
+/* promo card, separate from the reel */
+.promo-strip{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;background:var(--green);color:var(--on-green);border-radius:22px;padding:22px 28px}
+.promo-strip .badge{display:inline-block;font-size:12px;font-weight:700;background:var(--on-green);color:var(--green);border-radius:999px;padding:3px 10px;margin-bottom:6px}
+.promo-strip h3{color:var(--on-green);font-size:22px}
+.promo-strip p{font-size:15px;margin-top:2px}
+.promo-strip p s{opacity:.65}
+.promo-strip .acts{display:flex;flex-wrap:wrap;gap:10px}
+.promo-strip .btn-ink{background:var(--on-green);color:#fff}
+.promo-strip .btn-out{border-color:rgba(20,32,10,.35);color:var(--on-green);background:transparent}
+@media (max-width:560px){ .promo-strip{padding:20px} .promo-strip .acts,.promo-strip .btn{width:100%} }
 /* launch reel: plays on its own, muted and looping, at its real 9:16 ratio */
 .work-reel{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center;padding:28px 36px;background:#0b0d0a;color:#fff;border-top:1px solid var(--line)}
 .work-reel h3{color:#fff;font-size:24px;margin-top:6px}
 .work-reel p{color:rgba(255,255,255,.75);font-size:15px;margin-top:8px}
 .reel-tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--green)}
 .reel-tag::before{content:"";width:8px;height:8px;border-radius:50%;background:#ff4d4d;box-shadow:0 0 0 4px rgba(255,77,77,.2)}
-.promo-pill{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:16px;background:var(--green);color:var(--on-green);border-radius:14px;padding:8px 14px;font-weight:700;font-size:15px;line-height:1.4}
-.promo-pill s{font-weight:500;opacity:.7}
-.reel-frame{position:relative;width:clamp(200px,24vw,280px);aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#111;border:6px solid #1d1f1b;box-shadow:0 30px 60px -30px rgba(155,209,55,.45)}
-.reel-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;background:#111}
 @media (max-width:860px){
   .work-reel{grid-template-columns:1fr;justify-items:center;text-align:center;padding:28px 22px;gap:22px}
-  .work-reel .promo-pill{justify-content:center}
-  .reel-frame{width:min(72vw,300px);order:-1}
+  .work-reel .phone{order:-1}
 }
 @media (max-width:860px){
   .work-top{grid-template-columns:1fr}
@@ -498,9 +520,8 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
             <span class="reel-tag">รีลเปิดตัว · 19 วินาที</span>
             <h3>คลิปเปิดตัวร้าน พร้อมลง Reels และ TikTok</h3>
             <p>เล่าเรื่องแม่กับลูกแฝด ส่งแช่เย็นทั่วไทย แล้วจบที่ปุ่มทัก LINE สั่งน้ำส้ม</p>
-            <span class="promo-pill">แถมฟรีในแพ็ก 2,990 <s>ปกติคลิปละ 990.-</s></span>
           </div>
-          <div class="reel-frame"><video data-autoplay muted loop playsinline preload="metadata" poster="/assets/work/twin-orange/reel-poster.webp" width="720" height="1280" aria-label="รีลเปิดตัว Twin Orange Juice"><source src="/assets/work/twin-orange/reel.mp4" type="video/mp4"></video></div>
+          <div class="phone" style="--pw:clamp(220px,24vw,280px)"><div class="phone-scr"><span class="phone-island" aria-hidden="true"></span><div class="phone-bar" aria-hidden="true"><span>9:41</span><i><b></b></i></div><video data-autoplay muted loop playsinline preload="metadata" poster="/assets/work/twin-orange/reel-poster.webp" width="720" height="1280" aria-label="รีลเปิดตัว Twin Orange Juice"><source src="/assets/work/twin-orange/reel.mp4" type="video/mp4"></video><div class="phone-meta" aria-hidden="true"><img src="/assets/work/twin-orange/mark.webp" alt="" width="56" height="56"><div><b>Twin Orange Juice</b><span>รีลเปิดตัว · Reels</span></div></div><span class="phone-home" aria-hidden="true"></span></div></div>
         </div>
         <div class="work-grid">
           <button type="button" class="wshot" data-set="line"><span class="ph fit"><img src="/assets/work/twin-orange/richmenu.webp" alt="ริชเมนู LINE OA ของ Twin Orange Juice" width="1000" height="674" loading="lazy"></span><b>LINE OA<small>ริชเมนู ข้อความต้อนรับ การ์ดราคาและสั่งซื้อ</small></b><i class="cnt2">4</i></button>
@@ -509,6 +530,10 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
           <button type="button" class="wshot" data-set="plan"><span class="ph"><img src="/assets/work/twin-orange/plan.webp" alt="ตัวอย่างโพสต์ น้ำส้มคั้น 1 แก้ว ต้นทุนจริงเท่าไหร่" width="720" height="900" loading="lazy"></span><b>แผนเดือนแรก<small>20 โพสต์ใน 4 สัปดาห์ · ดูตัวอย่าง 4 โพสต์</small></b><i class="cnt2">4</i></button>
         </div>
       </article>
+      <aside class="promo-strip" aria-label="โปรโมชัน">
+        <div><span class="badge">โปรโมชัน</span><h3>สมัครแพ็ก 2,990 แถมรีลเปิดตัวฟรี 1 คลิป</h3><p>รีลแบบในตัวอย่างด้านบน <s>ปกติคลิปละ 990 บาท</s></p></div>
+        <div class="acts"><a class="btn btn-ink" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AA%E0%B8%99%E0%B9%83%E0%B8%88%20Eco%20Pack%202%2C990%20%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%81%E0%B8%96%E0%B8%A1%E0%B8%A3%E0%B8%B5%E0%B8%A5%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B8%A7" target="_blank" rel="noopener">ทักไลน์รับโปร</a><a class="btn btn-out" href="/#pilot">ดูแพ็กเกจ</a></div>
+      </aside>
     </div>
   </section>
   <dialog class="wbox" id="wbox" aria-labelledby="wbox-t">
