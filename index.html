@@ -37,7 +37,41 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* mascots (Codera Friends): cat = Studio, bunny = Ads, dog = Tech. Used in 3 places only */
+.crew-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.crew-card{border:1px solid var(--line);border-radius:24px;background:#fff;overflow:hidden;display:flex;flex-direction:column;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.crew-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(0,0,0,.28)}
+.crew-card .art{position:relative;overflow:hidden;height:270px;display:flex;align-items:flex-end;justify-content:center;background-image:radial-gradient(rgba(17,17,17,.07) 1px,transparent 1.2px);background-size:20px 20px}
+.crew-card .art::before{content:"";position:absolute;left:50%;bottom:-130px;width:310px;height:310px;transform:translateX(-50%);border-radius:50%;background:var(--t);transition:transform .6s var(--ease)}
+.crew-card:hover .art::before{transform:translateX(-50%) scale(1.06)}
+.crew-card .code{position:absolute;left:18px;top:18px;z-index:2;font:600 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink);border:1px solid var(--line-2);background:#fff;border-radius:6px;padding:6px 9px}
+.crew-card .body{padding:22px 24px 26px;display:grid;gap:10px;border-top:1px solid var(--line)}
+.crew-card h3{font-size:22px}
+.crew-card p{color:var(--body);font-size:15.5px}
+.crew-card ul{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.crew-card li{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted)}
+.crew-card.studio{--t:var(--green-tint)}.crew-card.ads{--t:var(--warm-tint)}.crew-card.tech{--t:#e6f2fe}
+/* mascot motion: wrapper idles, image reacts to hover */
+.mas{position:relative;display:block;pointer-events:none;transform-origin:50% 100%;animation:mas-idle 4.2s ease-in-out infinite;animation-delay:var(--d,0s)}
+.mas img{display:block;width:100%;height:auto;transform-origin:50% 100%;transition:transform .55s cubic-bezier(.34,1.56,.64,1)}
+@keyframes mas-idle{0%,100%{transform:rotate(0) scale(1,1)}50%{transform:rotate(-1.4deg) scale(1.012,1.028)}}
+@keyframes mas-hop{0%,100%{transform:translateY(0)}45%{transform:translateY(-10px)}60%{transform:translateY(-10px) rotate(2deg)}}
+.crew-card .mas{width:auto;height:250px;margin-bottom:-2px}.crew-card .mas img{height:100%;width:auto}
+.crew-card:hover .mas img{transform:translateY(-10px) rotate(-3deg) scale(1.03)}
+@media (min-width:761px){.promo-card.promo-card{grid-template-columns:minmax(0,1fr) auto auto}}
+.promo-mas{width:210px;align-self:end;margin-bottom:-36px;--d:-1.4s;animation:mas-hop 2.8s ease-in-out infinite}
+.promo-card:hover .promo-mas img{transform:rotate(-5deg) scale(1.04)}
+.foot-cta .cta-mas{width:180px;margin:-30px 8px -56px auto;align-self:flex-end;--d:-2.2s}
+.foot-cta:hover .cta-mas img{transform:translateX(8px) rotate(4deg)}
+@media (max-width:900px){.crew-grid{grid-template-columns:1fr;max-width:460px;margin-inline:auto}}
+@media (max-width:760px){.promo-mas{display:none}}
+.line-card.line-card{grid-template-columns:minmax(0,1fr) auto 160px}
+.line-mas{width:150px;align-self:end;margin:0 0 -30px;--d:-.8s}
+.line-card:hover .line-mas img{transform:translateY(-6px) rotate(-4deg)}
+@media (max-width:900px){.line-card.line-card{grid-template-columns:minmax(0,1fr) 160px}.line-mas{display:none}}
+@media (max-width:600px){.foot-cta .cta-mas{display:none}}
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://coderasolutions.org/#org", "name": "Codera Solutions", "alternateName": "บริษัท โคเดรา โซลูชันส์ จำกัด", "url": "https://coderasolutions.org/", "logo": "https://coderasolutions.org/assets/icon-512.png", "image": "https://coderasolutions.org/assets/og.png", "description": "ทีมการตลาดสำหรับธุรกิจขนาดย่อมและคนพร้อมเริ่มธุรกิจ วิเคราะห์กลยุทธ์ ทำ CI เว็บหน้าเดียว LINE OA คอนเทนต์ และดูแลแอด Meta จนเห็นว่าออเดอร์มาจากไหน", "taxID": "0105569092799", "areaServed": "TH", "priceRange": "฿฿", "address": {"@type": "PostalAddress", "streetAddress": "2823/3 ถนนเจริญกรุง แขวงบางคอแหลม", "addressLocality": "เขตบางคอแหลม", "addressRegion": "กรุงเทพมหานคร", "postalCode": "10120", "addressCountry": "TH"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"}], "sameAs": ["https://www.facebook.com/1426249720560934", "https://www.instagram.com/codera.th/", "https://line.me/R/ti/p/@codera.th"], "makesOffer": [{"@type": "Offer", "name": "Eco Pack", "description": "แผนกลยุทธ์ + CI + แผนสื่อ 3 เดือน ตรวจและวางแผนโซเชียลมีเดีย เว็บหน้าเดียว LINE OA โพสต์ FB/IG 36 ชิ้น ดูแลแอด Meta และรายงานรายเดือน", "price": "2990", "priceCurrency": "THB", "eligibleDuration": {"@type": "QuantitativeValue", "value": 3, "unitCode": "MON"}}, {"@type": "Offer", "name": "Business Pack", "description": "ทุกอย่างใน Eco Pack ทบทวนกลยุทธ์ทุก 3 เดือน โพสต์สัปดาห์ละ 4 แถมโดเมน 1 ปี และส่วนแบ่ง 3–5% ของยอดขายจากแชท", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "14900", "priceCurrency": "THB", "unitCode": "MON"}}]}, {"@type": "WebSite", "@id": "https://coderasolutions.org/#site", "url": "https://coderasolutions.org/", "name": "Codera Solutions", "inLanguage": "th", "publisher": {"@id": "https://coderasolutions.org/#org"}}, {"@type": "FAQPage", "@id": "https://coderasolutions.org/#faq", "mainEntity": [{"@type": "Question", "name": "ทักไปคุยก่อน ต้องตัดสินใจเลยไหม", "acceptedAnswer": {"@type": "Answer", "text": "ไม่ต้องครับ คุยเรื่องร้านก่อน ถ้ายังไม่เหมาะเราก็บอกตรง ๆ"}}, {"@type": "Question", "name": "ต้องให้รหัสผ่านเพจไหม", "acceptedAnswer": {"@type": "Answer", "text": "ไม่ต้อง ร้านเพิ่มเราเป็นพาร์ตเนอร์ ถอนสิทธิ์ได้ทุกเมื่อ"}}, {"@type": "Question", "name": "รับประกันยอดขายไหม", "acceptedAnswer": {"@type": "Answer", "text": "ไม่รับประกัน แต่สรุปตัวเลขให้ดูตรง ๆ ทุกเดือน"}}, {"@type": "Question", "name": "ครบ 3 เดือนแล้วต้องต่อไหม", "acceptedAnswer": {"@type": "Answer", "text": "ไม่ต่ออัตโนมัติ จะหยุด หรือต่อเป็น Business Pack 14,900 บาท/เดือน + ส่วนแบ่ง 3–5% ก็ได้"}}, {"@type": "Question", "name": "Eco Pack ยกเลิกกลางทางได้ไหม", "acceptedAnswer": {"@type": "Answer", "text": "ไม่ได้ เพราะแผนกลยุทธ์ CI และแผนสื่อ 3 เดือนส่งครบในเดือนแรก แพ็กจึงคิดเป็นก้อนเดียว 2,990 บาท แบ่งจ่าย 3 งวด"}}, {"@type": "Question", "name": "ส่วนแบ่ง 3–5% ของ Business Pack คิดยังไง", "acceptedAnswer": {"@type": "Answer", "text": "คิดเฉพาะยอดขายที่มาจากแชท ซึ่งบันทึกในชีตออเดอร์ที่คุณเห็นและยืนยันทุกแถว ไม่มีขั้นต่ำ"}}, {"@type": "Question", "name": "เว็บและโดเมนเป็นของใคร", "acceptedAnswer": {"@type": "Answer", "text": "เป็นของธุรกิจคุณ Business Pack แถมโดเมน 1 ปี จดในชื่อธุรกิจคุณ ปีที่ 2 ต่อเอง ถ้าเลิกก่อนครบปี โดเมนยังเป็นของคุณ"}}, {"@type": "Question", "name": "ค่าแอดต้องจ่ายเพิ่มไหม", "acceptedAnswer": {"@type": "Answer", "text": "ค่าแอดจ่ายให้ Meta โดยตรง ไม่ผ่านเรา งบที่แนะนำคิดจากกำไรต่อออเดอร์ในแผนกลยุทธ์"}}, {"@type": "Question", "name": "ตอบแชทลูกค้าให้ไหม", "acceptedAnswer": {"@type": "Answer", "text": "ไม่ตอบแทนร้าน เราติดแท็กและนับออเดอร์ให้"}}]}]}</script>
 <style>
 /* Layout: warm consultative story. Dark-green banner → "which shop are you" picker → people + intro clip → try our real LINE menu → how we work together → small pilot offer → contact */
@@ -313,7 +347,7 @@ footer{padding-block:16px 40px}
   .screen{height:560px}
   .pilot{grid-template-columns:minmax(0,1fr);padding:26px}
   .pilot ul{grid-template-columns:1fr}
-  .line-card{grid-template-columns:minmax(0,1fr)}
+  .line-card,.line-card.line-card{grid-template-columns:minmax(0,1fr)}
   .line-card .qr{max-width:170px}
   .foot-cta{padding:34px 24px}
   .foot-cta .btn{width:100%}
@@ -763,6 +797,23 @@ window.codaNet=function(cv,o){
     </div>
   </section>
 
+  <section class="sec" id="crew" aria-labelledby="h-crew" style="padding-top:0">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="eyebrow">ทีมที่ดูแลคุณ</span>
+        <h2 class="h2" id="h-crew">สามทีม ดูแลครบในที่เดียว</h2>
+      </div>
+      <div class="crew-grid">
+        <article class="crew-card studio"><div class="art"><span class="code">CODERA STUDIO</span><span class="mas" data-mas><img src="/assets/mascot/cat-main.webp" alt="แมวเขียว ผู้ช่วยทีม Codera Studio" width="399" height="500" loading="lazy" decoding="async"></span></div>
+          <div class="body"><h3>ถ่าย ตัดต่อ ทำคอนเทนต์</h3><p>รูปสินค้า รีล และโพสต์ประจำเดือน พร้อมลงทุกช่องทาง</p><ul><li>รีล / TikTok</li><li>ถ่ายสินค้า</li><li>กราฟิกโพสต์</li></ul></div></article>
+        <article class="crew-card ads"><div class="art"><span class="code">CODERA ADS</span><span class="mas" data-mas style="--d:-1.3s"><img src="/assets/mascot/bunny-main.webp" alt="กระต่ายชมพู ผู้ช่วยทีม Codera Ads" width="390" height="500" loading="lazy" decoding="async"></span></div>
+          <div class="body"><h3>ยิงแอดให้ถึงคนที่ใช่</h3><p>วางกลุ่มเป้าหมาย ดูแลงบ และสรุปตัวเลขให้ทุกเดือน</p><ul><li>Meta Ads</li><li>TikTok Ads</li><li>รายงานรายเดือน</li></ul></div></article>
+        <article class="crew-card tech"><div class="art"><span class="code">CODERA TECH</span><span class="mas" data-mas style="--d:-2.6s"><img src="/assets/mascot/dog-main.webp" alt="หมาฟ้า ผู้ช่วยทีม Codera Tech" width="401" height="500" loading="lazy" decoding="async"></span></div>
+          <div class="body"><h3>เพจ LINE OA และเว็บ</h3><p>ตั้งค่าเพจ ระบบตอบแชท และเว็บไซต์ ให้ร้านพร้อมขาย</p><ul><li>LINE OA</li><li>เว็บไซต์</li><li>ระบบหลังบ้าน</li></ul></div></article>
+      </div>
+    </div>
+  </section>
+
   <section hidden class="sec" id="real" aria-labelledby="h-real" style="padding-top:0">
     <div class="wrap">
       <div class="head center reveal">
@@ -794,7 +845,7 @@ window.codaNet=function(cv,o){
             <a class="btn btn-ghost2" href="/queue/#work">ดูผลงานเต็ม →</a>
           </div>
         </div>
-        <div class="phone" style="--pw:clamp(200px,20vw,240px)"><div class="phone-scr"><span class="phone-island" aria-hidden="true"></span><div class="phone-bar" aria-hidden="true"><span>9:41</span><i><b></b></i></div><video data-autoplay muted loop playsinline preload="metadata" poster="/assets/work/twin-orange/reel-poster.webp" width="720" height="1280" aria-label="ตัวอย่างรีลเปิดตัว Twin Orange Juice"><source src="/assets/work/twin-orange/reel.mp4" type="video/mp4"></video><div class="phone-meta" aria-hidden="true"><img src="/assets/work/twin-orange/mark.webp" alt="" width="56" height="56"><div><b>Twin Orange Juice</b><span>รีลเปิดตัว · Reels</span></div></div><span class="phone-home" aria-hidden="true"></span></div></div>
+        <span class="mas promo-mas" data-mas aria-hidden="true"><img src="/assets/mascot/bunny-megaphone-shout.webp" alt="" width="420" height="580" loading="lazy" decoding="async"></span><div class="phone" style="--pw:clamp(200px,20vw,240px)"><div class="phone-scr"><span class="phone-island" aria-hidden="true"></span><div class="phone-bar" aria-hidden="true"><span>9:41</span><i><b></b></i></div><video data-autoplay muted loop playsinline preload="metadata" poster="/assets/work/twin-orange/reel-poster.webp" width="720" height="1280" aria-label="ตัวอย่างรีลเปิดตัว Twin Orange Juice"><source src="/assets/work/twin-orange/reel.mp4" type="video/mp4"></video><div class="phone-meta" aria-hidden="true"><img src="/assets/work/twin-orange/mark.webp" alt="" width="56" height="56"><div><b>Twin Orange Juice</b><span>รีลเปิดตัว · Reels</span></div></div><span class="phone-home" aria-hidden="true"></span></div></div>
       </div>
     </div>
   </section>
@@ -854,7 +905,7 @@ window.codaNet=function(cv,o){
             <p class="m">จันทร์–ศุกร์ 9:00–18:00</p>
             <a class="btn btn-green" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AD%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%84%E0%B8%B8%E0%B8%A2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A" target="_blank" rel="noopener"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg>ทักมาคุย</a>
           </div>
-          <div class="qr"><img loading="lazy" decoding="async" src="/assets/img/8cf7439ba8.png" alt="QR เพิ่มเพื่อน LINE @codera.th"></div>
+          <span class="mas line-mas" data-mas aria-hidden="true"><img src="/assets/mascot/dog-thumbsup.webp" alt="" width="392" height="500" loading="lazy" decoding="async"></span><div class="qr"><img loading="lazy" decoding="async" src="/assets/img/8cf7439ba8.png" alt="QR เพิ่มเพื่อน LINE @codera.th"></div>
         </div>
         <div class="others">
           <a class="chan reveal" href="https://www.facebook.com/1426249720560934" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="88" cy="108" r="52"/><path d="M155 57a52 52 0 1 1 14 102"/><path d="M16 197a92 92 0 0 1 144 0"/><path d="M169 159a92 92 0 0 1 72 38"/></svg></span><span><b>เพจ Facebook</b><small>Codera Solutions</small></span><span class="go" aria-hidden="true">↗</span></a>
@@ -870,7 +921,7 @@ window.codaNet=function(cv,o){
   <div class="wrap">
     <div class="foot-cta reveal">
       <canvas class="net" id="net-foot" aria-hidden="true"></canvas>
-      <div><h2>ร่วมงานกับเรา <em>คือก้าวแรก</em>สู่ธุรกิจจริง</h2><p>ให้เราได้ก้าวไปพร้อมคุณ เริ่มจากวิเคราะห์ธุรกิจเบื้องต้นฟรี ยังไม่ต้องตัดสินใจ</p></div>
+      <div><h2>ร่วมงานกับเรา <em>คือก้าวแรก</em>สู่ธุรกิจจริง</h2><p>ให้เราได้ก้าวไปพร้อมคุณ เริ่มจากวิเคราะห์ธุรกิจเบื้องต้นฟรี ยังไม่ต้องตัดสินใจ</p></div><span class="mas cta-mas" data-mas aria-hidden="true"><img src="/assets/mascot/cat-thumbsup.webp" alt="" width="358" height="420" loading="lazy" decoding="async"></span>
       <a class="btn btn-green btn-lg" href="https://line.me/R/oaMessage/@codera.th/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%20%E0%B8%AD%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%84%E0%B8%B8%E0%B8%A2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A" target="_blank" rel="noopener"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M45 200 24 232V56a8 8 0 0 1 8-8h192a8 8 0 0 1 8 8v128a8 8 0 0 1-8 8H56Z"/><line x1="88" y1="104" x2="168" y2="104"/><line x1="88" y1="136" x2="144" y2="136"/></svg>ทักไลน์ @codera.th</a>
     </div>
     <div class="foot-grid">
@@ -982,6 +1033,16 @@ window.codaNet=function(cv,o){
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ var i=[].indexOf.call(e.target.parentNode.children,e.target); appear(e.target,Math.min(i,5)*90); io.unobserve(e.target);} }); },{threshold:.15});
   [].forEach.call(document.querySelectorAll('.reveal'),function(n){ if(n.getBoundingClientRect().top>vh*.9) io.observe(n); });
 })();
+</script>
+<script>
+  /* mascots pop in when they scroll into view; visible at rest, skipped with reduced motion */
+  (function(){
+    var ms=document.querySelectorAll('[data-mas]'); if(!ms.length||!('IntersectionObserver' in window)) return;
+    try{ if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting) return; io.unobserve(e.target); var im=e.target.firstElementChild; if(!im||!im.animate) return;
+      im.animate([{opacity:0,transform:'translateY(40px) scale(.86)'},{opacity:1,transform:'translateY(-6px) scale(1.02)',offset:.7},{opacity:1,transform:'none'}],{duration:900,delay:120+Math.random()*180,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'}); }); },{threshold:.3});
+    [].forEach.call(ms,function(m){ if(m.getBoundingClientRect().top>(innerHeight||800)*.85) io.observe(m); });
+  })();
 </script>
 <script>
   /* reels play by themselves while on screen (muted, looping); with reduced motion they wait for a tap */
