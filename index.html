@@ -525,9 +525,13 @@ h2 em,h1 em,h3 em{font-style:normal;color:var(--hl)}
 .banner .btn-ghost{border-color:var(--line-2);color:var(--ink)}
 .banner .btn-ghost:hover{border-color:var(--ink);background:transparent}
 .kicker{color:var(--muted);background:#fff;border-color:var(--line)}
-.hero-art{margin:0;display:grid;place-items:center}
-.hero-art img{width:min(100%,440px);height:auto;mix-blend-mode:multiply}
-@media (max-width:860px){.banner .inner{grid-template-columns:1fr}.hero-art{order:-1}.hero-art img{width:min(56vw,220px)}}
+.hero-art{margin:0;position:relative;justify-self:end;width:min(100%,440px)}
+.hero-photo{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:28px;border:8px solid #fff;box-shadow:0 18px 44px rgba(20,20,20,.12)}
+.hero-trio{position:absolute;left:-96px;bottom:-40px;width:60%;height:auto;filter:drop-shadow(0 10px 18px rgba(20,20,20,.12))}
+@media (max-width:860px){.banner .inner{grid-template-columns:1fr}.hero-art{justify-self:center;width:min(100%,420px)}.hero-trio{left:-16px;bottom:-24px;width:46%}}
+.how-photo{position:relative;margin:56px auto 0;max-width:760px}
+.how-photo img{display:block;width:100%;height:auto;border-radius:24px;border:1px solid var(--line)}
+.how-photo figcaption{position:absolute;left:20px;bottom:20px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-size:15px;font-weight:600;color:var(--ink);box-shadow:0 10px 30px rgba(20,20,20,.08)}
 /* cards: 1px line + soft shadow */
 .opt{border-width:1px;box-shadow:0 10px 30px rgba(20,20,20,.05)}
 /* promo + footer CTA: white card instead of dark */
@@ -668,7 +672,7 @@ window.codaNet=function(cv,o){
         <a class="btn btn-ghost btn-lg" href="#check">คุณมีอะไรอยู่ในมือ</a>
       </div>
       </div>
-      <figure class="hero-art rise d3" aria-hidden="true"><img src="/assets/ci/trio-fly.webp" alt="" width="514" height="547" fetchpriority="high"></figure>
+      <figure class="hero-art rise d3"><img class="hero-photo" src="/assets/ci/hero-photo.webp" alt="เจ้าของร้านเบเกอรี่ดูแผนบนแท็บเล็ตที่หน้าร้าน (ภาพประกอบ)" width="800" height="1000" fetchpriority="high"><img class="hero-trio" src="/assets/ci/trio-fly.webp" alt="" aria-hidden="true" width="514" height="547"></figure>
     </div>
   </section>
 
@@ -798,6 +802,7 @@ window.codaNet=function(cv,o){
         <li class="reveal" style="--i:1"><span class="dot"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="40" width="176" height="176" rx="16"/><polyline points="88 128 116 156 172 100"/></svg></span><span class="n">02</span><h3>วางแผนด้วยกัน</h3><p>ร้านอนุมัติก่อนลงทุกชิ้น</p></li>
         <li class="reveal" style="--i:2"><span class="dot"><svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="224 208 32 208 32 48"/><polyline points="208 80 144 144 112 112 48 176"/></svg></span><span class="n">03</span><h3>ดูตัวเลขด้วยกัน</h3><p>สรุปทุกเดือน ได้ผลก็บอก ไม่ได้ผลก็บอก</p></li>
       </ol>
+      <figure class="how-photo reveal"><img src="/assets/ci/report-photo.webp" alt="เจ้าของร้านดูรายงานรายเดือนบนมือถือ (ภาพประกอบ)" width="960" height="480" loading="lazy"><figcaption>รายงานทุกเดือน ได้ผลก็บอก ไม่ได้ผลก็บอก</figcaption></figure>
     </div>
   </section>
 
