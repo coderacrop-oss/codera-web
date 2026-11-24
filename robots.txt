@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /queue/
-Disallow: /fastsetup/
-Disallow: /team/
-Disallow: /ref/
+
+# หน้าภายใน (/queue/ /fastsetup/ /team/ /ref/) ใส่ <meta name="robots" content="noindex"> ไว้แล้ว
+# ไม่บล็อกใน robots.txt เพื่อให้ Google เข้าไปอ่านเจอ noindex แล้วไม่เอาไปแสดงผล
+# (ถ้าบล็อก Google จะอ่าน noindex ไม่ได้ และอาจโชว์ลิงก์เปล่าในผลค้นหา)
 
 Sitemap: https://coderasolutions.org/sitemap.xml
