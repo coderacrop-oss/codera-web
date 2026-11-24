@@ -501,21 +501,12 @@ h1 em,h2 em,h3 em{font-style:normal;color:var(--hl)}
 #work .work-list li{font-size:14px;line-height:1.5}
 #work .work-acts .btn{font-size:14px;padding:9px 16px}
 #work .work-grid{gap:10px;padding:10px}
-#work .work-reel{padding:22px 28px;gap:24px}
-#work .work-reel h3{font-size:20px}
-#work .work{display:grid;grid-template-columns:minmax(0,1fr) 170px;grid-template-areas:"top top" "grid reel"}
-#work .work-top{grid-area:top}
-#work .work-grid{grid-area:grid}
-#work .work-reel{grid-area:reel;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:10px;text-align:center;background:var(--soft);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-#work .work-reel h3,#work .work-reel p{display:none}
-#work .work-reel .reel-tag{font-size:12px}
-#work .work-reel .phone{--pw:116px!important}
+#work .work-reel{display:none}
 #work .work-acts{gap:8px}
 .q-trio{position:absolute;right:max(24px,calc(50% - 640px));bottom:16px;width:clamp(180px,17vw,250px);height:auto;pointer-events:none}
 @media (max-width:1100px){.q-trio{position:static;display:block;margin:0 auto 8px;width:170px}}
 #work .work-grid{align-content:center;align-items:start}
 @media (min-width:761px){#work .promo-strip{min-height:200px;padding:24px 28px}}
-@media (max-width:860px){#work .work{grid-template-columns:1fr;grid-template-areas:"top" "reel" "grid"}#work .work-reel{border-left:0}}
 #work .wshot .ph{aspect-ratio:4/3}
 #work .wshot b{font-size:14px}
 #work .promo-strip{max-width:960px;margin-inline:auto}
