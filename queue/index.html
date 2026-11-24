@@ -20,7 +20,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 <meta name="description" content="เช็กว่าร้านของคุณอยู่ขั้นไหนของการวิเคราะห์แผนธุรกิจกับ Codera พิมพ์รหัส CDR ที่ทีมส่งให้ทาง LINE">
 <link rel="canonical" href="https://coderasolutions.org/queue/">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#0b0d0a">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -36,7 +36,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600&family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
 /* Layout: same system as the Codera landing page. Dark-green banner with the search as the main action → 6-step line → one card per shop → finished / reviews (hidden when empty) / clients → dark CTA footer */
@@ -472,6 +472,42 @@ dialog.tdlg::backdrop{background:rgba(10,12,9,.55);backdrop-filter:blur(4px)}
 .rpin .rfb{display:block;padding:16px;font-size:13px;color:var(--muted)}
 @media (max-width:1100px){.rgrid{column-count:3}}
 @media (max-width:760px){.rgrid{column-count:2;column-gap:10px}.rinfo{grid-template-columns:1fr}}
+
+/* ===== CI v3 (24 พ.ย. 2569): ชุดเดียวกับหน้าแรก · พื้นขาว ตัวดำ · Kanit/Anuphan · คำเน้นชมพู · เขียวเฉพาะปุ่ม ===== */
+:root{--sans:'Anuphan',system-ui,-apple-system,'Segoe UI',sans-serif;--head:'Kanit','Anuphan',sans-serif;--ink:#141414;--hl:#D12A72}
+body{font-family:var(--sans)}
+h1,h2,h3,.brand,.btn{font-family:var(--head);font-weight:500;letter-spacing:-.01em}
+.btn{font-weight:600}
+h1 em,h2 em,h3 em{font-style:normal;color:var(--hl)}
+.eyebrow{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.08em;color:#8a8a82}
+.banner{background:#fff;color:var(--ink);border-bottom:1px solid var(--line)}
+.banner .wash,.banner .clear,.banner canvas.net,.banner::before{display:none}
+.banner h1{color:var(--ink);font-weight:500}
+.banner h1 em{color:var(--hl)}
+.kicker{color:var(--muted);background:#fff;border-color:var(--line)}
+.search{border:1px solid var(--line);box-shadow:0 10px 30px rgba(20,20,20,.06)}
+.cnt{background:#fff;border-color:var(--line);color:var(--muted)}
+.cnt b{color:var(--ink)}
+.cnt.g b{color:var(--green-ink)}
+.updated{color:#8a8a82}
+.work-reel{background:#FAFAF7;color:var(--ink)}
+.work-reel h3{color:var(--ink)}
+.work-reel p{color:var(--muted)}
+.reel-tag{color:var(--green-ink)}
+.foot-cta{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 10px 30px rgba(20,20,20,.06);padding-right:clamp(48px,30%,360px)}
+.foot-cta::before,.foot-cta canvas.net{display:none!important}
+.foot-cta h2{color:var(--ink)}
+.foot-cta h2 em{color:var(--hl)}
+.foot-cta p{color:var(--muted)}
+.foot-cta::after{content:"";position:absolute;right:28px;bottom:-12px;width:clamp(120px,22%,240px);aspect-ratio:652/745;background:url(/assets/ci/bunny-fly.webp) center/contain no-repeat}
+.promo-strip{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 10px 30px rgba(20,20,20,.06)}
+.promo-strip::before{background:linear-gradient(90deg,#fff 0,#fff 40%,rgba(255,255,255,.6) 54%,rgba(255,255,255,0) 66%)!important}
+@media (max-width:760px){.promo-strip::before{background:linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 150px,#fff 205px)!important}}
+.promo-strip h3{color:var(--ink)}
+.promo-strip .badge{background:var(--green);color:var(--on-green)}
+.promo-strip .btn-ink{background:var(--green);color:var(--on-green)}
+.promo-strip .btn-out{border-color:var(--line-2);color:var(--ink)}
+@media (max-width:600px){.foot-cta{padding:30px 22px 200px}.foot-cta::after{right:50%;transform:translateX(50%);width:170px}}
 </style>
 <script src="/assets/net.js" defer></script>
 </head>
