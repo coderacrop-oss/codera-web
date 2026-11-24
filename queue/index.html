@@ -490,6 +490,26 @@ h1 em,h2 em,h3 em{font-style:normal;color:var(--hl)}
 .cnt b{color:var(--ink)}
 .cnt.g b{color:var(--green-ink)}
 .updated{color:#8a8a82}
+/* compact work card (24 พ.ย.) */
+#work .work{max-width:960px;margin-inline:auto;border-radius:24px}
+@media (min-width:861px){#work .work-top{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
+#work .work-info{padding:26px 28px;gap:12px}
+#work .work-id img{width:44px;height:44px}
+#work .work-id h3{font-size:20px}
+#work .work-id span{font-size:13px}
+#work .work-list{gap:4px}
+#work .work-list li{font-size:14px;line-height:1.5}
+#work .work-acts .btn{font-size:14px;padding:9px 16px}
+#work .work-grid{gap:10px;padding:10px}
+#work .work-reel{display:none}
+#work .work-acts{gap:8px}
+.q-trio{position:absolute;right:max(24px,calc(50% - 640px));bottom:16px;width:clamp(180px,17vw,250px);height:auto;pointer-events:none}
+@media (max-width:1100px){.q-trio{position:static;display:block;margin:0 auto 8px;width:170px}}
+#work .work-grid{align-content:center;align-items:start}
+@media (min-width:761px){#work .promo-strip{min-height:200px;padding:24px 28px}}
+#work .wshot .ph{aspect-ratio:4/3}
+#work .wshot b{font-size:14px}
+#work .promo-strip{max-width:960px;margin-inline:auto}
 .work-reel{background:#FAFAF7;color:var(--ink)}
 .work-reel h3{color:var(--ink)}
 .work-reel p{color:var(--muted)}
@@ -534,6 +554,7 @@ h1 em,h2 em,h3 em{font-style:normal;color:var(--hl)}
     <div class="wash" aria-hidden="true"></div>
     <canvas class="net" id="net-q" aria-hidden="true"></canvas>
     <div class="clear" aria-hidden="true"></div>
+    <img class="q-trio rise d2" src="/assets/ci/trio-fly.webp" alt="" aria-hidden="true" width="514" height="547">
     <div class="wrap inner">
       <span class="kicker rise d1"><i></i>คิววิเคราะห์แผนธุรกิจ</span>
       <h1 id="h-hero" class="rise d2">ร้านของคุณ<wbr>อยู่<em>ขั้นไหน</em>แล้ว</h1>
